@@ -1,3 +1,16 @@
+.white_content {
+  background-color: gainsboro;
+
+  height: 100vh; /* Altura predeterminada */
+}
+
+@media (max-width: 768px) {
+  .white_content{
+    height: 150vh; /* Altura ajustada para dispositivos móviles */
+  }
+}
+
+/*///////////////////.------------------------------------------//*/
 .card {
   display: flex;
   height: 70px;

@@ -7,7 +7,7 @@ import Footer from '@/components/homeContent/footer/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CIMADE - Educación Continua'
+  title: 'ECOMÁS - Consultoría y capacitación'
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
-      <link rel="icon" href="icons/icono_small.png" />
+      <link rel="icon" href="image/ICONO-COLOR.png" />
         <Header />
         {children}
         <Footer />
