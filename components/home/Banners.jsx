@@ -4,6 +4,7 @@ import { Button } from "@nextui-org/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ArrowRightIcon, UserCircleIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import {Divider} from "@nextui-org/react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -43,8 +44,8 @@ const Banners = () => {
                 </svg>
                 asd
               </a>
-              <h1 className="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Bienvenido a </h1>
-              <h1 className="text-gray-900 dark:text-[#0060ff] text-3xl md:text-5xl font-extrabold mb-2">ECOMÁS </h1>
+              <h1 className="text-white dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Bienvenido a </h1>
+              <h1 className="text-[#0060ff] dark:text-white text-3xl md:text-5xl font-extrabold mb-2">ECOMÁS </h1>
               <p className="text-lg font-normal text-white dark:text-white mb-6">Aquí la excelencia se encuentra con la innovación. <br />Nos dedicamos a ofrecer servicios de alta calidad <br /> y experiencias educativas transformadoras.</p>
               <a href="#" className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-[#0060ff] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Empezar
@@ -63,16 +64,19 @@ const Banners = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 dark:bg-white rounded-lg p-8 md:p-12 mb-8 mt-2" style={{ position: "absolute", top: "90%", left: "50%", transform: "translate(-50%, 0)", zIndex: 2, width: "75%" }}>
+        <div className="bg-white dark:bg-black rounded-lg p-8 md:p-12 mb-8 mt-2" style={{ position: "absolute", top: "90%", left: "50%", transform: "translate(-50%, 0)", zIndex: 2, width: "75%" }}>
 
-          <div className="bg-white dark:bg-white-50 rounded-lg p-8 md:p-5 flex flex-col items-center ">
-            <h2 className="text-gray-900 dark:text-[#0060ff] text-4xl font-extrabold mb-3">¿Quiénes somos?</h2>
+          <div className="bg-white dark:bg-black rounded-lg p-8 md:p-5 flex flex-col items-center ">
+            <h2 className="text-[#0060ff] dark:text-[#0060ff] text-4xl font-extrabold mb-1">¿Quiénes somos?</h2>
+            <Divider className="my-4" />
             <p className="text-lg font-normal text-gray-500 dark:text-gray-400 justify-text">
               En Ecomás, nos dedicamos a brindar un servicio de especialización para personas y profesionales que buscan ampliar sus conocimientos y habilidades en diversas áreas.
             </p>
+
           </div>
-          <div className="bg-white dark:bg-white-50 rounded-lg md:p-5 flex flex-col items-center">
-            <h2 className="text-gray-900 dark:text-[#0060ff] text-4xl font-extrabold">Nuestros Diplomados</h2>
+          <div className="bg-white dark:bg-white rounded-lg md:p-5 flex flex-col items-center">
+            <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1">Nuestros Diplomados</h2>
+
             <Swiper
               slidesPerView={1}
               centeredSlides={false}

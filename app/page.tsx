@@ -5,8 +5,11 @@ import Header from '@/components/header/Index'
 import Home from '@/components/home/Index'
 import HomeContent from '@/components/homeContent/Index';
 import Whatsapp from '@/components/whatsapp/Index'
+import {NextUIProvider} from "@nextui-org/react";
 
 export default function Main() {
+
+
   return (
     <main >
       <Home />

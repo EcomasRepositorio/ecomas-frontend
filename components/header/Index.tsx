@@ -1,74 +1,148 @@
 "use client";
 import Image from 'next/image';
-import { ArrowRightIcon,UserCircleIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
+import { ArrowRightIcon, UserCircleIcon } from '@heroicons/react/solid';
+
 import React, { useState } from 'react';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
+import { Switch } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import ThemeSwitcher from '../ThemeSwitcher';
+
 
 const Header = () => {
-  const [menu, setMenu] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const handleMenu = () => {
-    setMenu(!menu);
-  };
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    // Aquí puedes agregar lógica adicional para cambiar el tema de tu aplicación
-  };
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
+  ];
 
   return (
     <>
-      <nav className={`bg-${darkMode ? '[#0060ff]' : 'white'} border-gray-700`}>
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+      <Navbar
+        isBordered
+        isMenuOpen={isMenuOpen}
+        onMenuOpenChange={setIsMenuOpen}
+      >
+
+        <Link href="/">
+
+          <Image
+            src='/image/ecomas.png'
+            alt='Imagen banner'
+            width={210}
+            height={150}
+            className='hidden md:block'
+          />
+
+        </Link>
+
+
+        <NavbarContent justify="end">
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" >
+              Ver Certificados
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" >
+              Aula Virtual
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                className="w-full"
+                color={
+                  index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+      <Navbar
+        isBordered
+        isMenuOpen={isMenuOpen}
+        onMenuOpenChange={setIsMenuOpen}
+        style={{ backgroundColor: '#0060ff' ,}}
+      >
+        <NavbarContent className="sm:hidden" justify="center">
+          <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+          <NavbarBrand>
             <Image
-              src='/image/ecomas.png'
-              alt='Imagen del logo'
-              width={220}
-              height={10}
-              className='hidden md:block'
-            />
-            <Image
-              src='/image/ecomas.png'
-              alt='Imagen del logo'
-              width={120}
-              height={80}
+              src='/image/ECOMAS-HORIZONTAL.png'
+              alt='Imagen banner'
+              width={150}
+              height={150}
               className='block md:hidden'
             />
-          </a>
-          <div className="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="tel:5541251234" className={`flex items-center text-white bg-[#0060ff] hover:bg-white hover:text-[#0060ff] focus:outline-none border border-${darkMode ? 'white' : 'blue-500'} rounded-md px-4 py-2 transform transition-transform hover:scale-105`}>
-              Ver Certificados
-              <ArrowRightIcon className="w-5 h-5 ml-2" />
-            </a>
-            <a href="#" className={`flex items-center text-white bg-[#0060ff] hover:bg-white hover:text-[#0060ff] focus:outline-none border border-${darkMode ? 'white' : 'blue-500'} rounded-md px-4 py-2 transform transition-transform hover:scale-105`}>
-              Aula Virtual
-              <ArrowRightIcon className="w-5 h-5 ml-2" />
-            </a>
-          </div>
-        </div>
-      </nav>
-      <nav className="bg-[#0060ff] shadow dark:[bg-white]">
-        <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-          <a href="#" className="text-white dark:text-white border-b-2 border-white mx-1.5 sm:mx-6">Inicio</a>
+          </NavbarBrand>
+        </NavbarContent>
 
-          <a href="#" className="border-b-2 border-transparent hover:text-white dark:hover:text-white hover:border-gray-200 mx-1.5 sm:mx-6">Diplomados</a>
 
-          <a href="#" className="border-b-2 border-transparent hover:text-white dark:hover:text-white hover:border-gray-200 mx-1.5 sm:mx-6">Certificados</a>
+        <NavbarContent className="hidden sm:flex gap-4 " justify="end" >
 
-          <a href="#" className="border-b-2 border-transparent hover:text-white dark:hover:text-white hover:border-gray-200 mx-1.5 sm:mx-6">Contáctanos</a>
+          <NavbarItem>
+            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+              Inicio
+            </Link>
+          </NavbarItem>
 
-          <a href="#" className="border-b-2 border-transparent hover:text-white dark:hover:text-white hover:border-gray-200 mx-1.5 sm:mx-6">
-            <UserCircleIcon className="w-8 h-8 " />
-          </a>
+          <NavbarItem>
+            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+              Diplomados
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+              Certificados
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+              Contáctanos
+            </Link>
+          </NavbarItem>
+          <NavbarContent justify="end" >
+            <ThemeSwitcher/>
 
-          <a href="#" className="border-b-2 border-transparent hover:text-white dark:hover:text-white hover:border-gray-200 mx-1.5 sm:mx-6">
-            <SunIcon className="w-8 h-8" />          
-          </a>
-        </div>
-      </nav>
+          </NavbarContent>
+
+
+        </NavbarContent>
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                className="w-full text-center" // Alineación centrada
+                color={
+                  index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
 
 
     </>
@@ -76,3 +150,4 @@ const Header = () => {
 };
 
 export default Header;
+

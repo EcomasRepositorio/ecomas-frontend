@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import {NextUIProvider} from "@nextui-org/react";
 import './globals.css'
 import Header from "@/components/header/Index"
 import Footer from '@/components/homeContent/footer/Footer'

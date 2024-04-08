@@ -1,9 +1,12 @@
 .swiper {
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     border-radius: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Agrega sombreado */
+    
+    background-color: transparent; /* Hace que el fondo sea transparente */
+    padding: 12px 12px 12px 12px !important;
 }
+
 
 .swiper-slide {
     display: flex;
@@ -14,11 +17,14 @@
     width: 100%;
     border-radius: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Agrega sombreado */
+    background-color: transparent; /* Hace que el fondo sea transparente */
 }
+
+
 
 .swiper-slide img {
     width: 40vh;
-    height: 43vh;
+    height: 46vh;
     object-fit: cover;
     border-radius: 20px; /* Añade el borde redondeado a la imagen */
 }
@@ -43,7 +49,7 @@
 .slide-content button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #0060ff;
     color: white;
     border: none;
     border-radius: 5px;
