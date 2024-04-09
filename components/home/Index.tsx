@@ -1,11 +1,15 @@
 "use client";
-import Banners from "./Banners";
+import SwiperCarrousel from "./swiper";
+import Banners from "./PrincipalHome";
 import React from 'react';
 
 const Home: React.FC = () => {
   return (
     <div>
-   <Banners/>
+
+
+
+
     </div>
   );
 };

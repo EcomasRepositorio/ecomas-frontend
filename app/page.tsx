@@ -1,20 +1,22 @@
 "use client";
-import Image from 'next/image'
-import styles from './page.module.css'
+
 import Header from '@/components/header/Index'
-import Home from '@/components/home/Index'
-import HomeContent from '@/components/homeContent/Index';
 import Whatsapp from '@/components/whatsapp/Index'
-import {NextUIProvider} from "@nextui-org/react";
+import Banners from '@/components/home/PrincipalHome';
+import '/components/homeContent/styles.css';
 
 export default function Main() {
 
 
   return (
-    <main >
-      <Home />
-      <HomeContent />
+
+    <main className="bg-gray-200">
+      <Header />
+      <Banners />
+
       <Whatsapp />
+
     </main>
+
   )
 }

@@ -7,9 +7,11 @@ import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { Switch } from "@nextui-org/react";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import ThemeSwitcher from '../ThemeSwitcher';
-
+import { useTheme } from 'next-themes';
 
 const Header = () => {
+  const { theme } = useTheme();
+  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -28,15 +30,19 @@ const Header = () => {
   return (
     <>
       <Navbar
-        isBordered
+
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        maxWidth={'2xl'}
+        position='sticky'
+        
+        
       >
 
         <Link href="/">
 
           <Image
-            src='/image/ecomas.png'
+            src= {imageSrc}
             alt='Imagen banner'
             width={210}
             height={150}
@@ -81,6 +87,8 @@ const Header = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         style={{ backgroundColor: '#0060ff' ,}}
+
+        position='static'
       >
         <NavbarContent className="sm:hidden" justify="center">
           <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
@@ -99,27 +107,28 @@ const Header = () => {
         <NavbarContent className="hidden sm:flex gap-4 " justify="end" >
 
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
               Inicio
             </Link>
           </NavbarItem>
 
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
               Diplomados
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
               Certificados
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff', textShadow: '0 0 10px #ffffff' }}>
+            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
               Contáctanos
             </Link>
           </NavbarItem>
           <NavbarContent justify="end" >
+
             <ThemeSwitcher/>
 
           </NavbarContent>

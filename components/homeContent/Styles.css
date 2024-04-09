@@ -1,7 +1,13 @@
-.white_content {
+.white_content1 {
   background-color: #c2c2c2;
 
-  height: 100vh; /* Altura predeterminada */
+  height: 45vh; /* Altura predeterminada */
+}
+
+.white_content2 {
+  background-color: #c2c2c2;
+
+  height: 50vh; /* Altura predeterminada */
 }
 
 @media (max-width: 768px) {

@@ -1,33 +1,29 @@
-// app/components/ThemeSwitcher.tsx
-"use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch } from '@nextui-org/react';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
+import { useTheme } from "next-themes"
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState('light');
+  const { theme, setTheme } = useTheme();
 
   const handleThemeChange = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   return (
-
-      <Switch
-        defaultSelected
-        size="lg"
-        color="primary"
-        thumbIcon={({ isSelected, className }) =>
-          isSelected ? (
-            <SunIcon className={className} />
-          ) : (
-            <MoonIcon className={className} />
-          )
-        }
-        onChange={handleThemeChange}
-      />
-
+    <Switch
+      defaultSelected={theme === 'dark'}
+      size="lg"
+      color="primary"
+      thumbIcon={({ isSelected, className }) =>
+        isSelected ? (
+          <SunIcon className={className} />
+        ) : (
+          <MoonIcon className={className} />
+        )
+      }
+      onChange={handleThemeChange}
+    />
   );
 };
 
