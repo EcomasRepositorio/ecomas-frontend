@@ -8,10 +8,8 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
-import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper/modules';
-import SwiperCarrousel from "./swiper";
-import Graduates from "./whyus";
-import Footer from "../homeContent/footer/Footer";
+
+
 
 const PrincipalHome = () => {
   useEffect(() => {
@@ -20,8 +18,8 @@ const PrincipalHome = () => {
 
   return (
     <>
-      <section className="bg-gray-900 dark:bg-gray-900 relative" style={{ backgroundImage: "url('image/bg-test.png')", backgroundSize: "cover", backgroundPosition: "center", height: "80vh" }}>
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-20">
+      <section className=" bg-gray-900 dark:bg-gray-900  bg-fixed" style={{ backgroundImage: "url('image/bg-test.png')", backgroundSize: "cover", backgroundPosition: "center", height: "80vh" }}>
+        <div className="py-8  mx-auto max-w-screen-xl lg:py-10">
           <div className="wrapper mb-2" style={{ position: "relative", width: "100%" }}>
             <div className="bg-gray-800 dark:bg-gray-800 rounded-lg p-8 md:p-12 mb-50 " style={{ backgroundColor: "rgba(249, 250, 251, 0.2)", display: "flex", alignItems: "center", zIndex: 1, marginBottom: "20px", }}>
               <div style={{ flex: 1 }}>
@@ -51,11 +49,11 @@ const PrincipalHome = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-black rounded-lg p-8 md:p-10 mb-8 mt-2 top-9/10 transform flex-grow border border-gray-300">
+          <div className="bg-white dark:bg-black rounded-lg p-3 md:p-10 mb-8 mt-2 top-9/10 transform flex-grow border border-gray-300">
             <div className="bg-white dark:bg-black rounded-lg p-8 md:p-5 flex flex-col items-center ">
               <h2 className="text-[#0060ff] dark:text-[#0060ff] text-4xl font-extrabold mb-1">¿Quiénes somos?</h2>
               <Divider className="my-4" />
-              <p className="text-lg font-normal text-gray-500 dark:text-gray-400 justify-text">
+              <p className="text-lg font-normal text-gray-500 dark:text-gray-400 text-justify">
                 En Ecomás, nos dedicamos a brindar un servicio de especialización para personas y profesionales que buscan ampliar sus conocimientos y habilidades en diversas áreas.
               </p>
             </div>

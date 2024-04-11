@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <>
       <Navbar
-
+        
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth={'2xl'}
@@ -54,12 +54,12 @@ const Header = () => {
 
         <NavbarContent justify="end">
           <NavbarItem>
-            <Button as={Link} color="primary" href="#" >
+            <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="#" >
               Ver Certificados
             </Button>
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} color="primary" href="#" >
+            <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="#" >
               Aula Virtual
             </Button>
           </NavbarItem>
@@ -86,8 +86,7 @@ const Header = () => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        style={{ backgroundColor: '#0060ff' ,}}
-
+        className='bg-gradient-to-r from-[#02227b] to-[#0060ff]'
         position='static'
       >
         <NavbarContent className="sm:hidden" justify="center">

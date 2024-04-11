@@ -1,5 +1,5 @@
 "use client";
-import SwiperCarrousel from "./swiper";
+import SwiperCarrousel from "./SwiperDiplomados";
 import Banners from "./PrincipalHome";
 import React from 'react';
 
