@@ -57,7 +57,7 @@ const SwiperCursosDestacados = () => {
   ];
 
   return (
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+    <div className="max-w-screen-xl mx-auto p-5 sm:p-2 md:p-4">
       <div className="bg-white dark:bg-black rounded-lg p-8 md:p-5 flex flex-col items-center">
         <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1">Nuestros Cursos Destacados</h2>
       </div>
@@ -104,7 +104,7 @@ const SwiperCursosDestacados = () => {
                   <Image
                     src={curso.imageUrl}
                     alt='Imagen banner'
-                    width={100}
+                    width={400}
                     height={400}
                   />
                 </a>

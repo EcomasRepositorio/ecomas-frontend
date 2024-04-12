@@ -61,7 +61,7 @@ const SwiperCarrousel = () => {
 
       }}
       autoplay={{
-        delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
+        delay: 2000, // Intervalo de tiempo entre cada slide (5 segundos)
         disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
       }}
       loop={true}
@@ -70,13 +70,14 @@ const SwiperCarrousel = () => {
     >
       {/* Slide 1 */}
       <SwiperSlide>
-        <div className="slide-content">
+        <div className="slide-content ">
           <Image
             src='/image/ing_agricola.jpg'
-            alt='Imagen banner'
-            width={400}
+            alt='Inge agricola'
+            width={500}
             height={400}
-
+            style={{ width: '100%' }}
+            className="object-cover object-center"
           />
 
           <h3>Ingeniería Agrícola</h3>
@@ -96,6 +97,8 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
+            style={{ width: '100%' }}
+            className="object-cover object-center"
 
           />
           <h3>Ingeniería Civil</h3>
@@ -112,6 +115,8 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
+            style={{ width: '100%' }}
+            className="object-cover object-center"
 
           />
           <h3>Ingeniería Ambiental</h3>
@@ -129,6 +134,8 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
+            style={{ width: '100%' }}
+            className="object-cover object-center"
 
           />
           <h3>Ingeniería de Industrias Alimentarias</h3>
@@ -145,6 +152,8 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
+            style={{ width: '100%' }}
+            className="object-cover object-center"
 
           />
           <h3>Ingeniería Vial</h3>
@@ -163,6 +172,8 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
+            style={{ width: '100%' }}
+            className="object-cover object-center"
 
           />
           <h3>Sistemas de Riego Tecnificado</h3>
