@@ -1,13 +1,11 @@
 "use client";
 import Image from 'next/image';
-import { ArrowRightIcon, UserCircleIcon } from '@heroicons/react/solid';
 
 import React, { useState } from 'react';
-import { MoonIcon, SunIcon } from '@heroicons/react/solid';
-import { Switch } from "@nextui-org/react";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import ThemeSwitcher from '../ThemeSwitcher';
 import { useTheme } from 'next-themes';
+
 
 const Header = () => {
   const { theme } = useTheme();
@@ -35,6 +33,7 @@ const Header = () => {
         onMenuOpenChange={setIsMenuOpen}
         maxWidth={'2xl'}
         position='sticky'
+        className='bg-white dark:bg-blackblue'
         
         
       >
@@ -87,7 +86,7 @@ const Header = () => {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         className='bg-gradient-to-r from-[#02227b] to-[#0060ff]'
-        position='static'
+        position='sticky'
       >
         <NavbarContent className="sm:hidden" justify="center">
           <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />

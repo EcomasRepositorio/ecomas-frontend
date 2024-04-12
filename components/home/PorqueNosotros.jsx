@@ -12,11 +12,11 @@ const PorqueNosotros = () => {
     ]
   
   return (
-<div className="bg-white">
+<div className="">
   <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16  items-center  px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
     <div>
-      <h2 className="text-[#0060ff] dark:text-[#0060ff] text-4xl font-extrabold mb-1 sm:text-4xl">¿Por qué debes elegirnos?</h2>
-      <p className="mt-4 text-gray-500 text-justify">
+      <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1 sm:text-4xl">¿Por qué debes elegirnos?</h2>
+      <p className="mt-4 text-white text-justify">
         En Ecomas, nos dedicamos a ayudar a mejorar el currículum vitae de los titulados mediante una amplia 
         gama de cursos y diplomados especializados en áreas clave como ingenierías, 
         ofreciendo oportunidades para el desarrollo profesional y el crecimiento personal.
@@ -29,8 +29,8 @@ const PorqueNosotros = () => {
               <feature.icon className="h-10 w-10 text-[#0060ff]" aria-hidden="true" />
             </div>
             <div>
-              <dt className="font-extrabold text-4xl text-gray-900">{feature.name}</dt>
-              <dd className="mt-2 text-sm text-gray-500">{feature.description}</dd>
+              <dt className="font-extrabold text-4xl text-white">{feature.name}</dt>
+              <dd className="mt-2 text-sm text-white">{feature.description}</dd>
             </div>
           </div>
         ))}

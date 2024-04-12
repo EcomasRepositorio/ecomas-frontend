@@ -32,7 +32,7 @@ const SwiperCarrousel = () => {
 
   return (
 
-    <div className="bg-white dark:bg-white rounded-lg  flex flex-col ">
+    <div className="  rounded-lg  flex flex-col ">
 
     <Swiper
       slidesPerView={1}
@@ -74,9 +74,9 @@ const SwiperCarrousel = () => {
           <Image
             src='/image/ing_agricola.jpg'
             alt='Inge agricola'
-            width={500}
+            width={400}
             height={400}
-            style={{ width: '100%' }}
+            
             className="object-cover object-center"
           />
 
@@ -97,7 +97,7 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
-            style={{ width: '100%' }}
+ 
             className="object-cover object-center"
 
           />
@@ -115,7 +115,7 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
-            style={{ width: '100%' }}
+    
             className="object-cover object-center"
 
           />
@@ -134,7 +134,7 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
-            style={{ width: '100%' }}
+    
             className="object-cover object-center"
 
           />
@@ -152,7 +152,7 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
-            style={{ width: '100%' }}
+    
             className="object-cover object-center"
 
           />
@@ -172,7 +172,7 @@ const SwiperCarrousel = () => {
             alt='Imagen banner'
             width={400}
             height={400}
-            style={{ width: '100%' }}
+   
             className="object-cover object-center"
 
           />

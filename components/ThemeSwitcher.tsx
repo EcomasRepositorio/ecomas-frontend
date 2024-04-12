@@ -17,9 +17,9 @@ const ThemeSwitcher = () => {
       color="primary"
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
-          <SunIcon className={className} />
-        ) : (
           <MoonIcon className={className} />
+        ) : (
+          <SunIcon className={className} />
         )
       }
       onChange={handleThemeChange}

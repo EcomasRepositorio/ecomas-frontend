@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
@@ -57,8 +56,8 @@ const SwiperCursosDestacados = () => {
   ];
 
   return (
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-2 md:p-4">
-      <div className="bg-white dark:bg-black rounded-lg p-8 md:p-5 flex flex-col items-center">
+    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+      <div className=" rounded-lg p-8 md:p-5 flex flex-col items-center">
         <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1">Nuestros Cursos Destacados</h2>
       </div>
       <Swiper
@@ -85,7 +84,7 @@ const SwiperCursosDestacados = () => {
         navigation={true}
         pagination={{
           clickable: true,
-  
+
         }}
         autoplay={{
           delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
@@ -104,8 +103,8 @@ const SwiperCursosDestacados = () => {
                   <Image
                     src={curso.imageUrl}
                     alt='Imagen banner'
-                    width={400}
-                    height={400}
+                    width={200}
+                    height={300}
                   />
                 </a>
                 <a href="#!">
@@ -113,12 +112,6 @@ const SwiperCursosDestacados = () => {
                     Más información
                   </div>
                 </a>
-                <a href="!#">
-
-
-                </a>
-
-
 
               </div>
               <div className="px-6 py-4">
