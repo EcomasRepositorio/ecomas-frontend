@@ -1,6 +1,38 @@
-import React from "react";
+import { Button } from "@nextui-org/react";
+import React, { useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const TestimoniosFb = () => {
+    const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const controls = useAnimation();
+
+    const variants = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
+    const handleScroll = () => {
+        const elementPosition = containerRef.current.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if (elementPosition < screenPosition) {
+            setIsVisible(true);
+        }
+    };
+
+    // Attach scroll event listener when component mounts
+    React.useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        // Cleanup function to remove the event listener when component unmounts
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    React.useEffect(() => {
+        if (isVisible) {
+            controls.start("visible");
+        }
+    }, [isVisible]);
     const iframeStyles = {
         border: "none",
         overflow: "hidden",
@@ -9,16 +41,18 @@ const TestimoniosFb = () => {
     };
 
     return (
-        <div className=" rounded-lg p-8 ">
+        <motion.div ref={containerRef} className="" initial="hidden"
+        animate={controls}
+        variants={variants}>
             <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold  text-center">Nuestros Testimonios</h2>
             <div className="flex flex-col md:flex-row md:items-center justify-between items-center pb-6 ">
                 <div>
                     <p className="text-lg mb-1 md:text-left md:mb-0 md:mr-4">Nuestras reseñas en Facebook:</p>
                     <p className="text-sm text-gray-500 md:text-left pb-4">5.0 calificación sobre 130 opiniones.</p>
                 </div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                <Button color= "primary">
                     Califícanos
-                </button>
+                </Button>
             </div>
 
 
@@ -31,7 +65,7 @@ const TestimoniosFb = () => {
                     frameBorder="0"
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    className="rounded-lg bg-transparent dark:bg-transparent "
+                    className=" bg-transparent  "
                 ></iframe>
 
                 <iframe
@@ -42,7 +76,7 @@ const TestimoniosFb = () => {
                     frameBorder="0"
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    className="rounded-lg bg-transparent dark:bg-transparent"
+                    className=" bg-transparent "
                 ></iframe>
 
                 <iframe
@@ -53,11 +87,11 @@ const TestimoniosFb = () => {
                     frameBorder="0"
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    className="rounded-lg bg-transparent dark:bg-transparent" 
+                    className=" bg-transparent " 
                 ></iframe>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

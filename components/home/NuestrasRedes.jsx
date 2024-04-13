@@ -1,18 +1,53 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 
 const NuestrasRedes = () => {
+    const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const controls = useAnimation();
+
+    const variants = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
+    const handleScroll = () => {
+        const elementPosition = containerRef.current.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if (elementPosition < screenPosition) {
+            setIsVisible(true);
+        }
+    };
+
+    // Attach scroll event listener when component mounts
+    React.useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        // Cleanup function to remove the event listener when component unmounts
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    React.useEffect(() => {
+        if (isVisible) {
+            controls.start("visible");
+        }
+    }, [isVisible]);
+
 
     return (
 
-        <div className="py-14">
+        <motion.div ref={containerRef} className="py-14"
+            initial="hidden"
+            animate={controls}
+            variants={variants}>
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
                 <div className="max-w-xl mx-auto text-center">
-                    <h3 className="text-white text-3xl font-semibold sm:text-4xl">
+                    <h3 className="text-primaryblue dark:text-white text-3xl font-semibold sm:text-4xl">
                         Conecta con Nuestra Comunidad
                     </h3>
-                    <p className="text-white mt-3">
-                        Únete a ECOMÁS en las Redes Sociales
+                    <p className="text-gray-800 dark:text-white mt-3">
+                        Únete a ECOMÁS en nuestras Redes Sociales:
                     </p>
                 </div>
                 <div className="mt-12 flex justify-center">
@@ -138,7 +173,7 @@ const NuestrasRedes = () => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

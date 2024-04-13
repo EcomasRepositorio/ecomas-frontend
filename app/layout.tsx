@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { NextUIProvider } from "@nextui-org/react";
 import './globals.css'
 import Header from "@/components/header/Index"
-import Footer from '@/components/homeContent/footer/Footer'
+import Footer from '@/components/footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 import { ThemeProvider } from "@/components/ThemeProvider"
@@ -28,7 +28,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
         <link rel="icon" href="image/ICONO-COLOR.png" />
-
+        <Header />
 
           {children}
 

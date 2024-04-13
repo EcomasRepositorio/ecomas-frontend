@@ -1,5 +1,6 @@
 
-import React from "react";
+import React, { useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import Image from "next/image";
@@ -9,46 +10,84 @@ import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper/mo
 
 
 const SwiperCursosDestacados = () => {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const controls = useAnimation();
+
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
+  const handleScroll = () => {
+    const elementPosition = containerRef.current.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+
+    if (elementPosition < screenPosition) {
+      setIsVisible(true);
+    }
+  };
+
+  // Attach scroll event listener when component mounts
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    // Cleanup function to remove the event listener when component unmounts
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  React.useEffect(() => {
+    if (isVisible) {
+      controls.start("visible");
+    }
+  }, [isVisible]);
+  
   const cursosDestacados = [
     // Tus datos de cursos destacados
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/solidos.jpg",
+      title: "Gestion y manejo de residuos sólidos municipales",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/aspersor.jpg",
+      title: "Sistemas de riego por aspersión",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/goteo.jpg",
+      title: "Sistemas de riego por goteo",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/viales.jpg",
+      title: "Arqueología en proyectos viales",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/obras.jpg",
+      title: "Ampliaciones de plazo, adicionales de obra y penalidades en obra",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/bg-test.png",
-      title: "Nombre del curso",
+      imageUrl: "/image/aguaca.jpg",
+      title: "Monitoreo de la calidad de agua",
+      description: "Descripción",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ssoma.jpg",
+      title: "Supervisor SSOMA",
       description: "Descripción",
       date: "27 March",
       readTime: "6 mins ago",
@@ -56,7 +95,9 @@ const SwiperCursosDestacados = () => {
   ];
 
   return (
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+    <motion.div ref={containerRef} className=" p-1 sm:p-10 md:p-4" initial="hidden"
+      animate={controls}
+      variants={variants}>
       <div className=" rounded-lg p-8 md:p-5 flex flex-col items-center">
         <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1">Nuestros Cursos Destacados</h2>
       </div>
@@ -65,7 +106,6 @@ const SwiperCursosDestacados = () => {
         centeredSlides={false}
         slidesPerGroupSkip={1}
         grabCursor={true}
-
         keyboard={{
           enabled: true,
         }}
@@ -76,7 +116,7 @@ const SwiperCursosDestacados = () => {
             slidesPerGroup: 1,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 5,
             slidesPerGroup: 1,
           },
         }}
@@ -95,15 +135,15 @@ const SwiperCursosDestacados = () => {
         className="mySwiper"
       >
         {cursosDestacados.map((curso, index) => (
-          <SwiperSlide key={index}>
-            <div key={index} className="rounded overflow-hidden shadow-lg">
+          <SwiperSlide key={index} style={{ height: "500px" }}>
+            <div key={index} className="rounded  shadow-lg object-cover w-full ">
               <a href="#"></a>
-              <div className="relative">
-                <a >
+              <div className="relative object-cover ">
+                <a>
                   <Image
                     src={curso.imageUrl}
                     alt='Imagen banner'
-                    width={200}
+                    width={400}
                     height={300}
                   />
                 </a>
@@ -115,10 +155,10 @@ const SwiperCursosDestacados = () => {
 
               </div>
               <div className="px-6 py-4">
-                <a href="#" className="font-semibold text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out">
+                <a href="#" className="font-semibold text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
                   {curso.title}
                 </a>
-                <p className="text-gray-500 text-sm">{curso.description}</p>
+
               </div>
               <div className="px-6 py-4 flex flex-row items-center">
                 <span href="#" className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -129,7 +169,7 @@ const SwiperCursosDestacados = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </motion.div>
   );
 };
 

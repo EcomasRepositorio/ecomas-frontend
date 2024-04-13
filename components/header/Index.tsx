@@ -1,6 +1,5 @@
 "use client";
 import Image from 'next/image';
-
 import React, { useState } from 'react';
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import ThemeSwitcher from '../ThemeSwitcher';
@@ -13,44 +12,36 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Inicio",
+    "Inicio",
+    "Inicio",
+    "Diplomados",
+    "Certificados",
+    "Contáctanos",
+    <ThemeSwitcher />,
+    "Cerrar",
+
   ];
 
   return (
     <>
       <Navbar
-        
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth={'2xl'}
         position='sticky'
         className='bg-white dark:bg-blackblue'
-        
-        
+
       >
-
         <Link href="/">
-
           <Image
-            src= {imageSrc}
+            src={imageSrc}
             alt='Imagen banner'
             width={210}
             height={150}
             className='hidden md:block'
           />
-
         </Link>
-
-
         <NavbarContent justify="end">
           <NavbarItem>
             <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="#" >
@@ -64,13 +55,13 @@ const Header = () => {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarMenu>
+        <NavbarMenu >
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
                 className="w-full"
                 color={
-                  index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                  index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                 }
                 href="#"
                 size="lg"
@@ -91,13 +82,17 @@ const Header = () => {
         <NavbarContent className="sm:hidden" justify="center">
           <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
           <NavbarBrand>
-            <Image
-              src='/image/ECOMAS-HORIZONTAL.png'
-              alt='Imagen banner'
-              width={150}
-              height={150}
-              className='block md:hidden'
-            />
+            <Link href="/">
+              <Image
+
+                src='/image/ECOMAS-HORIZONTAL.png'
+                alt='Imagen banner'
+                width={150}
+                height={150}
+                className='block md:hidden'
+              />
+            </Link>
+
           </NavbarBrand>
         </NavbarContent>
 
@@ -105,50 +100,35 @@ const Header = () => {
         <NavbarContent className="hidden sm:flex gap-4 " justify="end" >
 
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
+            <Link color="foreground" href="/" style={{ color: '#ffffff', }}>
               Inicio
             </Link>
           </NavbarItem>
 
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
+            <Link color="foreground" href="/diplomados" style={{ color: '#ffffff', }}>
               Diplomados
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
+            <Link color="foreground" href="#" style={{ color: '#ffffff', }}>
               Certificados
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff',  }}>
+            <Link color="foreground" href="#contacto" style={{ color: '#ffffff', }}>
               Contáctanos
             </Link>
           </NavbarItem>
           <NavbarContent justify="end" >
 
-            <ThemeSwitcher/>
+            <ThemeSwitcher />
 
           </NavbarContent>
 
 
         </NavbarContent>
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                className="w-full text-center" // Alineación centrada
-                color={
-                  index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-                }
-                href="#"
-                size="lg"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
+
       </Navbar>
 
 

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useCallback } from "react";
-import { Button } from "@nextui-org/react";
+import React, { useRef, useState, useCallback } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-
+import {Button, ButtonGroup} from "@nextui-org/react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import './styles.css';
 
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -18,175 +17,155 @@ import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper/mo
 
 
 const SwiperCarrousel = () => {
-  const nextButtonRef = useRef(null);
-  const prevButtonRef = useRef(null);
-  const unAcceptClick = useRef(null);
 
-  const showSlider = useCallback((type) => {
-    // Lógica del carrusel...
+  const cursosDestacados = [
+    // Tus datos de cursos destacados
+    {
+      imageUrl: "/image/ing_agricola.jpg",
+      title: "Ingeniería Agrícola",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ing_alimentarias.jpg",
+      title: "Ingeniería de Industrias Alimentarias",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ing_ambiental.jpg",
+      title: "Ingeniería Ambiental",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ing_civil.jpg",
+      title: "Ingeniería Civil",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ing_vial.jpg",
+      title: "Ingeniería Vial",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+    {
+      imageUrl: "/image/ing_riego.jpg",
+      title: "Sistema de Riego Tecnificado",
+      date: "27 March",
+      readTime: "6 mins ago",
+    },
+
+  ];
+
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const controls = useAnimation();
+
+  const variants = {
+      hidden: { opacity: 0, y: 100 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
+  const handleScroll = () => {
+      const elementPosition = containerRef.current.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.2;
+
+      if (elementPosition < screenPosition) {
+          setIsVisible(true);
+      }
+  };
+
+  // Attach scroll event listener when component mounts
+  React.useEffect(() => {
+      window.addEventListener("scroll", handleScroll);
+      // Cleanup function to remove the event listener when component unmounts
+      return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Efectos secundarios...
-  }, []);
+  React.useEffect(() => {
+      if (isVisible) {
+          controls.start("visible");
+      }
+  }, [isVisible]);
 
   return (
 
-    <div className="  rounded-lg  flex flex-col ">
+<motion.div ref={containerRef} className=" p-1 sm:p-10 md:p-4 " initial="hidden"
+      animate={controls}
+      variants={variants}>
 
-    <Swiper
-      slidesPerView={1}
-      centeredSlides={false}
-      slidesPerGroupSkip={1}
-      grabCursor={true}
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={false}
+        slidesPerGroupSkip={1}
+        grabCursor={true}
 
-      keyboard={{
-        enabled: true,
-      }}
-      spaceBetween={10}
-      breakpoints={{
-        769: {
-          slidesPerView: 2,
-          slidesPerGroup: 1,
-        },
-        1024: {
-          slidesPerView: 3,
-          slidesPerGroup: 1,
-        },
-      }}
-      scrollbar={false}
-      navigation={true}
-      pagination={{
-        clickable: true,
+        keyboard={{
+          enabled: true,
+        }}
+        spaceBetween={10}
+        breakpoints={{
+          769: {
+            slidesPerView: 2,
+            slidesPerGroup: 1,
+          },
+          1024: {
+            slidesPerView: 5,
+            slidesPerGroup: 1,
+          },
+        }}
+        scrollbar={false}
+        navigation={true}
+        pagination={{
+          clickable: true,
 
-      }}
-      autoplay={{
-        delay: 2000, // Intervalo de tiempo entre cada slide (5 segundos)
-        disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
-      }}
-      loop={true}
-      modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
-      className="mySwiper"
-    >
-      {/* Slide 1 */}
-      <SwiperSlide>
-        <div className="slide-content ">
-          <Image
-            src='/image/ing_agricola.jpg'
-            alt='Inge agricola'
-            width={400}
-            height={400}
-            
-            className="object-cover object-center"
-          />
+        }}
+        autoplay={{
+          delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
+          disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
+        }}
+        loop={true}
+        modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
+        className="mySwiper"
+      >
+        {cursosDestacados.map((curso, index) => (
+          <SwiperSlide key={index} style={{ height: "470px" }}>
+            <div key={index} className="rounded-lg shadow-lg object-cover w-full h-full">
+              <a href="#"></a>
+              <div className="relative object-cover">
+                <a >
+                  <Image
+                    src={curso.imageUrl}
+                    alt='Imagen banner'
+                    width={400}
+                    height={300}
+                  />
+                </a>
+                <a href="#!">
+                  <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                    Más información
+                  </div>
+                </a>
 
-          <h3>Ingeniería Agrícola</h3>
-          <Button color="default">
-            Más información
-          </Button>
+              </div>
+              <div className="px-6 py-4">
+                <a href="#" className="font-semibold text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
+                  {curso.title}
+                </a>
 
+              </div>
+              <div className="px-6 py-4 flex flex-row items-center">
+                <span href="#" className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
 
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 2 */}
-      <SwiperSlide>
-        <div className="slide-content">
-          <Image
-            src='/image/ing_civil.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={400}
- 
-            className="object-cover object-center"
-
-          />
-          <h3>Ingeniería Civil</h3>
-          <Button color="default">
-            Más información
-          </Button>
-        </div>
-      </SwiperSlide>
-      {/* Slide 3 */}
-      <SwiperSlide>
-        <div className="slide-content">
-          <Image
-            src='/image/ing_ambiental.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={400}
-    
-            className="object-cover object-center"
-
-          />
-          <h3>Ingeniería Ambiental</h3>
-          <Button color="default">
-            Más información
-          </Button>
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 4 */}
-      <SwiperSlide>
-        <div className="slide-content">
-          <Image
-            src='/image/ing_alimentarias.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={400}
-    
-            className="object-cover object-center"
-
-          />
-          <h3>Ingeniería de Industrias Alimentarias</h3>
-          <Button color="default">
-            Más información
-          </Button>
-        </div>
-      </SwiperSlide>
-      {/* Slide 5 */}
-      <SwiperSlide>
-        <div className="slide-content">
-          <Image
-            src='/image/ing_vial.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={400}
-    
-            className="object-cover object-center"
-
-          />
-          <h3>Ingeniería Vial</h3>
-
-          <Button color="default">
-            Más información
-          </Button>
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 6 */}
-      <SwiperSlide>
-        <div className="slide-content">
-          <Image
-            src='/image/ing_riego.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={400}
-   
-            className="object-cover object-center"
-
-          />
-          <h3>Sistemas de Riego Tecnificado</h3>
-
-          <Button color="default">
-            Más información
-          </Button>
-        </div>
-      </SwiperSlide>
-
-    </Swiper>
-
-    </div>
+                </span>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </motion.div>
 
 );
 };

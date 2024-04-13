@@ -27,17 +27,21 @@ module.exports = {
 
       },
       animation: {
-        'fade-in-left': 'fade-in-left 0.5s ease-in-out',
-        'fade-in-right': 'fade-in-right 0.5s ease-in-out',
+
+        'spin-slow-30': 'spin 30s linear infinite',
+        'spin-slow-25': 'spin 25s linear infinite',
+        'spin-slow-10': 'spin 10s linear infinite',
+        'marquee-infinite' : 'marquee 25s linear infinite',
       },
+
       keyframes: {
-        'fade-in-left': {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
-        'fade-in-right': {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
+        marquee2: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
       },
     },
@@ -48,41 +52,7 @@ module.exports = {
     require('flowbite/plugin'),
     nextui({
       themes: {
-        "purple-dark": {
-          extend: "dark", // <- inherit default values from dark theme
-          colors: {
-            background: "#0D001A",
-            foreground: "#ffffff",
-            primary: {
-              50: "#3B096C",
-              100: "#520F83",
-              200: "#7318A2",
-              300: "#9823C2",
-              400: "#c031e2",
-              500: "#DD62ED",
-              600: "#F182F6",
-              700: "#FCADF9",
-              800: "#FDD5F9",
-              900: "#FEECFE",
-              DEFAULT: "#DD62ED",
-              foreground: "#ffffff",
-            },
-            focus: "#F182F6",
-          },
-          layout: {
-            disabledOpacity: "0.3",
-            radius: {
-              small: "4px",
-              medium: "6px",
-              large: "8px",
-            },
-            borderWidth: {
-              small: "1px",
-              medium: "2px",
-              large: "3px",
-            },
-          },
-        },
+        
       },
     }),
   ],

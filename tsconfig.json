@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/homeContent/Courses.jsx", "components/home/PrincipalHome.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/homeContent/Courses.jsx", "components/home/PrincipalHome.jsx", "components/home/ContactForm.jsx"],
   "exclude": ["node_modules"]
 }
