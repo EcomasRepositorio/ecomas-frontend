@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import Image from "next/image";
-
+import './stylesHome.css';
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -40,57 +40,43 @@ const SwiperCursosDestacados = () => {
       controls.start("visible");
     }
   }, [isVisible]);
-  
+
   const cursosDestacados = [
     // Tus datos de cursos destacados
     {
       imageUrl: "/image/solidos.jpg",
       title: "Gestion y manejo de residuos sólidos municipales",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Este curso aborda estrategias y técnicas para gestionar eficazmente los residuos sólidos en entornos urbanos, incluyendo temas como reciclaje, tratamiento de residuos y participación comunitaria.",
     },
     {
       imageUrl: "/image/aspersor.jpg",
       title: "Sistemas de riego por aspersión",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso sobre el diseño y uso eficiente de sistemas de riego por aspersión.",
     },
     {
       imageUrl: "/image/goteo.jpg",
       title: "Sistemas de riego por goteo",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso que explora el diseño y aplicación de sistemas eficientes de riego por goteo en agricultura y jardinería.",
     },
     {
       imageUrl: "/image/viales.jpg",
       title: "Arqueología en proyectos viales",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso sobre la integración de la arqueología en el diseño y desarrollo de proyectos viales.",
     },
     {
       imageUrl: "/image/obras.jpg",
       title: "Ampliaciones de plazo, adicionales de obra y penalidades en obra",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso que aborda la gestión de ampliaciones de plazo, cambios en obra y las penalizaciones asociadas en proyectos de construcción.",
     },
     {
       imageUrl: "/image/aguaca.jpg",
       title: "Monitoreo de la calidad de agua",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso sobre técnicas y métodos para monitorear la calidad del agua en diferentes contextos ambientales y aplicaciones.",
     },
     {
       imageUrl: "/image/ssoma.jpg",
       title: "Supervisor SSOMA",
-      description: "Descripción",
-      date: "27 March",
-      readTime: "6 mins ago",
+      description: "Curso que prepara a los supervisores en seguridad, salud ocupacional y medio ambiente (SSOMA) para la gestión efectiva en entornos laborales.",
     },
   ];
 
@@ -111,8 +97,8 @@ const SwiperCursosDestacados = () => {
         }}
         spaceBetween={10}
         breakpoints={{
-          769: {
-            slidesPerView: 2,
+          767 : {
+            slidesPerView: 3,
             slidesPerGroup: 1,
           },
           1024: {
@@ -135,38 +121,36 @@ const SwiperCursosDestacados = () => {
         className="mySwiper"
       >
         {cursosDestacados.map((curso, index) => (
-          <SwiperSlide key={index} style={{ height: "500px" }}>
-            <div key={index} className="rounded  shadow-lg object-cover w-full ">
-              <a href="#"></a>
-              <div className="relative object-cover ">
-                <a>
-                  <Image
-                    src={curso.imageUrl}
-                    alt='Imagen banner'
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <a href="#!">
-                  <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
-                    Más información
-                  </div>
-                </a>
+          <SwiperSlide key={index} >
+            <div className="swiper-card-container">
+              <div className="rounded shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
 
-              </div>
-              <div className="px-6 py-4">
-                <a href="#" className="font-semibold text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
-                  {curso.title}
-                </a>
-
-              </div>
-              <div className="px-6 py-4 flex flex-row items-center">
-                <span href="#" className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
-
-                </span>
+                <div className="relative object-cover ">
+                  <a>
+                    <Image
+                      src={curso.imageUrl}
+                      alt='Imagen banner'
+                      width={400}
+                      height={300}
+                      className="h-40 rounded-t-lg object-cover"
+                    />
+                  </a>
+                  <a href="#!">
+                    <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-primaryblue transition duration-500 ease-in-out">
+                      Más información
+                    </div>
+                  </a>
+                </div>
+                <div className="px-4 pt-1 mb-4 pb-2">
+                  <a href="#" className="text-justify font-bold text-base inline-block hover:text-primaryblue transition duration-500 ease-in-out">
+                    {curso.title}
+                  </a>
+                  <p className="text-justify font-light text-sm">{curso.description}</p>
+                </div>
               </div>
             </div>
           </SwiperSlide>
+
         ))}
       </Swiper>
     </motion.div>

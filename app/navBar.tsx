@@ -2,8 +2,9 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
-import ThemeSwitcher from '../ThemeSwitcher';
+import ThemeSwitcher from '../components/ThemeSwitcher';
 import { useTheme } from 'next-themes';
+import NavLinks from './nav-links';
 
 
 const Header = () => {
@@ -99,27 +100,7 @@ const Header = () => {
 
         <NavbarContent className="hidden sm:flex gap-4 " justify="end" >
 
-          <NavbarItem>
-            <Link color="foreground" href="/" style={{ color: '#ffffff', }}>
-              Inicio
-            </Link>
-          </NavbarItem>
-
-          <NavbarItem>
-            <Link color="foreground" href="/diplomados" style={{ color: '#ffffff', }}>
-              Diplomados
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#" style={{ color: '#ffffff', }}>
-              Certificados
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#contacto" style={{ color: '#ffffff', }}>
-              Contáctanos
-            </Link>
-          </NavbarItem>
+          <NavLinks />
           <NavbarContent justify="end" >
 
             <ThemeSwitcher />

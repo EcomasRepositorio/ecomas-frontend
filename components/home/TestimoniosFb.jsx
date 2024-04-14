@@ -60,7 +60,7 @@ const TestimoniosFb = () => {
                 <iframe
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fmaricriszorrilla%2Fposts%2Fpfbid02bAdL6m4nm6xF6gsvhaBmNkyYRKq25QNWyPUse9VEe85iEuoddnEjxVoBtAsyBFXnl&show_text=true&width=500"
                     style={iframeStyles}
-                    height="230"
+                    height="210"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}
@@ -71,7 +71,7 @@ const TestimoniosFb = () => {
                 <iframe
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fhector.antony.5%2Fposts%2Fpfbid0Zht4WiHqn34uUDLUzwQ19TFMAZtg3yXRhBUYgc4FnHfEkWt9nvo4GV8vx7A1zr5Sl&show_text=true&width=500"
                     style={iframeStyles}
-                    height="230"
+                    height="170"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}
@@ -82,7 +82,7 @@ const TestimoniosFb = () => {
                 <iframe
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fcristianyoel.riveramija%2Fposts%2Fpfbid0cn17sGGFwthyBYY1dZPyLLtjg9qACEn2wTSeTunsw6jNJkDDnUwurQUeDPiuH1HHl&show_text=true&width=500"
                     style={iframeStyles}
-                    height="230"
+                    height="190"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}

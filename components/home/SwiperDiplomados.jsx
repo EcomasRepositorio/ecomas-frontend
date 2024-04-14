@@ -131,36 +131,33 @@ const SwiperCarrousel = () => {
         className="mySwiper"
       >
         {cursosDestacados.map((curso, index) => (
-          <SwiperSlide key={index} style={{ height: "470px" }}>
-            <div key={index} className="rounded-lg shadow-lg object-cover w-full h-full">
-              <a href="#"></a>
-              <div className="relative object-cover">
+          <SwiperSlide key={index} style={{  }}>
+            <div key={index} className="rounded-lg shadow-lg  w-full ">
+
+              <div className="relative object-cover ">
                 <a >
                   <Image
                     src={curso.imageUrl}
                     alt='Imagen banner'
                     width={400}
                     height={300}
+                    className="object-cover h-96 rounded-t-lg"
                   />
                 </a>
                 <a href="#!">
-                  <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                  <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-primaryblue transition duration-500 ease-in-out">
                     Más información
                   </div>
                 </a>
 
               </div>
-              <div className="px-6 py-4">
-                <a href="#" className="font-semibold text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
+              <div className="px-6 pt-1 mb-12 pb-2">
+                <a href="#" className="font-normal text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
                   {curso.title}
                 </a>
 
               </div>
-              <div className="px-6 py-4 flex flex-row items-center">
-                <span href="#" className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
 
-                </span>
-              </div>
             </div>
           </SwiperSlide>
         ))}

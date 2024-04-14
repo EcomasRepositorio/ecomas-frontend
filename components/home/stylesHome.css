@@ -11,6 +11,11 @@
     to {transform: translateY(20px)};
   }
   
+  .swiper-card-container {
+    display: flex;
+  }
   
-  
+  .swiper-card-container > div {
+    flex-grow: 1;
+  }
   
