@@ -92,7 +92,7 @@ const SwiperCarrousel = () => {
 
   return (
 
-<motion.div ref={containerRef} className=" p-1 sm:p-10 md:p-4 " initial="hidden"
+<motion.div ref={containerRef} className=" p-1 sm:p-1 md:p-1 " initial="hidden"
       animate={controls}
       variants={variants}>
 
@@ -112,7 +112,7 @@ const SwiperCarrousel = () => {
             slidesPerGroup: 1,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             slidesPerGroup: 1,
           },
         }}
@@ -132,7 +132,7 @@ const SwiperCarrousel = () => {
       >
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} style={{  }}>
-            <div key={index} className="rounded-lg shadow-lg  w-full ">
+            <div key={index} className="rounded-xl shadow-lg  w-full ">
 
               <div className="relative object-cover ">
                 <a >
@@ -141,7 +141,7 @@ const SwiperCarrousel = () => {
                     alt='Imagen banner'
                     width={400}
                     height={300}
-                    className="object-cover h-96 rounded-t-lg"
+                    className="object-cover h-96 rounded-t-xl"
                   />
                 </a>
                 <a href="#!">

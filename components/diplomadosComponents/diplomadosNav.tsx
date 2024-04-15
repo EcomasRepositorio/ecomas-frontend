@@ -1,9 +1,11 @@
 'use client';
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import DiploCivil from './diplomadosCivil';
+import DiploAmbiental from './diplomadosAmbient';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,22 +48,24 @@ export default function VerticalTabs() {
   };
 
   return (
-    <section>
+    <section className=''>
       <Box
-        sx={{ flexGrow: 0, bgcolor: 'background.paper',  height: "100%", display: { xs: 'none', sm: 'flex' }, }}
+        sx={{ flexGrow: 1, width: "100%", display: { xs: 'none', sm: 'flex' }, }}
       >
         {/* Tabs para orientación vertical */}
         <Tabs
           orientation="vertical"
-          variant="scrollable"
+
           value={value}
           onChange={handleChange}
           aria-label="Vertical tabs example"
           sx={{
             borderRight: 1,
             borderColor: 'divider',
-             // Ocultar en pantallas pequeñas
+            width: "50%"
+            // Ocultar en pantallas pequeñas
           }}
+          className='mt-8'
         >
           {/* Aquí van tus pestañas */}
 
@@ -73,10 +77,10 @@ export default function VerticalTabs() {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          Ingeniería Civil
+          <DiploCivil />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <DiploAmbiental />
         </TabPanel>
         <TabPanel value={value} index={2}>
           Ingeniería Agrónoma
@@ -95,20 +99,20 @@ export default function VerticalTabs() {
         </TabPanel>
 
       </Box>
-{/*Para fonos */}
+      {/*Para fonos */}
       <Box
-        sx={{ flexGrow: 2, width: "100%",bgcolor: 'background.paper', height: 300, display: { xs: 'block', sm: 'none' }, }}
+        sx={{ flexGrow: 0, display: { xs: 'block', sm: 'none' }, }}
       >
         {/* Tabs para orientación vertical */}
         <Tabs
           orientation="horizontal"
-          variant="scrollable"
           value={value}
           onChange={handleChange}
           aria-label="Horizontal tabs example"
-
+          variant="scrollable"
           sx={{
-            display: { xs: 'block', sm: 'none' }, // Ocultar en pantallas grandes
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' }, // Cambiado a 'column' para dispositivos móviles
           }}
         >
           <Tab label="Ingeniería Civil" {...a11yProps(0)} />
@@ -119,10 +123,10 @@ export default function VerticalTabs() {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          Ingeniería Civil
+          <DiploCivil />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <DiploAmbiental />
         </TabPanel>
         <TabPanel value={value} index={2}>
           Ingeniería Agrónoma
@@ -142,9 +146,10 @@ export default function VerticalTabs() {
 
 
       </Box>
-      
+
 
     </section>
+
 
 
   );

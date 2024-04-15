@@ -20,6 +20,7 @@ export default function Main(
   {
     return (
 
+
       <main className="relative bg-white dark:bg-[#001d51]">
         
         <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
@@ -27,13 +28,13 @@ export default function Main(
           <QuienesSomos />
         </div>
         <NuestrosDiplomados />
-        <div className="   rounded-lg   ">
+        <div className="   rounded-lg  mx-auto max-w-screen-xl ">
           <SwiperCarrouselDiplomados />
         </div>
         <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-8 ">
           <PorqueNosotros />
         </div>
-        <div className="  rounded-lg   ">
+        <div className="  rounded-lg   mx-auto max-w-screen-xl ">
           <CarouselCursosDestacados />
         </div>
         <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-6  ">

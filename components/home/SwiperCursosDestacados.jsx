@@ -102,7 +102,7 @@ const SwiperCursosDestacados = () => {
             slidesPerGroup: 1,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             slidesPerGroup: 1,
           },
         }}
@@ -123,7 +123,7 @@ const SwiperCursosDestacados = () => {
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} >
             <div className="swiper-card-container">
-              <div className="rounded shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
+              <div className="rounded-2xl shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
 
                 <div className="relative object-cover ">
                   <a>
@@ -132,7 +132,7 @@ const SwiperCursosDestacados = () => {
                       alt='Imagen banner'
                       width={400}
                       height={300}
-                      className="h-40 rounded-t-lg object-cover"
+                      className="h-40 rounded-t-2xl object-cover"
                     />
                   </a>
                   <a href="#!">

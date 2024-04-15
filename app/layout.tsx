@@ -36,7 +36,9 @@ export default function RootLayout({
           </Suspense>
 
         </ThemeProvider>
-        <Footer />
+               
+       <Footer />
+        
       </body>
     </html>
   )
