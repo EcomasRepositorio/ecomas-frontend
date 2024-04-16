@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect } from "react";
 import { ArrowRightIcon, UserCircleIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
@@ -6,7 +7,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const PrincipalHome = () => {
   return (
-    <>
+
 
 
         <section className="    bg-fixed " style={{ }}>
@@ -79,9 +80,6 @@ const PrincipalHome = () => {
           </div>
         </section>
 
-
-
-    </>
   );
 };
 export default PrincipalHome;

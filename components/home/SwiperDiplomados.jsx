@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useState, useCallback } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -92,7 +93,7 @@ const SwiperCarrousel = () => {
 
   return (
 
-<motion.div ref={containerRef} className=" p-1 sm:p-1 md:p-1 " initial="hidden"
+<motion.div ref={containerRef} className=" p-1  " initial="hidden"
       animate={controls}
       variants={variants}>
 

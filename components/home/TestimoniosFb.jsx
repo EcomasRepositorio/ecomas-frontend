@@ -1,3 +1,4 @@
+'use client';
 import { Button } from "@nextui-org/react";
 import React, { useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";

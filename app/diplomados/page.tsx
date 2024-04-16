@@ -1,7 +1,9 @@
 import DiplomadosNav from '@/components/diplomadosComponents/diplomadosNav'
 import Footer from '@/components/footer/Footer'
+import DashboardSkeleton from '@/components/home/skeletons'
 import { Divider } from '@nextui-org/react'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 export default function Main(
   { children }: { children: React.ReactNode }
@@ -11,64 +13,63 @@ export default function Main(
     return (
 
 
-      <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+
+
+      <div className="mx-auto max-w-screen-2xl px-4 md:px-8 mb-12 ">
         <div className=" mb-4">
           <h2 className="mb-4 mt-8 text-center text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Nuestro Diplomados</h2>
           <p className="mx-auto  text-center dark:text-white md:text-xl">Explora Nuestra Trayectoria Educativa: Descubre Nuestros Programas de Formación</p>
         </div>
         <div>
-          <DiplomadosNav />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <DiplomadosNav />
+          </Suspense>
         </div>
         <Divider />
         <div>
-          <div className="overflow-hidden bg-white py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="overflow-hidden  py-8 sm:py-8">
+            <div className="mx-auto max-w-7xl px-4 lg:px-12">
               <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                <div className="lg:pr-8 lg:pt-4">
+                <div className="lg:pr-4 lg:pt-4">
                   <div className="lg:max-w-lg">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">Diplomados con Ecomás</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">BENEFICIOS</p>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
-                    <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                      <div className="relative pl-9">
-                        <dt className="inline font-semibold text-gray-900">
-                          <svg className="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clip-rule="evenodd" />
-                          </svg>
-                          Push to deploy.
-                        </dt>
-                        <dd className="inline">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
-                      </div>
-                      <div className="relative pl-9">
-                        <dt className="inline font-semibold text-gray-900">
-                          <svg className="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
-                          </svg>
-                          SSL certificates.
-                        </dt>
-                        <dd className="inline">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</dd>
-                      </div>
-                      <div className="relative pl-9">
-                        <dt className="inline font-semibold text-gray-900">
-                          <svg className="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path d="M4.632 3.533A2 2 0 016.577 2h6.846a2 2 0 011.945 1.533l1.976 8.234A3.489 3.489 0 0016 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234z" />
-                            <path fill-rule="evenodd" d="M4 13a2 2 0 100 4h12a2 2 0 100-4H4zm11.24 2a.75.75 0 01.75-.75H16a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75V15zm-2.25-.75a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75h-.01z" clip-rule="evenodd" />
-                          </svg>
-                          Database backups.
-                        </dt>
-                        <dd className="inline">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</dd>
-                      </div>
-                    </dl>
+                    <p className="mt-2 text-3xl font-bold tracking-tight text-primaryblue dark:text-white sm:text-4xl">BENEFICIOS</p>
+                    <ul className="mt-4 text-gray-700 dark:text-white text-justify">
+                      <li>
+                        <span className="font-semibold">1. Especialización:</span> Los diplomados brindan conocimientos detallados en un área específica para convertirse en experto en ese campo.
+                      </li>
+                      <li>
+                        <span className="font-semibold">2. Actualización:</span> Proporcionan información actualizada sobre las últimas tendencias y tecnologías en un área, manteniéndote relevante en el mercado laboral.
+                      </li>
+                      <li>
+                        <span className="font-semibold">3. Crecimiento profesional:</span> Al adquirir nuevas habilidades, puedes mejorar tu desempeño laboral y acceder a nuevas oportunidades profesionales.
+                      </li>
+                      <li>
+                        <span className="font-semibold">4. Flexibilidad:</span> Los horarios flexibles de los diplomados te permiten estudiar mientras trabajas u otros compromisos.
+                      </li>
+                      <li>
+                        <span className="font-semibold">5. Certificación:</span> Al completar un diplomado, recibes un certificado que valida tus habilidades y conocimientos en el área, mejorando tu credibilidad y empleabilidad.
+                      </li>
+                      <li>
+                        <span className="font-semibold">6. Red de contactos:</span> Ofrecen la oportunidad de conectar con profesionales en el campo, lo que puede resultar en colaboraciones futuras u oportunidades laborales.
+                      </li>
+                      <li>
+                        <span className="font-semibold">7. Valor agregado:</span> Un diplomado enriquece tu currículum vitae al agregar una certificación reconocida y habilidades específicas, destacándote en el mercado laboral.
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <Image
+                <div className=' flex items-center'>
+                  <Image
 
-                  src='/image/tecobras.jpg'
-                  alt='Imagen banner'
-                  width={500}
-                  height={500}
-                  className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-                />
+                    src='/image/beneficios.jpg'
+                    alt='Imagen banner'
+                    width={500}
+                    height={500}
+                    className="object-fill rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-max md:-ml-4 lg:-ml-0"
+                  />
+
+                </div>
+
 
               </div>
             </div>
@@ -77,6 +78,8 @@ export default function Main(
 
         </div>
       </div>
+
+
 
 
     )

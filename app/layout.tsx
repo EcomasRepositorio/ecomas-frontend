@@ -5,10 +5,12 @@ import './globals.css'
 import Header from "@/app/navBar"
 import Footer from '@/components/footer/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], }
+)
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { Suspense } from 'react';
 import DashboardSkeleton, { RevenueChartSkeleton } from '@/components/home/skeletons';
+import Whatsapp from '@/components/whatsapp/Index';
 
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="es">
-      <body className={inter.className}>
+      <body className={`${inter.className} dark:bg-blackblue`} >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -35,8 +37,9 @@ export default function RootLayout({
             {children}
           </Suspense>
 
+
         </ThemeProvider>
-               
+        <Whatsapp />
        <Footer />
         
       </body>

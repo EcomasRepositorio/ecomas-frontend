@@ -20,7 +20,7 @@ const links = [
     },
     {
         name: 'Certificados',
-        href: '/customers',
+        href: '/certs',
         icon: UserGroupIcon
     },
     {

@@ -1,80 +1,123 @@
-"use client";
-import React, { useState } from 'react';
+'use client';
+import React from "react";
 import SearchCode from '@/components/certificate/SearchCode';
 import SearchDNI from '@/components/certificate/SearchDNI';
 import SearchName from '@/components/certificate/SearchName';
-import { BsQrCodeScan } from "react-icons/bs";
-import { BsPersonVcard, BsPersonSquare } from "react-icons/bs";
-import Whatsapp from '@/components/whatsapp/Index'
-import './Styles.css'
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { Link } from "react-router-dom";
+import Image from "next/image";
 
-const Certificate: React.FC = () => {
+interface Props {
+  // Define any props if needed
+}
 
-  const [isActive, setIsActive] = useState(false);
-  const [searchType, setSearchType] = useState<string | null>(null);
+const TestingPage: React.FC<Props> = () => {
 
-  const handleButton = (type: string) => {
-    setSearchType(type);
-    setIsActive(true);
-  };
-
-  const handleSearch = (data: string) => {
+  const handleSearch = (data: any) => {
     console.log(data);
   };
 
-  return (
-    <section id='certs' className='p-2'>
-    <div className="max-w-screen-xl mx-auto mb-12 border mt-12 rounded-3xl shadow-2xl text-center lg:mb-20 p-2">
-      <div className="mb-4 lg:mt-0 justify-center text-5xl font-extrabold tracking-tight text-gray-500">
-      <div className='flex justify-center mb-4 lg:gap-10 mt-12'>
-            <img src={'/certificate/logo_unp.png'} className="lg:w-44 lg:h-44 w-32 h-32 object-contain"/>
-            <img src={'/certificate/logo_cimade.png'} className="lg:w-44 lg:h-44 w-32 h-32 object-contain"/>
-            <img src={'/certificate/logo_cip_tacna.png'}className="lg:w-44 lg:h-44 w-32 h-32 object-contain "/>
-          </div>
-      </div>
-        <div className="">
-          <h2 className="mb-4 mt-20 text-4xl font-extrabold text-gray-500">
-            Certificados
-          </h2>
-          <p className="font-semibold text-gray-500 sm:text-xl">
-            En este módulo podrá realizar la búsqueda de certificados de los diferentes eventos ofrecidos por CIMADE.
-          </p>
-          <p className="mb-6 mt-6 lg:mt-10 text-xl tracking-tight font-semibold text-gray-500">
-            Buscar por:
-          </p>
-          <div className='lg:flex flex-wrap justify-center items-center text-center lg:ml-56 lg:mr-56'>
-            <button
-            onClick={() => handleButton('documentNumber')}
-            className={`buttonGlobal lg:mb-20 mb-4 font-bold rounded-lg text-md px-7 py-3 text-center inline-block
-              ${searchType === 'documentNumber' && ''}`}>
-              <BsPersonVcard className='text-xl inline-block align-text-top mr-1' />Buscar por DNI
-            </button>
-            <button
-            onClick={() => handleButton('name')}
-            className={`buttonGlobal lg:mb-20 mb-4 ml-6 mr-6 font-bold rounded-lg text-md px-3 py-3 text-center
-              ${searchType === 'name' && ''}`}>
-              <BsPersonSquare className='text-lg inline-block align-text-top mr-1' />Buscar por nombre
-            </button>
-            <button
-            onClick={() => handleButton('code')}
-            className={`buttonGlobal lg:mb-20 mb-5 font-bold rounded-lg text-md px-4 py-3 text-center inline-block
-            ${searchType === 'code' && ''}`}>
-              <BsQrCodeScan className='text-lg inline-block align-text-top mr-1' /> Buscar por código
-            </button>
-          </div>
+  const handleButton = (type: string) => {
+    // Implement handleButton functionality if needed
+  };
 
-          {isActive && (
-        <div>
-          {searchType === 'documentNumber' && (<SearchDNI onSearchDNI={handleSearch} />)}
-          {searchType === 'name' && (<SearchName onSearchName={handleSearch} />)}
-          {searchType === 'code' && (<SearchCode onSearchCode={handleSearch} />)}
+  return (
+
+    <section className=" bg-fixed " style={{}}>
+      <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+
+        <div className="py-8  mx-auto max-w-screen-xl lg:py-10">
+          <div className="" style={{ position: "relative", width: "100%" }}>
+            <div className="bg-white dark:bg-blackblue rounded-lg p-8 md:p-12 mb-50  " style={{ marginBottom: "20px", }}>
+
+
+              <div className="flex flex-col md:flex-row mx-auto max-w-screen-xl md:mr-12 md:p-4 " >
+                <div className="md:mr-12" >
+                  <div className="flex flex-col">
+                    <h2 className="mb-4 mt-8 text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Nuestro Diplomados</h2>
+                    <p className="dark:text-white md:text-xl mb-4">Explora Nuestra Trayectoria Educativa: Descubre Nuestros Programas de Formación</p>
+
+                    <Tabs aria-label="Options" color="primary">
+                      <Tab key="dni" title="Buscar por DNI" className="">
+                        <Card>
+                          <CardBody>
+                            <div>
+                              <SearchDNI onSearchDNI={handleSearch} />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Tab>
+                      <Tab key="name" title="Buscar por nombres">
+                        <Card>
+                          <CardBody>
+                            <div>
+                              <SearchName onSearchName={handleSearch} />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Tab>
+                      <Tab key="code" title="Buscar por Código">
+                        <Card>
+                          <CardBody>
+                            <div>
+                              <SearchCode onSearchCode={handleSearch} />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Tab>
+                    </Tabs>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-2 md:grid-rows-2 md:gap-y-8  md:p-8  ">
+                  <div>
+                    <Image
+                      src='/image/COLEGIO DE ABOGADOS DE LA LIBERTAD.png'
+                      alt='Imagen banner'
+                      width={150}
+                      height={150}
+                      className=""
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/image/COLEGIO DE INGENIEROS DEL PERÚ.png'
+                      alt='Imagen banner'
+                      width={150}
+                      height={150}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/image/ESCUELA DE POSGRADO DE LA UNP.png'
+                      alt='Imagen banner'
+                      width={150}
+                      height={150}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/image/LOGO-VERTICAL-COLOR.png'
+                      alt='Imagen banner'
+                      width={150}
+                      height={150}
+                    />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
         </div>
-      )}
-        </div>
-    </div>
-    <Whatsapp />
+      </div>
+
+
+
+
     </section>
-  )
+  );
 }
 
-export default Certificate;
+export default TestingPage;

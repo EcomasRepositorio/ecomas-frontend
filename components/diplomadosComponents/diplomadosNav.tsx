@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import DiploCivil from './diplomadosCivil';
 import DiploAmbiental from './diplomadosAmbient';
+import DashboardSkeleton from '@/components/home/skeletons'
+import { Suspense } from 'react'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -48,7 +50,7 @@ export default function VerticalTabs() {
   };
 
   return (
-    <section className=''>
+    <div >
       <Box
         sx={{ flexGrow: 1, width: "100%", display: { xs: 'none', sm: 'flex' }, }}
       >
@@ -68,19 +70,46 @@ export default function VerticalTabs() {
           className='mt-8'
         >
           {/* Aquí van tus pestañas */}
+          <Tab
+            label="Ingeniería Civil"
+            {...a11yProps(0)}
+            className="dark:text-white focus:text-primaryblue dark:focus:text-primaryblue"
+          />
+          <Tab
+            label="Ingeniería Ambiental "
+            {...a11yProps(1)}
+            className="dark:text-white focus:text-primaryblue dark:focus:text-primaryblue"
+          />
+          <Tab
+            label="Ingeniería Agrónoma"
+            {...a11yProps(2)}
+            className="dark:text-white focus:text-primaryblue dark:focus:text-primaryblue"
+          />
+          <Tab
+            label="Ingeniería Alimentaria"
+            {...a11yProps(3)}
+            className="dark:text-white focus:text-primaryblue dark:focus:text-primaryblue"
+          />
+          <Tab
+            label="Profesionales en general"
+            {...a11yProps(4)}
+            className="dark:text-white focus:text-primaryblue dark:focus:text-primaryblue"
+          />
 
-          <Tab label="Ingeniería Civil" {...a11yProps(0)} />
-          <Tab label="Ingeniería Ambiental" {...a11yProps(1)} />
-          <Tab label="Ingeniería Agrónoma" {...a11yProps(2)} />
-          <Tab label="Ingeniería Alimentaria" {...a11yProps(3)} />
-          <Tab label="Profesionales en general" {...a11yProps(4)} />
+
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <DiploCivil />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <DiploCivil />
+          </Suspense>
+
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <DiploAmbiental />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <DiploAmbiental />
+          </Suspense>
+
         </TabPanel>
         <TabPanel value={value} index={2}>
           Ingeniería Agrónoma
@@ -123,10 +152,16 @@ export default function VerticalTabs() {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <DiploCivil />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <DiploCivil />
+          </Suspense>
+
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <DiploAmbiental />
+          <Suspense fallback={<DashboardSkeleton />}>
+            <DiploAmbiental />
+          </Suspense>
+
         </TabPanel>
         <TabPanel value={value} index={2}>
           Ingeniería Agrónoma
@@ -148,7 +183,7 @@ export default function VerticalTabs() {
       </Box>
 
 
-    </section>
+    </div>
 
 
 

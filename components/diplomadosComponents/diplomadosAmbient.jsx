@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
@@ -11,13 +12,13 @@ const DiploAmbiental = () => {
   // Array de objetos que contienen los datos de cada curso
   const cursosData = [
     {
-      titulo: 'ESTUDIO DE IMPACTO AMBIENTAL',
+      titulo: 'Asistente Técnico en Obras',
       imagen: '/image/estambient.jpg',
       fechaInicio: '01/05/2024',
       modalidad: 'Online',
       duracion: '4 semanas',
       horas: '20 horas',
-      descripcion: 'Diplomado dirigido a profesionales del medio ambiente, gestores de proyectos, consultores ambientales, autoridades reguladoras, estudiantes y académicos, profesionales de derecho ambiental, planificadores urbanos, ONGs, empresarios y público en general.',
+      descripcion: 'El diplomado de Asistente Técnico en Obras está dirigido a personas interesadas en adquirir habilidades prácticas para trabajar eficazmente en el campo de la construcción y obras civiles. Este programa es ideal para aspirantes a técnicos de obra, trabajadores del sector de la construcción que deseen mejorar sus habilidades, y estudiantes de carreras técnicas o universitarias relacionadas con la construcción civil.',
       modulos: [
         'Fundamentos de la construcción',
         'Interpretación de planos arquitectónicos',
@@ -68,12 +69,12 @@ const DiploAmbiental = () => {
                 className="lg:w-1/2  lg:h-auto object-cover object-center rounded-lg "
               />
               <div className="lg:w-1/2  lg:pl-10 lg:py-6 mb-6 lg:mb-0">
-                <h2 className="text-sm title-font text-gray-500 tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">INGENIERÍA AMBIENTAL</h2>
+                <h2 className="text-sm title-font text-gray-500 dark:text-white tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">INGENIERÍA CIVIL</h2>
                 <h1 className="text-primaryblue text-3xl title-font font-medium mb-4">{curso.titulo}</h1>
-                <Accordion open={open === index} className="mb-2 rounded-lg border border-blue-gray-100 px-4">
+                <Accordion open={open === index} className="mb-2 rounded-lg border dark:border-primaryblue px-4">
                   <AccordionHeader
                     onClick={() => handleOpen(index)}
-                    className={`border-b-0 transition-colors ${open === index ? "text-blue-500 hover:!text-blue-700" : ""}`}
+                    className={`border-b-0 transition-colors ${open === index ? "text-blue-500 hover:!text-blue-700" : "dark:text-white"}`}
                   >
                     Detalles del curso
                   </AccordionHeader>
@@ -108,25 +109,25 @@ const DiploAmbiental = () => {
 
                   </AccordionBody>
                 </Accordion>
-                <Accordion open={open === index + cursosData.length} className="mb-2 rounded-lg border border-blue-gray-100 px-4">
+                <Accordion open={open === index + cursosData.length} className="mb-2 rounded-lg border dark:border-primaryblue px-4">
                   <AccordionHeader
                     onClick={() => handleOpen(index + cursosData.length)}
-                    className={`border-b-0 transition-colors ${open === index + cursosData.length ? "text-blue-500 hover:!text-blue-700" : ""}`}
-                  >
+                    className={` border-b-0 transition-colors ${open === index + cursosData.length ? "text-blue-500 hover:text-blue-700" : "dark:text-white"}`}
+                    >
                     ¿A quienes está dirigido el diplomado?
                   </AccordionHeader>
-                  <AccordionBody className="pt-0 text-base font-normal text-justify">
+                  <AccordionBody className="pt-0 text-base font-normal text-justify dark:text-white">
                     {curso.descripcion}
                   </AccordionBody>
                 </Accordion>
-                <Accordion open={open === index + cursosData.length * 2} className="rounded-lg border border-blue-gray-100 px-4">
+                <Accordion open={open === index + cursosData.length * 2} className="rounded-lg border dark:border-primaryblue px-4">
                   <AccordionHeader
                     onClick={() => handleOpen(index + cursosData.length * 2)}
-                    className={`border-b-0 transition-colors ${open === index + cursosData.length * 2 ? "text-blue-500 hover:!text-blue-700" : ""}`}
+                    className={`border-b-0 transition-colors ${open === index + cursosData.length * 2 ? "text-blue-500 hover:!text-blue-700" : "dark:text-white"}`}
                   >
                     ¿Con qué modulos cuenta el diplomado?
                   </AccordionHeader>
-                  <AccordionBody className="pt-0 text-base font-normal">
+                  <AccordionBody className="pt-0 text-base font-normal dark:text-white">
                     <ul className="list-disc pl-5">
                       {curso.modulos.map((modulo, moduloIndex) => (
                         <li key={moduloIndex}>{modulo}</li>
@@ -144,3 +145,4 @@ const DiploAmbiental = () => {
 };
 
 export default DiploAmbiental;
+

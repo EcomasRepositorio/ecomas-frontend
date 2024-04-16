@@ -1,4 +1,6 @@
-import Footer from "@/components/footer/Footer"
+import DashboardSkeleton from "@/components/home/skeletons"
+import { Suspense } from "react"
+
 
 export default function RootLayout({
   children,
@@ -6,9 +8,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
-      {children}
-    </div>
+    <Suspense fallback={<DashboardSkeleton />}>
 
+
+      {children}
+
+
+    </Suspense>
   )
 }
