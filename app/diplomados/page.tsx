@@ -1,7 +1,6 @@
+import React from 'react'
 import DiplomadosNav from '@/components/diplomadosComponents/diplomadosNav'
-import Footer from '@/components/footer/Footer'
 import DashboardSkeleton from '@/components/home/skeletons'
-import { Divider } from '@nextui-org/react'
 import Image from 'next/image'
 import { Suspense } from 'react'
 
@@ -11,10 +10,6 @@ export default function Main(
 
   {
     return (
-
-
-
-
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8 mb-12 ">
         <div className=" mb-4">
           <h2 className="mb-4 mt-8 text-center text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Nuestro Diplomados</h2>
@@ -25,7 +20,7 @@ export default function Main(
             <DiplomadosNav />
           </Suspense>
         </div>
-        <Divider />
+
         <div>
           <div className="overflow-hidden  py-8 sm:py-8">
             <div className="mx-auto max-w-7xl px-4 lg:px-12">
@@ -60,22 +55,16 @@ export default function Main(
                 </div>
                 <div className=' flex items-center'>
                   <Image
-
                     src='/image/beneficios.jpg'
                     alt='Imagen banner'
                     width={500}
                     height={500}
                     className="object-fill rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-max md:-ml-4 lg:-ml-0"
                   />
-
                 </div>
-
-
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
 
