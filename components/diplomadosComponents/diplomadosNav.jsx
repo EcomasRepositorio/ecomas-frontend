@@ -1,52 +1,68 @@
 'use client';
-import React from "react";
-import {Tabs, Tab, Card, CardBody, RadioGroup, Radio} from "@nextui-org/react";
+import React, { useState, useEffect } from 'react';
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import DiploCivil from './diplomadosCivil';
 import DiploAmbiental from './diplomadosAmbient';
-import DashboardSkeleton from '@/components/home/skeletons'
-import { Suspense } from 'react'
+
+
+
 
 export default function App() {
-  const [placement, setPlacement] = React.useState("top");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    handleResize(); // Llama a la función una vez al montar el componente para establecer el estado inicial
+
+    window.addEventListener('resize', handleResize); // Agrega un event listener para detectar cambios en el tamaño de la ventana
+
+    // Limpia el event listener cuando el componente se desmonta
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col px-4">
-
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" placement={placement}>
-          <Tab key="photos" title="Ing. Civil">
+        <Tabs  color='primary' aria-label="Options" className="" placement={isMobile ? 'top' : 'start'}>
+          <Tab key="civil" title="Ing. Civil" className='text-blue-500'>
             <Card>
               <CardBody>
-                <DiploCivil/>
+                <DiploCivil />
               </CardBody>
-            </Card>  
+            </Card>
           </Tab>
-          <Tab key="music" title="Ing. Ambiental">
+          <Tab key="ambient" title="Ing. Ambiental">
             <Card>
               <CardBody>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <DiploAmbiental />
               </CardBody>
-            </Card>  
+            </Card>
           </Tab>
-          <Tab key="videos" title="Ing. Agrónoma">
+          <Tab key="agrono" title="Ing. Agrónoma">
             <Card>
               <CardBody>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </CardBody>
-            </Card>  
+            </Card>
           </Tab>
-          <Tab key="photos" title="Ing. Alimentaria">
+          <Tab key="alimentar" title="Ing. Alimentaria">
             <Card>
               <CardBody>
-                <DiploCivil/>
+                <DiploCivil />
               </CardBody>
-            </Card>  
+            </Card>
           </Tab>
-          <Tab key="photos" title="Otras Profesiones">
+          <Tab key="anothers" title="Otras Profesiones">
             <Card>
               <CardBody>
-                <DiploCivil/>
+                <DiploCivil />
               </CardBody>
-            </Card>  
+            </Card>
           </Tab>
         </Tabs>
       </div>

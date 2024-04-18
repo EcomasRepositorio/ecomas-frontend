@@ -1,9 +1,8 @@
 'use client';
-import React, { useRef, useState, useCallback } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import ScrollAnimation from "./framerAnimation";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import {Button, ButtonGroup} from "@nextui-org/react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -60,42 +59,10 @@ const SwiperCarrousel = () => {
 
   ];
 
-  const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const controls = useAnimation();
-
-  const variants = {
-      hidden: { opacity: 0, y: 100 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
-  const handleScroll = () => {
-      const elementPosition = containerRef.current.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.2;
-
-      if (elementPosition < screenPosition) {
-          setIsVisible(true);
-      }
-  };
-
-  // Attach scroll event listener when component mounts
-  React.useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-      // Cleanup function to remove the event listener when component unmounts
-      return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  React.useEffect(() => {
-      if (isVisible) {
-          controls.start("visible");
-      }
-  }, [isVisible]);
 
   return (
 
-<motion.div ref={containerRef} className=" p-1  " initial="hidden"
-      animate={controls}
-      variants={variants}>
+<ScrollAnimation>
 
       <Swiper
         slidesPerView={1}
@@ -133,16 +100,16 @@ const SwiperCarrousel = () => {
       >
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} style={{  }}>
-            <div key={index} className="rounded-xl shadow-lg  w-full ">
+            <div key={index} className=" shadow-lg  w-full ">
 
               <div className="relative object-cover ">
                 <a >
                   <Image
                     src={curso.imageUrl}
                     alt='Imagen banner'
-                    width={400}
+                    width={450}
                     height={300}
-                    className="object-cover h-96 rounded-t-xl"
+                    className="object-cover h-96 "
                   />
                 </a>
                 <a href="#!">
@@ -163,7 +130,7 @@ const SwiperCarrousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </motion.div>
+      </ScrollAnimation>
 
 );
 };

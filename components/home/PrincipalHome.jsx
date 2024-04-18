@@ -1,15 +1,12 @@
 'use client';
-import React, { useEffect } from "react";
-import { ArrowRightIcon, UserCircleIcon } from '@heroicons/react/solid';
+import React from "react";
+import { ArrowRightIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import './stylesHome.css';
 import { TypeAnimation } from 'react-type-animation';
 
 const PrincipalHome = () => {
   return (
-
-
-
         <section className="    bg-fixed " style={{ }}>
           <div className="py-8  mx-auto max-w-screen-xl lg:py-10">
             <div className="wrapper mb-2" style={{ position: "relative", width: "100%" }}>

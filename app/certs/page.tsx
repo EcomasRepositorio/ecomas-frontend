@@ -1,11 +1,12 @@
 'use client';
-import React from "react";
-import SearchCode from '@/components/certificate/SearchCode';
-import SearchDNI from '@/components/certificate/SearchDNI';
-import SearchName from '@/components/certificate/SearchName';
+import React from 'react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
-import { Link } from "react-router-dom";
-import Image from "next/image";
+
+const SearchCode = dynamic(() => import('@/components/certificate/SearchCode'));
+const SearchDNI = dynamic(() => import('@/components/certificate/SearchDNI'));
+const SearchName = dynamic(() => import('@/components/certificate/SearchName'));
 
 interface Props {
   // Define any props if needed
@@ -21,6 +22,7 @@ const TestingPage: React.FC<Props> = () => {
     // Implement handleButton functionality if needed
   };
 
+
   return (
 
     <section className=" bg-fixed " style={{}}>
@@ -31,11 +33,11 @@ const TestingPage: React.FC<Props> = () => {
             <div className="bg-white dark:bg-blackblue rounded-lg p-8 md:p-12 mb-50  " style={{ marginBottom: "20px", }}>
 
 
-              <div className="flex flex-col md:flex-row mx-auto max-w-screen-xl md:mr-12 md:p-4 " >
+              <div className="flex flex-col md:flex-row mx-auto max-w-screen-xl md:mr-0 md:p-4 " >
                 <div className="md:mr-12" >
                   <div className="flex flex-col">
-                    <h2 className="mb-4 mt-8 text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Nuestro Diplomados</h2>
-                    <p className="dark:text-white md:text-xl mb-4">Explora Nuestra Trayectoria Educativa: Descubre Nuestros Programas de Formación</p>
+                    <h2 className="mb-4 mt-8 text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Vertifica tu certificado</h2>
+                    <p className="dark:text-white md:text-xl mb-4 text-justify">Verifica la autenticidad de tu certificado ingresando tu DNI, nombres, código de certificación, u otro identificador único proporcionado al obtenerlo. Nos aseguramos de proteger tu privacidad y la confidencialidad de tus datos.</p>
 
                     <Tabs aria-label="Options" color="primary">
                       <Tab key="dni" title="Buscar por DNI" className="">
@@ -69,7 +71,7 @@ const TestingPage: React.FC<Props> = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-2 md:grid-rows-2 md:gap-y-8  md:p-8  ">
+                <div className="grid grid-cols-2 gap-4 mt-4 md:mt-0 md:w-full  md:grid-cols-2 md:grid-rows-2 md:gap-y-8  justify-items-center md:items-center ">
                   <div>
                     <Image
                       src='/image/COLEGIO DE ABOGADOS DE LA LIBERTAD.png'
@@ -104,18 +106,11 @@ const TestingPage: React.FC<Props> = () => {
                     />
                   </div>
                 </div>
-
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-
-
-
-
     </section>
   );
 }

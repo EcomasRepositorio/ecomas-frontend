@@ -1,8 +1,10 @@
-import React from 'react'
-import DiplomadosNav from '@/components/diplomadosComponents/diplomadosNav'
-import DashboardSkeleton from '@/components/home/skeletons'
-import Image from 'next/image'
-import { Suspense } from 'react'
+import React from 'react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import { Suspense } from 'react';
+
+const DiplomadosNav = dynamic(() => import('@/components/diplomadosComponents/diplomadosNav'));
+const DashboardSkeleton = dynamic(() => import('@/components/home/skeletons'));
 
 export default function Main(
   { children }: { children: React.ReactNode }
@@ -22,7 +24,7 @@ export default function Main(
         </div>
 
         <div>
-          <div className="overflow-hidden  py-8 sm:py-8">
+          <div className="overflow-hidden  py-8 sm:py-8 md:pl-20">
             <div className="mx-auto max-w-7xl px-4 lg:px-12">
               <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                 <div className="lg:pr-4 lg:pt-4">

@@ -28,6 +28,7 @@ const links = [
         href: '/#contacto',
         icon: UserGroupIcon
     },
+
 ];
 
 export default function NavLinks() {

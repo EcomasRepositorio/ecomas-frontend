@@ -1,40 +1,10 @@
 'use client';
-import React, { useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
 import Image from "next/image";
-import { UsersIcon, BookOpen, AcademicCap, Star, BookOpenIcon, AcademicCapIcon, StarIcon } from '@heroicons/react/solid'; // Corregí las importaciones de los iconos
-
+import { UsersIcon, BookOpenIcon, AcademicCapIcon, StarIcon } from '@heroicons/react/solid'; // Corregí las importaciones de los iconos
+import ScrollAnimation from "./framerAnimation";
 const PorqueNosotros = () => {
-  const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const controls = useAnimation();
 
-  const variants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
-  const handleScroll = () => {
-    const elementPosition = containerRef.current.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
-
-    if (elementPosition < screenPosition) {
-      setIsVisible(true);
-    }
-  };
-
-  // Attach scroll event listener when component mounts
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    // Cleanup function to remove the event listener when component unmounts
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  React.useEffect(() => {
-    if (isVisible) {
-      controls.start("visible");
-    }
-  }, [isVisible]);
 
   const features = [
     { name: '+3000', description: 'Alumnos beneficiados', icon: UsersIcon }, // Utiliza directamente el componente del ícono en lugar de una cadena de texto
@@ -44,10 +14,9 @@ const PorqueNosotros = () => {
   ]
 
   return (
-    <div ref={containerRef} className="">
-      <motion.div initial="hidden"
-        animate={controls}
-        variants={variants} className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16  items-center  px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+    <ScrollAnimation >
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16  items-center  px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+
         <div>
           <h2 className="text-[#0060ff] dark:text-white text-4xl font-extrabold mb-1 sm:text-4xl">¿Por qué debes elegirnos?</h2>
           <p className="mt-4 text-gray-800 dark:text-white text-justify">
@@ -100,9 +69,9 @@ const PorqueNosotros = () => {
             className='hidden md:block rounded-lg w-full h-72 object-cover object-center' // Ajusté el tamaño de la imagen
           />
         </div>
-      </motion.div>
-    </div>
 
+      </div>
+    </ScrollAnimation>
   );
 };
 
