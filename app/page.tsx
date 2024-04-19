@@ -1,5 +1,5 @@
+'use client';
 import dynamic from 'next/dynamic';
-import './globals.css'; // Importación del archivo de estilos global
 
 const PrincipalHome = dynamic(() => import('@/components/home/PrincipalHome'));
 const PorqueNosotros = dynamic(() => import('@/components/home/PorqueNosotros'));
@@ -10,6 +10,7 @@ const QuienesSomos = dynamic(() => import('@/components/home/QuienesSomos'));
 const NuestrosDiplomados = dynamic(() => import('@/components/home/NuestrosDiplomados'));
 const ContactForm = dynamic(() => import('@/components/home/ContactForm'));
 const NuestrasRedes = dynamic(() => import('@/components/home/NuestrasRedes'));
+const ScrollToTopButton = dynamic(() => import('@/components/home/slideup'));
 
 export default function Main({ children }: { children: React.ReactNode }) {
 
@@ -39,6 +40,10 @@ export default function Main({ children }: { children: React.ReactNode }) {
         <div className='my-8'>
           <NuestrasRedes />
         </div>
+        <div className='my-8'>
+          <ScrollToTopButton />
+        </div>
+
 
       </main>
     )

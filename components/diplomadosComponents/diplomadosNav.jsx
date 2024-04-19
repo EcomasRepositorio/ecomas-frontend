@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 import DiploCivil from './diplomadosCivil';
 import DiploAmbiental from './diplomadosAmbient';
+import DiploAlimentarias from './diplomadosAlimentarias';
+import DiploAgronoma from './diplomadosAgronoma';
+
 
 
 
@@ -28,7 +31,7 @@ export default function App() {
   return (
     <div className="flex flex-col px-4">
       <div className="flex w-full flex-col">
-        <Tabs  color='primary' aria-label="Options" className="" placement={isMobile ? 'top' : 'start'}>
+        <Tabs disabledKeys={["anothers"]} color='primary' aria-label="Options" className="" placement={isMobile ? 'top' : 'start'}>
           <Tab key="civil" title="Ing. Civil" className='text-blue-500'>
             <Card>
               <CardBody>
@@ -46,21 +49,21 @@ export default function App() {
           <Tab key="agrono" title="Ing. Agrónoma">
             <Card>
               <CardBody>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <DiploAgronoma />
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="alimentar" title="Ing. Alimentaria">
+          <Tab key="alimentaria" title="Ingeniería en alimentos">
             <Card>
               <CardBody>
-                <DiploCivil />
+                <DiploAlimentarias />
               </CardBody>
             </Card>
           </Tab>
           <Tab key="anothers" title="Otras Profesiones">
             <Card>
               <CardBody>
-                <DiploCivil />
+
               </CardBody>
             </Card>
           </Tab>

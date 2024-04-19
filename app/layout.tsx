@@ -35,8 +35,6 @@ export default function RootLayout({
           <Suspense fallback = {<DashboardSkeleton/>}>
             {children}
           </Suspense>
-
-
         </ThemeProvider>
         <Whatsapp />
        <Footer />

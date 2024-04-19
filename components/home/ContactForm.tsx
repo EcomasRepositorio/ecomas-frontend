@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import {Button} from "@nextui-org/react"; // Importa los componentes de modal de Next UI
 
 const ContactForm = () => {
+
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [sending, setSending] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,7 @@ const ContactForm = () => {
       }
     }
   };
+ 
 
   return (
     <section id='contacto'>
@@ -72,25 +74,25 @@ const ContactForm = () => {
                   {...register('email', { required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ })}
                   type="email"
                   required
-                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
+                  className="w-full mb-2 mt-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
                   placeholder="Ej: ejemplo@gmail.com"
                 />
-                {errors.email && <span className="p-2 rounded-xl bg-white text-sm text-red-500">Por favor, introduce un correo electrónico válido</span>}
+                {errors.email && <span className="p-2  rounded-xl bg-white text-sm text-red-500">Por favor, introduce un correo electrónico válido</span>}
               </div>
               <div>
                 <label className="font-medium text-white dark:text-white">
                   Número de teléfono
                 </label>
-                <div className="relative mt-2">
+
                   <input
                     {...register('phoneNumber', { required: true, pattern: /^\d{9}$/ })}
                     type="number"
                     placeholder="999 999 999"
                     required
-                    className="w-full  pr-3 py-2 appearance-none bg-white outline-none border focus:border-white shadow-sm rounded-lg"
+                    className="w-full my-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
                   />
-                  {errors.phoneNumber && <span className="p-2 rounded-xl bg-white text-sm text-red-500">Por favor, introduce un número de teléfono válido (9 cifras)</span>}
-                </div>
+                  {errors.phoneNumber && <span className="p-2 mt-2 rounded-xl bg-white text-sm text-red-500">Por favor, introduce un número de teléfono válido (9 cifras)</span>}
+
               </div>
               <div>
                 <label className="font-medium text-white dark:text-white">

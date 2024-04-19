@@ -1,7 +1,6 @@
 
 .container {
     background-color: #178617;
-    border: 1px solid #fff;
     position: fixed;
     z-index: 999;
     border-radius: 50%;
@@ -17,10 +16,6 @@
     transition: 0.3s;
 }
 
-.boton {
-    width: 40px;
-    transition: ease 1s;
-}
 
 @keyframes effect {
     0% {

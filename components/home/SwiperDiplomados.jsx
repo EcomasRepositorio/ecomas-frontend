@@ -3,6 +3,7 @@ import React from "react";
 import ScrollAnimation from "./framerAnimation";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,40 +22,33 @@ const SwiperCarrousel = () => {
   const cursosDestacados = [
     // Tus datos de cursos destacados
     {
-      imageUrl: "/image/ing_agricola.jpg",
-      title: "Ingeniería Agrícola",
-      date: "27 March",
-      readTime: "6 mins ago",
+      imageUrl: "/image/diplo_tecnifi.jpg",
+      title: "Sistemas de Riego Tecnificado",
+
     },
     {
-      imageUrl: "/image/ing_alimentarias.jpg",
-      title: "Ingeniería de Industrias Alimentarias",
-      date: "27 March",
-      readTime: "6 mins ago",
+      imageUrl: "/image/diplo_residuos.jpg",
+      title: "Gestión y Manejo Integral de Residuos Sólidos",
     },
     {
-      imageUrl: "/image/ing_ambiental.jpg",
-      title: "Ingeniería Ambiental",
-      date: "27 March",
-      readTime: "6 mins ago",
+      imageUrl: "/image/diplo_ssoma.jpg",
+      title: "SSOMA",
     },
     {
-      imageUrl: "/image/ing_civil.jpg",
-      title: "Ingeniería Civil",
-      date: "27 March",
-      readTime: "6 mins ago",
+      imageUrl: "/image/diplo_alim.jpg",
+      title: "Gestión de la calidad e inocuidad alimentaria",
     },
     {
-      imageUrl: "/image/ing_vial.jpg",
+      imageUrl: "/image/bim_model.jpg",
+      title: "Modelamiento BIM",
+    },
+    {
+      imageUrl: "/image/vialdiplo.jpg",
       title: "Ingeniería Vial",
-      date: "27 March",
-      readTime: "6 mins ago",
     },
     {
-      imageUrl: "/image/ing_riego.jpg",
-      title: "Sistema de Riego Tecnificado",
-      date: "27 March",
-      readTime: "6 mins ago",
+      imageUrl: "/image/tecobras.jpg",
+      title: "Asistente Técnico en Obras",
     },
 
   ];
@@ -62,7 +56,7 @@ const SwiperCarrousel = () => {
 
   return (
 
-<ScrollAnimation>
+    <ScrollAnimation>
 
       <Swiper
         slidesPerView={1}
@@ -99,8 +93,8 @@ const SwiperCarrousel = () => {
         className="mySwiper"
       >
         {cursosDestacados.map((curso, index) => (
-          <SwiperSlide key={index} style={{  }}>
-            <div key={index} className=" shadow-lg  w-full ">
+          <SwiperSlide key={index} style={{}}>
+            <div key={index} className="  w-full ">
 
               <div className="relative object-cover ">
                 <a >
@@ -112,15 +106,19 @@ const SwiperCarrousel = () => {
                     className="object-cover h-96 "
                   />
                 </a>
-                <a href="#!">
+                <Link href="/diplomados" passHref legacyBehavior>
                   <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-primaryblue transition duration-500 ease-in-out">
+
                     Más información
+
+
                   </div>
-                </a>
+                </Link>
 
               </div>
               <div className="px-6 pt-1 mb-12 pb-2">
-                <a href="#" className="font-normal text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
+
+                <a href="/" className="font-normal text-lg inline-block hover:text-primaryblue transition duration-500 ease-in-out">
                   {curso.title}
                 </a>
 
@@ -130,8 +128,8 @@ const SwiperCarrousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      </ScrollAnimation>
+    </ScrollAnimation>
 
-);
+  );
 };
 export default SwiperCarrousel;

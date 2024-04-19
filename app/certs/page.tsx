@@ -18,9 +18,6 @@ const TestingPage: React.FC<Props> = () => {
     console.log(data);
   };
 
-  const handleButton = (type: string) => {
-    // Implement handleButton functionality if needed
-  };
 
 
   return (
@@ -37,7 +34,7 @@ const TestingPage: React.FC<Props> = () => {
                 <div className="md:mr-12" >
                   <div className="flex flex-col">
                     <h2 className="mb-4 mt-8 text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">Vertifica tu certificado</h2>
-                    <p className="dark:text-white md:text-xl mb-4 text-justify">Verifica la autenticidad de tu certificado ingresando tu DNI, nombres, código de certificación, u otro identificador único proporcionado al obtenerlo. Nos aseguramos de proteger tu privacidad y la confidencialidad de tus datos.</p>
+                    <p className="dark:text-white md:text-xl mb-4 text-justify">Verifica la autenticidad de tu certificado ingresando tu DNI, nombres o código de certificación proporcionado al obtenerlo. Nos aseguramos de proteger tu privacidad y la confidencialidad de tus datos.</p>
 
                     <Tabs aria-label="Options" color="primary">
                       <Tab key="dni" title="Buscar por DNI" className="">
@@ -49,20 +46,20 @@ const TestingPage: React.FC<Props> = () => {
                           </CardBody>
                         </Card>
                       </Tab>
-                      <Tab key="name" title="Buscar por nombres">
-                        <Card>
-                          <CardBody>
-                            <div>
-                              <SearchName onSearchName={handleSearch} />
-                            </div>
-                          </CardBody>
-                        </Card>
-                      </Tab>
-                      <Tab key="code" title="Buscar por Código">
+                      <Tab key="name" title="Buscar por Código">
                         <Card>
                           <CardBody>
                             <div>
                               <SearchCode onSearchCode={handleSearch} />
+                            </div>
+                          </CardBody>
+                        </Card>
+                      </Tab>
+                      <Tab key="code" title="Buscar por nombres">
+                        <Card>
+                          <CardBody>
+                            <div>
+                              <SearchName onSearchName={handleSearch} />
                             </div>
                           </CardBody>
                         </Card>

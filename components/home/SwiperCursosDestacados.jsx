@@ -93,7 +93,7 @@ const SwiperCursosDestacados = () => {
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} >
             <div className="swiper-card-container">
-              <div className="rounded-2xl shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
+              <div className=" rounded-2xl shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
 
                 <div className="relative object-cover ">
                   <a>
@@ -105,13 +105,9 @@ const SwiperCursosDestacados = () => {
                       className="h-40 rounded-t-2xl object-cover"
                     />
                   </a>
-                  <a href="#!">
-                    <div className="absolute bottom-0 left-0 bg-[#0060ff] px-4 py-2 text-white text-sm hover:bg-white hover:text-primaryblue transition duration-500 ease-in-out">
-                      Más información
-                    </div>
-                  </a>
+
                 </div>
-                <div className="px-4 pt-1 mb-4 pb-2">
+                <div className="px-12 md:px-4  pt-1 mb-4 pb-2">
                   <a href="#" className="text-justify font-bold text-base inline-block hover:text-primaryblue transition duration-500 ease-in-out">
                     {curso.title}
                   </a>

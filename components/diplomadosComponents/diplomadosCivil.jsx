@@ -1,58 +1,80 @@
 'use client';
-import { useState } from 'react';
 import Curso from "./diplomadosAccordion";
 
-
 const DiploCivil = () => {
-
-  const [open, setOpen] = useState(0);
-
-  const handleOpen = (value) => setOpen(open === value ? null : value);
 
   // Array de objetos que contienen los datos de cada curso
   const cursosData = [
     {
-      titulo: 'Asistente Técnico en Obras',
-      imagen: '/image/tecobras.jpg',
-      fechaInicio: '01/05/2024',
-      modalidad: 'Online',
-      duracion: '4 semanas',
-      horas: '20 horas',
-      descripcion: 'El diplomado de Asistente Técnico en Obras está dirigido a personas interesadas en adquirir habilidades prácticas para trabajar eficazmente en el campo de la construcción y obras civiles. Este programa es ideal para aspirantes a técnicos de obra, trabajadores del sector de la construcción que deseen mejorar sus habilidades, y estudiantes de carreras técnicas o universitarias relacionadas con la construcción civil.',
+      area: 'INGENIERÍA CIVIL',
+      titulo: 'Modelamiento BIM',
+      imagen: '/image/bim_model.jpg',
+      fechaInicio: '04/05/2024',
+      modalidad: 'Virtual',
+      duracion: '4 meses',
+      horas: '420 horas academicas (26 creditos)',
+      descripcion: 'Este diplomado está dirigido a Ingenieros y arquitectos que se encuentran trabajando en diseño y construcción de estructuras de edificaciones, gerentes de proyectos, ingenieros revisores de proyectos estructurales y profesores de universidades que deseen desarrollar o renovar las técnicas y herramientas involucradas en el diseño estructural.',
       modulos: [
-        'Fundamentos de la construcción',
-        'Interpretación de planos arquitectónicos',
-        'Interpretación de planos estructurales',
-        'Materiales de construcción y técnicas de construcción',
-        'Supervisión y control de calidad en obras civiles',
-        'Gestión de proyectos en construcción',
-        'Normativas y regulaciones en la industria de la construcción',
-        'Seguridad laboral en el sector de la construcción',
-        'Manejo de herramientas y equipos de construcción',
-        'Tecnologías de la información aplicadas a la construcción'
+        'Tópicos Gestión con Metodología BIM',
+        'Modelado de estructuras BIM',
+        'Modelamiento de estructuras metálicas BIM',
+        'Modelado de arquitectura',
+        'Modelamiento de instalaciones sanitarias',
+        'Modelamiento de instalaciones eléctricas',
+        'Creación de planos y documentación BIM',
+        'Lean construcción y BIM',
       ]
     },
     {
+      area: 'INGENIERÍA CIVIL',
+      titulo: 'Asistente Técnico en Obras',
+      imagen: '/image/tecobras.jpg',
+      fechaInicio: '11/05/2024',
+      modalidad: 'Virtual',
+      duracion: '4 meses',
+      horas: '420 horas correspondientes a 26 créditos.',
+      descripcion: 'Bachilleres, titulados y profesionales de las carreras de ingeniería civil, industriales, sanitarios, arquitectos y ramas afines.',
+      modulos: [
+        'Expediente técnico en obras',
+        'Régimen laboral en construcción civil',
+        'Planificación y programación de obras',
+        'Control de obras',
+        'Metrados en edificaciones',
+        'Cuaderno de obra físico y digital',
+        'Costos y Presupuestos con S10',
+        'Valorización de obras',
+        'Liquidación de obras',
+        'Formulación y planificación de proyectos con MS Project'
+      ]
+    },
+
+    {
+      area: 'INGENIERÍA CIVIL',
       titulo: 'Ingeniería Vial',
       imagen: '/image/vialdiplo.jpg',
-      fechaInicio: '15/06/2024',
-      modalidad: 'Presencial',
-      duracion: '6 semanas',
-      horas: '30 horas',
-      descripcion: 'El diplomado en ingeniería vial está dirigido principalmente a ingenieros civiles, profesionales del sector vial, estudiantes de ingeniería civil o vial, gestores de proyectos de infraestructura vial y profesionales de campo relacionados con la vialidad. ',
+      fechaInicio: '18/05/2024',
+      modalidad: 'Virtual',
+      duracion: '4 meses',
+      horas: '420 horas academicas (26 creditos)',
+      descripcion: 'Bachilleres, Gerentes y administradores de proyectos de la construcción y jefes de área. Ingenieros civiles, topógrafos, arquitectos residentes y supervisores de obras. Profesionales del sector público y privado relacionados con proyectos viales. ',
       modulos: [
-        'Introducción al diseño estructural',
-        'Cargas y combinaciones de carga',
-        'Diseño de elementos estructurales',
-        'Diseño de sistemas estructurales',
-        'Diseño sísmico',
-        'Diseño de cimentaciones',
-        'Análisis y diseño de estructuras de acero',
-        'Análisis y diseño de estructuras de concreto',
-        'Software de diseño estructural'
+        'Tráfico y carga.',
+        'Topografía, diseño geométrico, señalización y seguridad vial.',
+        'Geología – Geotecnia.',
+        'Mecánica de suelos en carreteras.',
+        'Suelos y pavimentos.',
+        'Hidrología e hidráulica.',
+        'Estructuras en carreteras - puentes.',
+        'Metrados, costos y presupuestos – cronograma.',
+        'Arqueología en ingeniería vial. ',
+        'Estudio medio ambiental – derecho de vía – interferencias Túneles.',
+        'Diseño, construcción y mantenimiento de túneles.',
+        'Integración de proyectos de infraestructura vial.',
+
       ]
-    }
-    // Puedes agregar más cursos aquí si es necesario
+    },
+
+
   ];
 
   return (

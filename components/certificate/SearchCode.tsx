@@ -4,6 +4,7 @@ import axios from 'axios'
 import { SearchCodeProps, StudentCode } from '../../interface/interface';
 import Modal from '../share/Modal';
 import { Button } from '@nextui-org/react';
+import {Spinner} from "@nextui-org/react";
 
 const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
 
@@ -67,6 +68,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
   ];
   return (
     <div className="">
+      
 
       <form onSubmit={searchCode} className="w-full ">
 
@@ -97,8 +99,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
       </form>
 
 
-
-      {loading && <p>Cargando...</p>}
+      {loading && <Spinner />}
       {studentData && (
         <Modal open={open} onClose={() => setOpen(false)}>
           <div className='flex justify-center mb-4'>

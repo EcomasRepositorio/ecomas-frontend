@@ -1,24 +1,53 @@
 import React from 'react';
 import Image from 'next/image';
 import { Accordion, AccordionItem } from '@nextui-org/react';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+
+const DashboardSkeleton = dynamic(() => import('@/components/home/skeletons'));
 
 const Curso = ({ curso }) => {
+  function toRoman(num) {
+    const romanNumerals = [
+      { value: 10, numeral: 'X' },
+      { value: 9, numeral: 'IX' },
+      { value: 5, numeral: 'V' },
+      { value: 4, numeral: 'IV' },
+      { value: 1, numeral: 'I' }
+    ];
+
+    let result = '';
+
+    for (const pair of romanNumerals) {
+      while (num >= pair.value) {
+        result += pair.numeral;
+        num -= pair.value;
+      }
+    }
+
+    return result;
+  }
+
+
+
   return (
     <div className="text-gray-600 body-font overflow-hidden mb-4">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
+        <Suspense fallback={<DashboardSkeleton />}>
           <Image
             src={curso.imagen}
             alt="ecommerce"
-            width={600}
-            height={600}
+            width={800}
+            height={800}
             className="lg:w-1/2 lg:h-auto object-cover object-center rounded-lg"
           />
+        </Suspense>
           <div className="lg:w-1/2 lg:pl-10 lg:py-6 mb-6 lg:mb-0">
-            <h2 className="text-sm title-font text-gray-500 dark:text-white tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">INGENIERÍA CIVIL</h2>
+            <h2 className="text-sm title-font text-gray-500 dark:text-white tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">{curso.area}</h2>
             <h1 className="text-primaryblue text-3xl title-font font-medium mb-4">{curso.titulo}</h1>
             <Accordion defaultExpandedKeys={["1"]}>
-              <AccordionItem key="1" aria-label="Accordion 1" subtitle="Presiona para abrir"
+              <AccordionItem key="1" aria-label="Accordion 1" subtitle=""
                 title={
                   <h2 className='text-blackblue dark:text-white'>Detalles del diplomado</h2>
                 }>
@@ -55,7 +84,7 @@ const Curso = ({ curso }) => {
                 aria-label="Accordion 2"
                 subtitle={
                   <span>
-                    Presiona para abrir
+
                   </span>
                 }
                 title={
@@ -66,15 +95,18 @@ const Curso = ({ curso }) => {
                   {curso.descripcion}
                 </div>
               </AccordionItem>
-              <AccordionItem key="3" aria-label="Accordion 3" subtitle="Presiona para abrir"
+              <AccordionItem key="3" aria-label="Accordion 3" subtitle=""
                 title={
                   <h2 className='text-blackblue dark:text-white'>¿Con qué módulos cuenta el diplomado?</h2>
                 }>
                 <ul className="list-disc pl-5 text-gray-800 dark:text-white">
                   {curso.modulos.map((modulo, moduloIndex) => (
-                    <li key={moduloIndex}>{modulo}</li>
+                    <li key={moduloIndex}>
+                      <span className='font-bold'>MÓDULO {toRoman(moduloIndex + 1)}: </span>{modulo}
+                    </li>
                   ))}
                 </ul>
+
               </AccordionItem>
             </Accordion>
           </div>

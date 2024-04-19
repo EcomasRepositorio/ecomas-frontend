@@ -2,7 +2,6 @@
 
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
-const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = {
   content: [

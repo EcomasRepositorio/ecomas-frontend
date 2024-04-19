@@ -1,7 +1,12 @@
 "use client"
 import React, { useState } from 'react';
 import axios from 'axios';
-import Whatsapp from '@/components/whatsapp/Index'
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import { Input } from "@nextui-org/input";
+import { Button } from '@nextui-org/react';
+import { EyeFilledIcon } from "./EyeFilledIcon";
+import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 
 type ResErrors = {
   message: string;
@@ -19,12 +24,18 @@ const dataForm = {
   email: '',
   password: '',
   role: true,
-  token:'',
+  token: '',
 };
 
 const Login: React.FC = () => {
   const [resErrors, setResErrors] = useState<ResErrors | null>(null);
   const [form, setForm] = useState<Auth>(dataForm);
+  const { theme } = useTheme();
+  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
+
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleFormData = (
     { target }: React.ChangeEvent<HTMLInputElement>,
@@ -51,117 +62,86 @@ const Login: React.FC = () => {
         const { data } = error.response;
 
         if (data.error === 'invalid_password') {
-          setResErrors({ message: 'Contraseña incorrecta', errorContent: data.errorContent });
+          setResErrors({ message: 'Credenciales incorrectas', errorContent: data.errorContent });
         } else if (data.error === 'user_not_found') {
-          setResErrors({ message: 'Email no encontrado', errorContent: data.errorContent });
+          setResErrors({ message: 'Credenciales incorrectas', errorContent: data.errorContent });
         } else {
-          setResErrors({ message: 'Datos incorrectos', errorContent: '' });
+          setResErrors({ message: 'Credenciales incorrectas', errorContent: '' });
         }
       } else {
         setResErrors({ message: 'Error en el servidor', errorContent: '' });
       }
     }
   };
-  const buttonStyle = {
-      background: "linear-gradient(to right, #002e79, #006eb0)",
-    };
+
   return (
-  <section className="flex justify-center gradient-form h-full bg-neutral-100">
-    <div className="container h-full p-10 mb-2 lg:mb-24 lg:mt-16 mt-0">
-      <div
-        className="g-6 flex h-full flex-wrap items-center justify-center text-gray-600">
-        <div className="w-full">
-          <div
-            className="block rounded-3xl bg-neutral-200 shadow-lg">
-            <div className="g-0 lg:flex lg:flex-wrap">
-
-              <div className="px-4 md:px-0 lg:w-6/12">
-                <div className="md:mx-6 md:p-12">
-
-                  <div className="text-center">
-                    <img
-                      className="mx-auto w-48"
-                      src="/certificate/logo_cimade.png"
-                      alt="logo" />
-                    <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                    </h4>
-                  </div>
-                  <form>
-                    <p className="flex justify-center text-gray-600 mb-8 font-semibold text-xl">Iniciar sesión</p>
-                      {resErrors?.message && (
-                        <span className="text-error text-sm">{resErrors.message}</span>
-                      )}
-
-                    <div className="flex justify-center relative mb-6" data-te-input-wrapper-init>
-                      <input
-                        type="text"
-                        className="peer block min-h-[auto] lg:w-96 w-full rounded-lg border-2 border-gray-500 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none "
-                        id="exampleFormControlInput1"
-                        placeholder="Email"
-                        onChange={(event) => handleFormData(event, "email")}/>
-                      <label
-                        htmlFor="exampleFormControlInput1"
-                        className=""
-                        >
-                      </label>
-                    </div>
-
-                    <div className="flex justify-center relative mb-4" data-te-input-wrapper-init>
-                      <input
-                        type="password"
-                        className="peer block min-h-[auto] lg:w-96 w-full rounded-lg border-2 border-gray-500 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none"
-                        id="exampleFormControlInput11"
-                        placeholder="Password"
-                        autoComplete="on"
-                        onChange={(event) => handleFormData(event, "password")}/>
-                      <label
-                        htmlFor="exampleFormControlInput11"
-                        className=""
-                        >
-                      </label>
-                    </div>
-                    <div className="mb-12 pb-1 pt-1 text-center">
-                      <button
-                        className="mb-3 inline-block w-36 rounded-lg px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                        type="button"
-                        data-te-ripple-init
-                        data-te-ripple-color="light"
-                        style={buttonStyle}
-                        value="login"
-                        onClick={() => onSubmit()}>
-                        Iniciar sesión
-                      </button>
-                    </div>
-                  </form>
+    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div className="p-10  items-center">
+        <div className="text-gray-600">
+          <div className="rounded-3xl bg-white dark:bg-blackblue">
+            <div className="md:px-0">
+              <div className="p-4 md:p-12">
+                <div className="text-center">
+                  <Image
+                    className="mx-auto mb-4"
+                    src={imageSrc}
+                    alt="logo"
+                    width={300}
+                    height={300}
+                  />
                 </div>
-              </div>
-
-              <div
-                className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-3xl lg:rounded-bl-none"
-                style={buttonStyle}>
-                <div className="px-4 py-6 text-white md:mx-6 md:p-12">
-                  <h4 className="flex justify-center mb-6 text-xl font-semibold">
-                    CIMADE
-                  </h4>
-                  <p className="text-lg font-semibold">
-
-                    Cimade Con una sólida trayectoria de 4 años, nuestra institución se destaca por su compromiso en la formación y desarrollo de profesionales.
-                    Ofrecemos cursos y diplomados de alta calidad que impulsan el crecimiento y la capacitación en áreas clave. Nuestra dedicación a la excelencia
-                    educativa y la adaptabilidad a las demandas del mercado nos permiten marcar una diferencia significativa en la formación de profesionales.
-
-                  Cimade con una sólida trayectoria de 4 años, nuestra institución se destaca por su compromiso en la formación y desarrollo de profesionales.
-                  Ofrecemos cursos y diplomados de alta calidad que impulsan el crecimiento y la capacitación en áreas clave. Nuestra dedicación a la excelencia
-                  educativa y la adaptabilidad a las demandas del mercado nos permiten marcar una diferencia significativa en la formación de profesionales.
+                <form>
+                  <p className="text-gray-600 dark:text-white text-center mb-4">
+                    Por favor ingresa tu correo y contraseña para ingresar:
                   </p>
-                </div>
+                  {resErrors?.message && (
+                    <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
+                  )}
+                  <div className="mb-4" data-te-input-wrapper-init>
+                    <Input
+                      type="email"
+                      label="Correo electrónico"
+                      className=""
+                      onChange={(event) => handleFormData(event, "email")}
+                    />
+                  </div>
+                  <div className="mb-4" data-te-input-wrapper-init>
+                    <Input
+                      type={isVisible ? "text" : "password"}
+                      label="Contraseña"
+                      className=""
+                      autoComplete="on"
+                      endContent={
+                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                          {isVisible ? (
+                            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                          ) : (
+                            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                          )}
+                        </button>
+                      }
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleFormData(event, "password")}
+                    />
+
+                  </div>
+                  <div className="">
+                    <Button
+                      className="w-full"
+                      color='primary'
+                      value="login"
+                      onClick={() => onSubmit()}
+                    >
+                      Iniciar sesión
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </section>
   )
 }
 
