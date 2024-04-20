@@ -45,6 +45,7 @@ const Header = () => {
   return (
     <>
       <Navbar
+      shouldHideOnScroll
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth={'full'}
@@ -69,13 +70,14 @@ const Header = () => {
 
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="https://google.com" >
+            <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" >
               Aula Virtual
             </Button>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
       <Navbar
+        shouldHideOnScroll
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
@@ -130,13 +132,13 @@ const Header = () => {
               </Link>
             </NavbarMenuItem>
 
-            
+
 
           ))}
           <ThemeSwitcher />
           <Link href="/login">
-          <UserCircleIcon width={40} height={40} onClick={handleMenuItemClick}></UserCircleIcon>
-            </Link>
+            <UserCircleIcon width={40} height={40} onClick={handleMenuItemClick}></UserCircleIcon>
+          </Link>
         </NavbarMenu>
       </Navbar>
     </>

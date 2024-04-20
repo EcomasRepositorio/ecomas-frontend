@@ -90,38 +90,47 @@ const Login: React.FC = () => {
                     height={300}
                   />
                 </div>
-                <form>
-                  <p className="text-gray-600 dark:text-white text-center mb-4">
-                    Por favor ingresa tu correo y contraseña para ingresar:
-                  </p>
-                  {resErrors?.message && (
-                    <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
-                  )}
-                  <div className="mb-4" data-te-input-wrapper-init>
-                    <Input
-                      type="email"
-                      label="Correo electrónico"
-                      className=""
-                      onChange={(event) => handleFormData(event, "email")}
-                    />
+
+                <form className="w-full max-w-sm">
+                  <div className="md:flex md:items-center mb-6">
+                    <div className="md:w-1/3">
+                      <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                        Correo electrónico:
+                      </label>
+                    </div>
+
+                    {resErrors?.message && (
+                      <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
+                    )}
+                    <div className="md:w-2/3">
+                      <input onChange={(event) => handleFormData(event, "email")} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue" id="username" type="email" placeholder="Correo Electrónico"></input>
+                    </div>
                   </div>
-                  <div className="mb-4" data-te-input-wrapper-init>
-                    <Input
-                      type={isVisible ? "text" : "password"}
-                      label="Contraseña"
-                      className=""
-                      autoComplete="on"
-                      endContent={
-                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
-                          {isVisible ? (
-                            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-                          ) : (
-                            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-                          )}
-                        </button>
-                      }
-                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleFormData(event, "password")}
-                    />
+                  <div className="md:flex md:items-center mb-6">
+                    <div className="md:w-1/3">
+                      <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                        Contraseña:
+                      </label>
+                    </div>
+                    <div className="md:w-2/3 relative">
+                      <input
+                        type={isVisible ? "text" : "password"}
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 pr-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue"
+                        id="inline-password"
+                        autoComplete='on'
+                        placeholder="******************"
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleFormData(event, "password")}
+                      />
+                      <button className="absolute right-0 top-0 mt-2 mr-4 focus:outline-none" type="button" onClick={toggleVisibility}>
+                        {isVisible ? (
+                          <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                        ) : (
+                          <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                        )}
+                      </button>
+                    </div>
+
+
 
                   </div>
                   <div className="">

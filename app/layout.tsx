@@ -22,7 +22,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    
     <html suppressHydrationWarning lang="es">
+      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css"/>
       <body className={`${inter.className} dark:bg-blackblue`} >
         <ThemeProvider
           attribute="class"
@@ -40,6 +42,7 @@ export default function RootLayout({
        <Footer />
         
       </body>
+      <script src="//cdn.datatables.net/2.0.5/js/dataTables.min.js" />
     </html>
   )
 }

@@ -93,7 +93,7 @@ const SwiperCursosDestacados = () => {
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} >
             <div className="swiper-card-container">
-              <div className=" rounded-2xl shadow-lg object-cover w-full flex flex-col mb-8 h-[340px]">
+              <div className=" rounded-2xl  object-cover w-full flex flex-col mb-8 h-[340px]">
 
                 <div className="relative object-cover ">
                   <a>

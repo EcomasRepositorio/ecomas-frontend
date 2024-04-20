@@ -20,6 +20,9 @@ import SearchStudent from "@/components/student/SearchStudent";
 import { logout } from "@/components/utils/auth.server";
 import DuplicatedCode from "@/components/student/VerifyCode";
 import Link from "next/link";
+import DataTable from 'datatables.net-dt';
+import $ from 'jquery';
+import 'datatables.net';
 
 const Student = () => {
   const [isActive, setIsActive] = useState(false);
@@ -37,6 +40,21 @@ const Student = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(20);
   const [offset, setOffset] = useState(0);
+
+  $(document).ready(() => {
+    $('#myTable').DataTable({
+      retrieve: true,
+      language: {
+        lengthMenu: 'Mostrar _MENU_ registros por página',
+        zeroRecords: 'No se encontró nada - sorry :(',
+        info: 'Mostrando página _PAGE_ de _PAGES_',
+        infoEmpty: 'No hay registros :(',
+        infoFiltered: '(Filtrado de _MAX_ registros totales)',
+        search: 'Buscar por cualquier dato: ',
+      }
+    });
+  });
+  
 
   const toggleIsActive = () => {
     setIsActive(!isActive);
@@ -64,10 +82,10 @@ const Student = () => {
       }
     }
   };
- /*  useEffect(() => {
-    onSubmit();
-  }, [token]);
- */
+  /*  useEffect(() => {
+     onSubmit();
+   }, [token]);
+  */
   //CreateStudents
   const handleCreateSuccess = async (createStudentId: number) => {
     try {
@@ -259,9 +277,8 @@ const Student = () => {
         {botonesPagina.map((index) => (
           <li key={index}>
             <button
-              className={`block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white ${
-                currentPage === index ? "font-semibold" : ""
-              }`}
+              className={`block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white ${currentPage === index ? "font-semibold" : ""
+                }`}
               onClick={() => handlePageChange(index)}
             >
               {index}
@@ -286,8 +303,8 @@ const Student = () => {
     <section className="p-2">
       {/* <div className="text-center text-gray-500 lg:p-6 text-2xl font-semibold mb-10 mt-8"> */}
 
-      <div className="text-center text-gray-500 lg:p-6 p-0 mt-8 mb-10 text-2xl font-semibold">
-        <a className="border shadow-2xl p-4 rounded-xl">
+      <div className="text-center text-white lg:p-6 p-0 mt-8 mb-10 text-2xl font-semibold">
+        <a className="border shadow-2xl p-4 rounded-xl bg-primaryblue">
           ADMINISTRAR ESTUDIANTES
         </a>
       </div>
@@ -370,41 +387,41 @@ const Student = () => {
         </a>
       )}
       {dataLoading && memoryData && (
-        <div className="overflow-x-auto bg-white p-2 mt-4">
-          <table className="min-w-full text-sm whitespace-nowrap shadow-2xl">
-            <thead className="uppercase text-center tracking-wider bg-neutral-300">
+        <div className="overflow-x-auto bg-white dark:bg-blackblue p-2 mt-4 ">
+          <table id="myTable" className="min-w-full text-sm whitespace-nowrap shadow-2xl">
+            <thead className="uppercase  bg-neutral-300">
               <tr className="text-gray-700 ">
-                <th scope="col" className="px-6 py-4">
-                  #
+                <th scope="col" className=" ">
+                  Nro.
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   DNI
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Nombre
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Código
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className="px-20 ">
                   Actividad academica
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Participación
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Instituto
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Hora/Créditos
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Fecha
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Certificado
                 </th>
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" className=" ">
                   Acción
                 </th>
               </tr>
@@ -415,32 +432,32 @@ const Student = () => {
                   key={index}
                   className="text-center text-gray-500 border-b font-semibold hover:bg-gray-100"
                 >
-                  <th scope="row" className="px-6 py-4">
+                  <th scope="row" className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {memoryData.length - (startIndex + index)}
                     </span>
                   </th>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.documentNumber}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.name}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.code}
                     </span>
                   </td>
-                  <td className="px- py-">
+                  <td className="px-20 py-">
                     <span
                       style={{
                         whiteSpace: "normal",
                         display: "block",
-                        maxWidth: "1200px",
+
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                       }}
@@ -448,27 +465,27 @@ const Student = () => {
                       {student.activityAcademy}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.participation}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.institute}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.hour}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
                       {student.date}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className=" ">
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -479,7 +496,7 @@ const Student = () => {
                       </span>
                     </a>
                   </td>
-                  <td className="flex justify-center px-6 py-3 ">
+                  <td className="flex justify-center  py-3 ">
                     <div className="flex items-center gap-6">
                       <div>
                         <button
@@ -511,39 +528,7 @@ const Student = () => {
             </tbody>
           </table>
 
-          <nav
-            className="mt-5 flex items-center flex-col sm:flex-row justify-between text-sm"
-            aria-label="Page navigation example"
-          >
-            <p>
-              Página{" "}
-              <strong>
-                {startIndex + 1}-{endIndex}
-              </strong>{" "}
-              de <strong>{memoryData.length}</strong>
-            </p>
-            <ul className="list-style-none flex">
-              <li>
-                <button
-                  className="block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
-                  onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-                >
-                  Anterior
-                </button>
-              </li>
-              {renderPageButtons()}
-              <li>
-                <button
-                  className=" block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
-                  onClick={() =>
-                    handlePageChange(Math.min(pageCount, currentPage + 1))
-                  }
-                >
-                  Siguiente
-                </button>
-              </li>
-            </ul>
-          </nav>
+          
         </div>
       )}
     </section>

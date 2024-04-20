@@ -22,9 +22,11 @@ export default function Main({ children }: { children: React.ReactNode }) {
         </div>
         
         <NuestrosDiplomados />
+        
         <div className="   rounded-lg  mx-auto max-w-screen-xl ">
           <SwiperCarrouselDiplomados />
         </div>
+
         <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-8 ">
           <PorqueNosotros />
         </div>

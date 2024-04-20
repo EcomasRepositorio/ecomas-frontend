@@ -89,7 +89,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
             <Button
               color='primary'
               type="submit"
-              className="ml-auto" // Añade margen izquierdo
+              className="ml-auto -mt-5" // Añade margen izquierdo
               onClick={() => setOpen(true)}>
               Buscar
             </Button>

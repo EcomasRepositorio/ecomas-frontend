@@ -107,7 +107,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
             <Button
               color='primary'
               type="submit"
-              className="ml-auto">
+              className="ml-auto -mt-5">
               Buscar
             </Button>
           </div>
