@@ -50,7 +50,7 @@ const Header = () => {
         onMenuOpenChange={setIsMenuOpen}
         maxWidth={'full'}
         position='sticky'
-        className='hidden md:block  bg-white dark:bg-blackblue '>
+        className='z-0 hidden md:block  bg-white dark:bg-blackblue '>
         <Link href="/">
           <Image
             src={imageSrc}
@@ -81,7 +81,7 @@ const Header = () => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className='bg-gradient-to-r from-[#02227b] to-[#0060ff]'
+        className='z-20 bg-gradient-to-r from-[#02227b] to-[#0060ff]'
         position='sticky'>
         <NavbarContent className="sm:hidden" justify="center">
           <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />

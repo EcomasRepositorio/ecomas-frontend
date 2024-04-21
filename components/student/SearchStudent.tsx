@@ -125,7 +125,7 @@ const SearchName:React.FC<SearchStudentDNIProps> = ({ onSearchDNI }) => {
     </div>
   </form>
   {memoryData !== undefined && (
-    <ModalTable open={memoryData.length > 0} onClose={closeTableModal}>
+    <ModalTable open={memoryData.length > 0} onClose={closeTableModal} >
    <div className="overflow-x-auto bg-white p-2 mt-4">
     <table className="min-w-full text-sm whitespace-nowrap shadow-2xl">
 

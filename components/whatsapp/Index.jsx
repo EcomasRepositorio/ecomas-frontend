@@ -5,7 +5,7 @@ import styles from './Style.module.css'
 const Whatsapp = () => {
   return (
     <div className={styles.container}>
-      <Link href='https://api.whatsapp.com/send?phone=51900102090' target='_blank'>
+      <Link href='https://wa.me/51921818181' target='_blank'>
       <svg
       width={50}
       height={50}

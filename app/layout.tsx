@@ -8,8 +8,9 @@ const inter = Inter({ subsets: ['latin'], }
 )
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { Suspense } from 'react';
-import DashboardSkeleton  from '@/components/home/skeletons';
+import DashboardSkeleton from '@/components/home/skeletons';
 import Whatsapp from '@/components/whatsapp/Index';
+import Link from 'next/link'
 
 
 export const metadata: Metadata = {
@@ -22,10 +23,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    
-    <html suppressHydrationWarning lang="es">
-      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css"/>
+
+    <html lang="es">
       <body className={`${inter.className} dark:bg-blackblue`} >
+        
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -34,15 +35,15 @@ export default function RootLayout({
         >
           <link rel="icon" href="image/ICONO-COLOR.png" />
           <Header />
-          <Suspense fallback = {<DashboardSkeleton/>}>
-            {children}
-          </Suspense>
+
+          {children}
+
         </ThemeProvider>
         <Whatsapp />
-       <Footer />
-        
+        <Footer />
+      
       </body>
-      <script src="//cdn.datatables.net/2.0.5/js/dataTables.min.js" />
+
     </html>
   )
 }

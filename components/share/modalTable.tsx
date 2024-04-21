@@ -22,7 +22,7 @@ const ModalTable: React.FC<{
 
   return (
     <div
-      className={`fixed inset-0 p-4 flex justify-center items-center transition-all ${overlayClass}`}
+      className={`z-30 fixed inset-0 p-4 flex justify-center items-center transition-all ${overlayClass}`}
       onClick={handleClickOverlay}>
       <div
         className={`bg-white rounded-2xl shadow p-5 transition-all w-full sm:${modalWidth} ${

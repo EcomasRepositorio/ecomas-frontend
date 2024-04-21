@@ -1,9 +1,8 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import { Input } from "@nextui-org/input";
 import { Button } from '@nextui-org/react';
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
@@ -33,7 +32,7 @@ const Login: React.FC = () => {
   const { theme } = useTheme();
   const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
 
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -47,7 +46,25 @@ const Login: React.FC = () => {
 
   const saveToken = (token: string) => {
     localStorage.setItem('token', token);
+
   };
+
+  const getToken = (): string | null => {
+    return localStorage.getItem('token');
+  };
+
+  const redirectIfLoggedIn = () => {
+    const token = getToken();
+    if (token) {
+      window.location.href = 'student'; // Redirige a la siguiente página
+    }
+  };
+
+  useEffect(() => {
+    redirectIfLoggedIn(); // Verifica si el usuario ya está logueado al cargar la página
+  }, []); // Se ejecuta solo una vez al cargar el componente
+
+
 
   const onSubmit = async () => {
     try {
@@ -71,8 +88,15 @@ const Login: React.FC = () => {
       } else {
         setResErrors({ message: 'Error en el servidor', errorContent: '' });
       }
+
+      // Restablecer los errores después de 3 segundos
+      setTimeout(() => {
+        setResErrors(null);
+      }, 3000);
     }
   };
+
+
 
   return (
     <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -90,6 +114,9 @@ const Login: React.FC = () => {
                     height={300}
                   />
                 </div>
+                {resErrors?.message && (
+                  <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
+                )}
 
                 <form className="w-full max-w-sm">
                   <div className="md:flex md:items-center mb-6">
@@ -99,9 +126,7 @@ const Login: React.FC = () => {
                       </label>
                     </div>
 
-                    {resErrors?.message && (
-                      <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
-                    )}
+
                     <div className="md:w-2/3">
                       <input onChange={(event) => handleFormData(event, "email")} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue" id="username" type="email" placeholder="Correo Electrónico"></input>
                     </div>

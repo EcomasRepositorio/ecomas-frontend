@@ -4,6 +4,7 @@ import axios from 'axios'
 import { SearchNameProps, Student } from '@/interface/interface';
 import Modal from '../share/Modal';
 import { Button, Spinner } from "@nextui-org/react";
+import Image from 'next/image';
 
 interface StudentCode extends Student {
   hour: string;
@@ -175,21 +176,40 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                   </td>
                   {selectedStudentData && (
                     <Modal open={openModals[index]} onClose={() => closeStudentModal(index)}>
-                      <div className='flex justify-center mb-4'>
-                        <img src={'/certificate/logo_unp.png'} className="lg:w-32 lg:h-32 w-28 h-28 object-contain" />
-                        <img src={'/certificate/logo_cimade.png'} className="lg:w-32 lg:h-32 w-28 h-28 object-contain" />
-                        <img src={'/certificate/logo_cip_tacna.png'} className="lg:w-32 lg:h-32 w-28 h-28 object-contain " />
+                      <div className='flex justify-center items-center mb-4 gap-1'>
+                        <Image src={'/certificate/ESCUELA DE POSGRADO DE LA UNP.png'} alt='rizo' className="md:w-20 w-16  object-contain mt-2" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/LOGO-VERTICAL-COLOR.png'} alt='rizo' className="md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/COLEGIO DE ABOGADOS DE LA LIBERTAD.png'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/COLEGIO DE INGENIEROS DEL PERÚ.png'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
                       </div>
-                      <div className="max-w-md mx-auto p-6 bg-white rounded-md">
+                      <div className="max-w-md text-center bg-white rounded-md mx-auto">
                         {tableRows.map((row, index) => (
                           <div key={index} className="mb-4">
-                            <div className="flex items-center text-gray-100 text-sm p-1 lg:ml-5 ml-0 lg:w-80 w-full rounded-lg bg-slate-600 font-semibold">
-                              {row.imgSrc && <img src={row.imgSrc} alt={row.label} className="flex lg:w-5 lg:h-5 w-5 h-5 object-contain ml-1" />}
+                            <div className="inline-flex items-center text-gray-100 text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
+                              {row.imgSrc && <Image src={row.imgSrc} alt={row.label} className="flex lg:w-5 lg:h-5 w-5 h-5 object-contain ml-1" width={800} height={800} />}
                               <div className='flex-1 text-center'>
                                 {row.label}
                               </div>
                             </div>
-                            <div className="text-gray-600 mt-3 mb-5 text-sm font-semibold">{row.value}</div>
+
+                            <div className="flex justify-center text-gray-600 mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
+                              {row.label === 'Organizado por:' ? (
+                                <span>
+                                  {row.value && (
+                                    <span>
+                                      {row.value.split(' ').map((word, i, arr) => (
+                                        <React.Fragment key={i}>
+                                          {i !== arr.length - 1 ? word + ' ' : <><br />{word}</>}
+                                        </React.Fragment>
+                                      ))}
+                                    </span>
+                                  )}
+                                </span>
+                              ) : (
+                                <span>{row.value}</span>
+                              )}
+                            </div>
+
                           </div>
                         ))}
                       </div>

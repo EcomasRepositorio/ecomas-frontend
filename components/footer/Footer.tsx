@@ -33,23 +33,23 @@ export default () => {
                             <div className="gap-4">
                                 <div className="flex items-center text-white">
                                     <PhoneIcon className="w-5 h-5 mr-2" />
-                                    <span>Número de celular: <a href="tel:+1234567890">+1234567890</a></span>
+                                    <span>Número de celular: <a href="tel:+1234567890">+51921818181</a></span>
                                 </div>
 
                                 <div className="flex items-center text-white">
                                     <AtSymbolIcon className="w-5 h-5 mr-2" />
-                                    <span>Correo electrónico: <a href="mailto:info@example.com">info@example.com</a></span>
+                                    <span>Correo electrónico: <a href="mailto:info@example.com">contacto@ecomas.pe</a></span>
                                 </div>
 
                                 <div className="flex items-center text-white">
                                     <ClockIcon className="w-5 h-5 mr-2" />
-                                    <span>Horario de atención: Lunes a Viernes, 9am - 5pm</span>
+                                    <span>Horario de atención: Jueves a Martes, 9am - 6pm</span>
                                 </div>
                             </div>
 
-
+                         
                             <div className="flex gap-4 mt-3">
-                                <a href="#" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
+                                <a href="https://web.facebook.com/ecomascyc" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
                                     <svg
                                         className='h-5 w-5 '
                                         xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ export default () => {
                                         <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"></path>
                                     </svg>
                                 </a>
-
-                                <a href="#" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
+                        
+                                <a href="https://www.tiktok.com/@ecomas_cyc" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill='white'
@@ -75,8 +75,8 @@ export default () => {
                                         <path d="M256 0c141.39 0 256 114.61 256 256S397.39 512 256 512 0 397.39 0 256 114.61 0 256 0zm57.5 106.01c.01 4.58 1.36 70.83 70.87 74.96 0 19.1.02 32.95.02 51.18-5.26.3-45.76-2.64-70.97-25.12l-.08 99.64c.96 69.16-49.93 111.24-116.46 96.7-114.71-34.31-76.59-204.44 38.59-186.24 0 54.93.03-.01.03 54.93-47.58-7-63.5 32.58-50.85 60.93 11.5 25.8 58.88 31.39 75.41-5.01 1.87-7.12 2.8-15.25 2.8-24.37V105.76z"></path>
                                     </svg>
                                 </a>
-
-                                <a href="#" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
+                         
+                                <a href="https://wa.me/51921818181" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className='h-5 w-5'
@@ -91,8 +91,8 @@ export default () => {
                                         <path d="M256.064 0h-.128C114.784 0 0 114.816 0 256c0 56 18.048 107.904 48.736 150.048l-31.904 95.104 98.4-31.456C155.712 496.512 204 512 256.064 512 397.216 512 512 397.152 512 256S397.216 0 256.064 0zm148.96 361.504c-6.176 17.44-30.688 31.904-50.24 36.128-13.376 2.848-30.848 5.12-89.664-19.264-75.232-31.168-123.68-107.616-127.456-112.576-3.616-4.96-30.4-40.48-30.4-77.216s18.656-54.624 26.176-62.304c6.176-6.304 16.384-9.184 26.176-9.184 3.168 0 6.016.16 8.576.288 7.52.32 11.296.768 16.256 12.64 6.176 14.88 21.216 51.616 23.008 55.392 1.824 3.776 3.648 8.896 1.088 13.856-2.4 5.12-4.512 7.392-8.288 11.744-3.776 4.352-7.36 7.68-11.136 12.352-3.456 4.064-7.36 8.416-3.008 15.936 4.352 7.36 19.392 31.904 41.536 51.616 28.576 25.44 51.744 33.568 60.032 37.024 6.176 2.56 13.536 1.952 18.048-2.848 5.728-6.176 12.8-16.416 20-26.496 5.12-7.232 11.584-8.128 18.368-5.568 6.912 2.4 43.488 20.48 51.008 24.224 7.52 3.776 12.48 5.568 14.304 8.736 1.792 3.168 1.792 18.048-4.384 35.52z"></path>
                                     </svg>
                                 </a>
-
-                                <a href="#" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
+                     
+                                <a href="https://www.instagram.com/ecomas_cyc/" target="_blank" className="text-white transition duration-100 hover:text-gray-100 active:text-gray-600">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className='w-5 h-5'
@@ -122,26 +122,26 @@ export default () => {
                                 </div>
 
                                 <div>
-                                    <Link href="/" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
+                                    <Link href="/diplomados" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
                                         Diplomados
                                     </Link>
                                 </div>
 
                                 <div>
-                                    <Link href="/" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
+                                    <Link href="/certs" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
                                         Certificados
                                     </Link>
                                 </div>
 
 
                                 <div>
-                                    <Link href="/" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
+                                    <Link href="/#contacto" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
                                         Contáctanos
                                     </Link>
                                 </div>
 
                                 <div>
-                                    <Link href="/" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
+                                    <Link href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" className="text-white transition duration-100 hover:text-primaryblue active:text-indigo-600">
                                         Aula virtual
                                     </Link>
                                 </div>

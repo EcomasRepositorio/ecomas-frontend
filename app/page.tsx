@@ -9,7 +9,6 @@ const TestimoniosFb = dynamic(() => import('@/components/home/TestimoniosFb'));
 const QuienesSomos = dynamic(() => import('@/components/home/QuienesSomos'));
 const NuestrosDiplomados = dynamic(() => import('@/components/home/NuestrosDiplomados'));
 const ContactForm = dynamic(() => import('@/components/home/ContactForm'));
-const NuestrasRedes = dynamic(() => import('@/components/home/NuestrasRedes'));
 const ScrollToTopButton = dynamic(() => import('@/components/home/slideup'));
 
 export default function Main({ children }: { children: React.ReactNode }) {
@@ -39,10 +38,8 @@ export default function Main({ children }: { children: React.ReactNode }) {
         <div className="   rounded-lg  ">
           <ContactForm />
         </div>
-        <div className='my-8'>
-          <NuestrasRedes />
-        </div>
-        <div className='my-8'>
+
+        <div className=''>
           <ScrollToTopButton />
         </div>
 

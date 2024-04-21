@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div className="flex flex-col px-4">
       <div className="flex w-full flex-col">
-        <Tabs disabledKeys={["anothers"]} color='primary' aria-label="Options" className="" placement={isMobile ? 'top' : 'start'}>
+        <Tabs disabledKeys={["anothers"]} color='primary' aria-label="Options" className="w-full md:max-w-max" placement={isMobile ? 'top' : 'start'}>
           <Tab key="civil" title="Ing. Civil" className='text-blue-500'>
             <Card>
               <CardBody>

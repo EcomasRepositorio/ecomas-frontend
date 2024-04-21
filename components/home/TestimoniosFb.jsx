@@ -19,7 +19,7 @@ const TestimoniosFb = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between items-center pb-6 ">
                 <div>
                     <p className="text-lg mb-1 md:text-left md:mb-0 md:mr-4">Nuestras reseñas en Facebook:</p>
-                    <p className="text-sm text-gray-500 md:text-left pb-4">5.0 calificación sobre 130 opiniones.</p>
+                    <p className="text-sm text-gray-500 md:text-left pb-4">4.9 calificación sobre 155 opiniones.</p>
                 </div>
                 <Button color="primary">
                     Califícanos
@@ -29,7 +29,7 @@ const TestimoniosFb = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-transparent">
                 <iframe
-                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fmaricriszorrilla%2Fposts%2Fpfbid02bAdL6m4nm6xF6gsvhaBmNkyYRKq25QNWyPUse9VEe85iEuoddnEjxVoBtAsyBFXnl&show_text=true&width=500"
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02u1BQ4gz97rxrt835zqhUJ7N31erLAz7wALD4XqfpdDSwy2TtgttY5mvvXdQPCJ8Dl%26id%3D100074269517346&show_text=true&width=500&is_preview=true"
                     style={iframeStyles}
                     height="210"
                     scrolling="no"
@@ -40,9 +40,9 @@ const TestimoniosFb = () => {
                 ></iframe>
 
                 <iframe
-                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fhector.antony.5%2Fposts%2Fpfbid0Zht4WiHqn34uUDLUzwQ19TFMAZtg3yXRhBUYgc4FnHfEkWt9nvo4GV8vx7A1zr5Sl&show_text=true&width=500"
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Flisbethzita.huaman%2Fposts%2Fpfbid02AE9MWUvARMwhf9HkJ7zepMmduraj2KNwhE8uNooMng622eJUutnAfxsDEhApqpGNl&show_text=true&width=500&is_preview=true"
                     style={iframeStyles}
-                    height="170"
+                    height="300"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}
@@ -51,7 +51,7 @@ const TestimoniosFb = () => {
                 ></iframe>
 
                 <iframe
-                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fcristianyoel.riveramija%2Fposts%2Fpfbid0cn17sGGFwthyBYY1dZPyLLtjg9qACEn2wTSeTunsw6jNJkDDnUwurQUeDPiuH1HHl&show_text=true&width=500"
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0iU9iBDnNANPjSug8YGM3VFohjfSHmaHVnnpibDY8JyALK7FGV38Hu2tiMEzCdYHYl%26id%3D100009446688365&show_text=true&width=500&is_preview=true"
                     style={iframeStyles}
                     height="190"
                     scrolling="no"
