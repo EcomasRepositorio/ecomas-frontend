@@ -90,7 +90,7 @@ const Header = () => {
               <Image
                 src='/image/ECOMAS-HORIZONTAL.png'
                 alt='Imagen banner'
-                width={120}
+                width={110}
                 height={150}
                 className='block md:hidden mr-6'
               />
@@ -100,7 +100,7 @@ const Header = () => {
                 Certificados
               </button>
             </Link>
-            <a href="https://google.com" >
+            <a href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" >
               <button color='primary' className='bg-blue-500  text-white py-3 px-1 rounded text-xs'>
                 Aula  Virtual
               </button>
@@ -136,7 +136,7 @@ const Header = () => {
 
           ))}
           <ThemeSwitcher />
-          <Link href="/login">
+          <Link href="/login" passHref legacyBehavior>
             <UserCircleIcon width={40} height={40} onClick={handleMenuItemClick}></UserCircleIcon>
           </Link>
         </NavbarMenu>

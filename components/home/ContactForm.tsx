@@ -99,7 +99,7 @@ const ContactForm = () => {
                 <label className="font-medium text-white dark:text-white">
                   Mensaje (Opcional)
                 </label>
-                <textarea  {...register('mensaje')} placeholder="Escribe tu mensaje aquí..." required className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-white outline-none border focus:border-white shadow-sm rounded-lg"></textarea>
+                <textarea  {...register('mensaje')} placeholder="Escribe tu mensaje aquí..." className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-white outline-none border focus:border-white shadow-sm rounded-lg"></textarea>
               </div>
               <Button type='submit' color="primary" className="w-full px-4 py-2 " >
                 {sending ? 'Enviando...' : 'Enviar'}

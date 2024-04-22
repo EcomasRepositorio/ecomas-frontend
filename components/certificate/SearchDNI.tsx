@@ -171,7 +171,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
                         {tableRows.map((row, index) => (
                           <div key={index} className="mb-4">
                             <div className="inline-flex items-center text-gray-100 text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
-                              {row.imgSrc && <Image src={row.imgSrc} alt={row.label} className="flex lg:w-5 lg:h-5 w-5 h-5 object-contain ml-1" width={800} height={800} />}
+                              {row.imgSrc && <Image src={row.imgSrc} alt={row.label} className="flex lg:w-5 lg:h-5 w-5 h-5 object-contain ml-1" width={200} height={200} />}
                               <div className='flex-1 text-center'>
                                 {row.label}
                               </div>

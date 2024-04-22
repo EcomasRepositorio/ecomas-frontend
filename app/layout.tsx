@@ -7,10 +7,7 @@ import Footer from '@/components/footer/Footer'
 const inter = Inter({ subsets: ['latin'], }
 )
 import { ThemeProvider } from "@/components/ThemeProvider"
-import { Suspense } from 'react';
-import DashboardSkeleton from '@/components/home/skeletons';
 import Whatsapp from '@/components/whatsapp/Index';
-import Link from 'next/link'
 
 
 export const metadata: Metadata = {

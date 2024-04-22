@@ -1,6 +1,5 @@
 'use client';
 import dynamic from 'next/dynamic';
-
 const PrincipalHome = dynamic(() => import('@/components/home/PrincipalHome'));
 const PorqueNosotros = dynamic(() => import('@/components/home/PorqueNosotros'));
 const SwiperCarrouselDiplomados = dynamic(() => import('@/components/home/SwiperDiplomados'));
