@@ -7,7 +7,7 @@ const DiplomadosNav = dynamic(() => import('@/components/diplomadosComponents/di
 const DashboardSkeleton = dynamic(() => import('@/components/home/skeletons'));
 
 export default function Main(
-  { children }: { children: React.ReactNode }
+
 ) {
 
   {
