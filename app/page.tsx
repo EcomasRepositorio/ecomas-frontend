@@ -10,7 +10,7 @@ const NuestrosDiplomados = dynamic(() => import('@/components/home/NuestrosDiplo
 const ContactForm = dynamic(() => import('@/components/home/ContactForm'));
 const ScrollToTopButton = dynamic(() => import('@/components/home/slideup'));
 
-export default function Main({ children }: { children: React.ReactNode }) {
+export default function Main() {
 
     return (
       <main className="relative bg-white dark:bg-[#001d51]">
