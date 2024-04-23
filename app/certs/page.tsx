@@ -71,8 +71,8 @@ const TestingPage: React.FC<Props> = () => {
                 <div className="grid grid-cols-2 gap-4 mt-4 md:mt-0 md:w-full  md:grid-cols-2 md:grid-rows-2 md:gap-y-8  justify-items-center md:items-center ">
                   <div>
                     <Image
-                      src='/image/CAL.png'
-                      alt='Imagen banner'
+                      src='/certificate/CAL.png'
+                      alt='ecomas'
                       width={150}
                       height={150}
                       className=""
@@ -80,16 +80,16 @@ const TestingPage: React.FC<Props> = () => {
                   </div>
                   <div>
                     <Image
-                      src='/image/CIP.png'
-                      alt='Imagen banner'
+                      src='/certificate/CIP.png'
+                      alt='ecomas'
                       width={150}
                       height={150}
                     />
                   </div>
                   <div>
                     <Image
-                      src='/image/UNP.png'
-                      alt='Imagen banner'
+                      src='/certificate/UNP.png'
+                      alt='ecomas'
                       width={150}
                       height={150}
                     />
@@ -97,7 +97,7 @@ const TestingPage: React.FC<Props> = () => {
                   <div>
                     <Image
                       src='/image/LOGO-VERTICAL-COLOR.png'
-                      alt='Imagen banner'
+                      alt='ecomas'
                       width={150}
                       height={150}
                     />

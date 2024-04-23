@@ -118,7 +118,7 @@ const Login: React.FC = () => {
                   <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
                 )}
 
-                <form className="w-full max-w-sm">
+                <form className="w-full max-w-sm" onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
                   <div className="md:flex md:items-center mb-6">
                     <div className="md:w-1/3">
                       <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
@@ -163,6 +163,7 @@ const Login: React.FC = () => {
                       className="w-full"
                       color='primary'
                       value="login"
+                      type='submit'
                       onClick={() => onSubmit()}
                     >
                       Iniciar sesión
