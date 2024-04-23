@@ -162,10 +162,10 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
                   {selectedStudentData && (
                     <Modal open={openModals[index]} onClose={() => closeStudentModal(index)}>
                       <div className='flex justify-center items-center mb-4 gap-1'>
-                        <Image src={'/certificate/ESCUELA DE POSGRADO DE LA UNP.png'} alt='rizo' className="md:w-20 w-16  object-contain mt-2" width={200} height={200} priority={true} />
-                        <Image src={'/certificate/LOGO-VERTICAL-COLOR.png'} alt='rizo' className="md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain" width={200} height={200} priority={true} />
-                        <Image src={'/certificate/COLEGIO DE ABOGADOS DE LA LIBERTAD.png'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
-                        <Image src={'/certificate/COLEGIO DE INGENIEROS DEL PERÚ.png'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/ESCUELA DE POSGRADO DE LA UNP.webp'} alt='rizo' className="md:w-20 w-16  object-contain mt-2" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/LOGO-VERTICAL-COLOR.webp'} alt='rizo' className="md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/COLEGIO DE ABOGADOS DE LA LIBERTAD.webp'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
+                        <Image src={'/certificate/COLEGIO DE INGENIEROS DEL PERÚ.webp'} alt='rizo' className="md:w-20  w-16 object-contain mt-2" width={200} height={200} priority={true} />
                       </div>
                       <div className="max-w-md text-center bg-white rounded-md mx-auto">
                         {tableRows.map((row, index) => (

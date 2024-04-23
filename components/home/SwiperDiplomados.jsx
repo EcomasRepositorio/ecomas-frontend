@@ -22,32 +22,32 @@ const SwiperCarrousel = () => {
   const cursosDestacados = [
     // Tus datos de cursos destacados
     {
-      imageUrl: "/image/diplo_tecnifi.jpg",
+      imageUrl: "/image/diplo_tecnifi.webp",
       title: "Sistemas de Riego Tecnificado",
 
     },
     {
-      imageUrl: "/image/diplo_residuos.jpg",
+      imageUrl: "/image/diplo_residuos.webp",
       title: "Gestión y Manejo Integral de Residuos Sólidos",
     },
     {
-      imageUrl: "/image/diplo_ssoma.jpg",
+      imageUrl: "/image/diplo_ssoma.webp",
       title: "SSOMA",
     },
     {
-      imageUrl: "/image/diplo_alim.jpg",
+      imageUrl: "/image/diplo_alim.webp",
       title: "Gestión de la calidad e inocuidad alimentaria",
     },
     {
-      imageUrl: "/image/bim_model.jpg",
+      imageUrl: "/image/bim_model.webp",
       title: "Modelamiento BIM",
     },
     {
-      imageUrl: "/image/vialdiplo.jpg",
+      imageUrl: "/image/vialdiplo.webp",
       title: "Ingeniería Vial",
     },
     {
-      imageUrl: "/image/tecobras.jpg",
+      imageUrl: "/image/tecobras.webp",
       title: "Asistente Técnico en Obras",
     },
 

@@ -30,7 +30,7 @@ const Login: React.FC = () => {
   const [resErrors, setResErrors] = useState<ResErrors | null>(null);
   const [form, setForm] = useState<Auth>(dataForm);
   const { theme } = useTheme();
-  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
+  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.webp' : '/image/ecomas.webp';
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -68,7 +68,7 @@ const Login: React.FC = () => {
 
   const onSubmit = async () => {
     try {
-      const response = await axios.post('https://backend.cimade.edu.pe/api/v1/user/login', form);
+      const response = await axios.post('https://backend.ecomas.pe/api/v1/user/login', form);
       if (response.data.token) {
         const token = response.data.token;
         saveToken(token);
@@ -99,7 +99,7 @@ const Login: React.FC = () => {
 
 
   return (
-    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.webp)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <div className="p-10  items-center">
         <div className="text-gray-600">
           <div className="rounded-3xl bg-white dark:bg-blackblue">

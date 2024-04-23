@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <section id='contacto'>
-      <div className="relative z-10 text-gray-600 sm:px-4 md:px-8" style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/contact.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className="relative z-10 text-gray-600 sm:px-4 md:px-8" style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/contact.webp)", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="absolute inset-0 bg-black opacity-50">
         </div>
         <div className="relative z-10  text-gray-600 sm:px-4 md:px-8 mt-10" >

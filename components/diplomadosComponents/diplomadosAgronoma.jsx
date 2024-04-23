@@ -10,7 +10,7 @@ const DiploAgronoma = () => {
         {
             area: 'INGENIERÍA AGRÓNOMA',
             titulo: 'Sistemas de Riego Tecnificado',
-            imagen: '/image/diplo_tecnifi.jpg',
+            imagen: '/image/diplo_tecnifi.webp',
             fechaInicio: '19/05/2024',
             modalidad: 'Virtual',
             duracion: '4 meses',

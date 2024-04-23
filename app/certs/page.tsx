@@ -23,7 +23,7 @@ const TestingPage: React.FC<Props> = () => {
   return (
 
     <section className=" bg-fixed " style={{}}>
-      <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.webp)", backgroundSize: "cover", backgroundPosition: "center" }}>
 
         <div className="py-8  mx-auto max-w-screen-xl lg:py-10">
           <div className="" style={{ position: "relative", width: "100%" }}>
@@ -71,7 +71,7 @@ const TestingPage: React.FC<Props> = () => {
                 <div className="grid grid-cols-2 gap-4 mt-4 md:mt-0 md:w-full  md:grid-cols-2 md:grid-rows-2 md:gap-y-8  justify-items-center md:items-center ">
                   <div>
                     <Image
-                      src='/image/COLEGIO DE ABOGADOS DE LA LIBERTAD.png'
+                      src='/image/COLEGIO DE ABOGADOS DE LA LIBERTAD.webp'
                       alt='Imagen banner'
                       width={150}
                       height={150}
@@ -80,7 +80,7 @@ const TestingPage: React.FC<Props> = () => {
                   </div>
                   <div>
                     <Image
-                      src='/image/COLEGIO DE INGENIEROS DEL PERÚ.png'
+                      src='/image/COLEGIO DE INGENIEROS DEL PERÚ.webp'
                       alt='Imagen banner'
                       width={150}
                       height={150}
@@ -88,7 +88,7 @@ const TestingPage: React.FC<Props> = () => {
                   </div>
                   <div>
                     <Image
-                      src='/image/ESCUELA DE POSGRADO DE LA UNP.png'
+                      src='/image/ESCUELA DE POSGRADO DE LA UNP.webp'
                       alt='Imagen banner'
                       width={150}
                       height={150}
@@ -96,7 +96,7 @@ const TestingPage: React.FC<Props> = () => {
                   </div>
                   <div>
                     <Image
-                      src='/image/LOGO-VERTICAL-COLOR.png'
+                      src='/image/LOGO-VERTICAL-COLOR.webp'
                       alt='Imagen banner'
                       width={150}
                       height={150}

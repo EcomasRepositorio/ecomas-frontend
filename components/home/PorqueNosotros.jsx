@@ -41,28 +41,28 @@ const PorqueNosotros = () => {
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
           <Image
-            src='/image/inges.jpg'
+            src='/image/inges.webp'
             alt='Imagen banner'
             width={400}
             height={300} // Ajusté la altura de la imagen a 300px
             className='hidden md:block rounded-lg w-full h-72 object-cover object-center' // Ajusté el tamaño de la imagen
           />
           <Image
-            src='/image/riego.jpg'
+            src='/image/riego.webp'
             alt='Imagen banner'
             width={400}
             height={300} // Ajusté la altura de la imagen a 300px
             className='hidden md:block rounded-lg w-full h-72 object-cover object-center' // Ajusté el tamaño de la imagen
           />
           <Image
-            src='/image/autocad.jpg'
+            src='/image/autocad.webp'
             alt='Imagen banner'
             width={400}
             height={300} // Ajusté la altura de la imagen a 300px
             className='hidden md:block rounded-lg w-full h-72 object-cover object-center' // Ajusté el tamaño de la imagen
           />
           <Image
-            src='/image/alkumnos.jpg'
+            src='/image/alkumnos.webp'
             alt='Imagen banner'
             width={400}
             height={300} // Ajusté la altura de la imagen a 300px

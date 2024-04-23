@@ -20,7 +20,7 @@ export default () => {
                                 <Link href="/">
 
                                     <Image
-                                        src='/image/ECOMAS-HORIZONTAL.png'
+                                        src='/image/ECOMAS-HORIZONTAL.webp'
                                         alt='Imagen banner'
                                         width={310}
                                         height={150}

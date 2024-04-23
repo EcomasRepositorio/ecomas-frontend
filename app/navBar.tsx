@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { UserCircleIcon } from '@heroicons/react/solid';
 const Header = () => {
   const { theme } = useTheme();
-  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
+  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.webp' : '/image/ecomas.webp';
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const handleMenuItemClick = () => {
@@ -88,7 +88,7 @@ const Header = () => {
           <NavbarBrand>
             <Link href="/">
               <Image
-                src='/image/ECOMAS-HORIZONTAL.png'
+                src='/image/ECOMAS-HORIZONTAL.webp'
                 alt='Imagen banner'
                 width={110}
                 height={150}

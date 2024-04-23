@@ -11,6 +11,7 @@ const TestimoniosFb = () => {
         overflow: "hidden",
         marginBottom: "10px", // Ajusta el margen entre los iframes según tus preferencias
         width: "100%",
+        backgroundColor: "#00"
     };
 
     return (
@@ -27,7 +28,7 @@ const TestimoniosFb = () => {
             </div>
 
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-transparent">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
                 <iframe
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02u1BQ4gz97rxrt835zqhUJ7N31erLAz7wALD4XqfpdDSwy2TtgttY5mvvXdQPCJ8Dl%26id%3D100074269517346&show_text=true&width=500&is_preview=true"
                     style={iframeStyles}
@@ -53,7 +54,7 @@ const TestimoniosFb = () => {
                 <iframe
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0iU9iBDnNANPjSug8YGM3VFohjfSHmaHVnnpibDY8JyALK7FGV38Hu2tiMEzCdYHYl%26id%3D100009446688365&show_text=true&width=500&is_preview=true"
                     style={iframeStyles}
-                    height="190"
+                    height="240"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}
