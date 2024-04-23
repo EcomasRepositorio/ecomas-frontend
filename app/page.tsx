@@ -14,7 +14,7 @@ export default function Main() {
 
     return (
       <main className="relative bg-white dark:bg-[#001d51]">
-        <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.webp)", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
           <PrincipalHome />
           <QuienesSomos />
         </div>

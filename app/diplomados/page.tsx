@@ -57,7 +57,7 @@ export default function Main(
                 </div>
                 <div className=' flex items-center'>
                   <Image
-                    src='/image/beneficios.webp'
+                    src='/image/beneficios.jpg'
                     alt='Imagen banner'
                     width={500}
                     height={500}

@@ -8,7 +8,7 @@ const DiploCivil = () => {
     {
       area: 'INGENIERÍA CIVIL',
       titulo: 'Modelamiento BIM',
-      imagen: '/image/bim_model.webp',
+      imagen: '/image/bim_model.jpg',
       fechaInicio: '04/05/2024',
       modalidad: 'Virtual',
       duracion: '4 meses',
@@ -28,7 +28,7 @@ const DiploCivil = () => {
     {
       area: 'INGENIERÍA CIVIL',
       titulo: 'Asistente Técnico en Obras',
-      imagen: '/image/tecobras.webp',
+      imagen: '/image/tecobras.jpg',
       fechaInicio: '11/05/2024',
       modalidad: 'Virtual',
       duracion: '4 meses',
@@ -51,7 +51,7 @@ const DiploCivil = () => {
     {
       area: 'INGENIERÍA CIVIL',
       titulo: 'Ingeniería Vial',
-      imagen: '/image/vialdiplo.webp',
+      imagen: '/image/vialdiplo.jpg',
       fechaInicio: '18/05/2024',
       modalidad: 'Virtual',
       duracion: '4 meses',

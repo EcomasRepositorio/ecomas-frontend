@@ -15,37 +15,37 @@ const SwiperCursosDestacados = () => {
   const cursosDestacados = [
     // Tus datos de cursos destacados
     {
-      imageUrl: "/image/solidos.webp",
+      imageUrl: "/image/solidos.jpg",
       title: "Gestion y manejo de residuos sólidos municipales",
       description: "Este curso aborda estrategias y técnicas para gestionar eficazmente los residuos sólidos en entornos urbanos, incluyendo temas como reciclaje, tratamiento de residuos y participación comunitaria.",
     },
     {
-      imageUrl: "/image/aspersor.webp",
+      imageUrl: "/image/aspersor.jpg",
       title: "Sistemas de riego por aspersión",
       description: "Curso sobre el diseño y uso eficiente de sistemas de riego por aspersión.",
     },
     {
-      imageUrl: "/image/goteo.webp",
+      imageUrl: "/image/goteo.jpg",
       title: "Sistemas de riego por goteo",
       description: "Curso que explora el diseño y aplicación de sistemas eficientes de riego por goteo en agricultura y jardinería.",
     },
     {
-      imageUrl: "/image/viales.webp",
+      imageUrl: "/image/viales.jpg",
       title: "Arqueología en proyectos viales",
       description: "Curso sobre la integración de la arqueología en el diseño y desarrollo de proyectos viales.",
     },
     {
-      imageUrl: "/image/obras.webp",
+      imageUrl: "/image/obras.jpg",
       title: "Ampliaciones de plazo, adicionales de obra y penalidades en obra",
       description: "Curso que aborda la gestión de ampliaciones de plazo, cambios en obra y las penalizaciones asociadas en proyectos de construcción.",
     },
     {
-      imageUrl: "/image/aguaca.webp",
+      imageUrl: "/image/aguaca.jpg",
       title: "Monitoreo de la calidad de agua",
       description: "Curso sobre técnicas y métodos para monitorear la calidad del agua en diferentes contextos ambientales y aplicaciones.",
     },
     {
-      imageUrl: "/image/ssoma.webp",
+      imageUrl: "/image/ssoma.jpg",
       title: "Supervisor SSOMA",
       description: "Curso que prepara a los supervisores en seguridad, salud ocupacional y medio ambiente (SSOMA) para la gestión efectiva en entornos laborales.",
     },

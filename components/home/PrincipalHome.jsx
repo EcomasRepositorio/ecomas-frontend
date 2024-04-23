@@ -69,7 +69,7 @@ const PrincipalHome = () => {
             </div>
             <div className="moveArrow" style={{ maxWidth: "500px" }}>
               <Image
-                src='/image/test-illus.webp'
+                src='/image/test-illus.png'
                 alt='Imagen banner'
                 width={300}
                 height={200}

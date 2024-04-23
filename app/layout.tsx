@@ -30,7 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <link rel="icon" href="image/ICONO-COLOR.webp" />
+          <link rel="icon" href="image/ICONO-COLOR.png" />
           <Header />
 
           {children}

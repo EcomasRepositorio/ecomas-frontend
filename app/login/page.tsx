@@ -30,7 +30,7 @@ const Login: React.FC = () => {
   const [resErrors, setResErrors] = useState<ResErrors | null>(null);
   const [form, setForm] = useState<Auth>(dataForm);
   const { theme } = useTheme();
-  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.webp' : '/image/ecomas.webp';
+  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -99,7 +99,7 @@ const Login: React.FC = () => {
 
 
   return (
-    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.webp)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.jpg)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <div className="p-10  items-center">
         <div className="text-gray-600">
           <div className="rounded-3xl bg-white dark:bg-blackblue">

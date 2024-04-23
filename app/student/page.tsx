@@ -104,7 +104,7 @@ const Student = () => {
   const handleCloseCreateExcel = () => {
     setCreateStudentExcel(false);
   };
-  const handleCreateExcelSuccess = useCallback(async () => {
+  const handleCreateExcelSuccess = useCallback( async () => {
     try {
       const response = await axios.get(
         `${URL()}/students`,
@@ -188,23 +188,25 @@ const Student = () => {
   };
 
   //exportarEnExcel
-  const handleExportToExcel = () => {
-    if (!studentData) {
-      console.error("No hay datos de estudiantes disponibles.");
-      return;
+  const handleExportToExcel = async () => {
+    try {
+      if (!memoryData) {
+        console.error('No hay datos disponibles para exportar.');
+        return;
+      }
+      const dataWithoutId = memoryData.map(student => {
+        const { id, ...rest } = student;
+        return rest;
+      });
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.json_to_sheet(dataWithoutId);
+      XLSX.utils.book_append_sheet(wb, ws, 'participantesRizo');
+      XLSX.writeFile(wb, 'participantesRizo.xlsx');
+      console.log('Datos exportados exitosamente a Excel.');
+    } catch (error) {
+      console.error('Error al exportar datos a Excel:', error);
     }
-
-    const dataWithoutId = studentData.map(student => {
-      const { id, ...rest } = student;
-      return rest;
-    });
-
-    const wb = XLSX.utils.book_new();
-    const ws = XLSX.utils.json_to_sheet(dataWithoutId);
-    XLSX.utils.book_append_sheet(wb, ws, 'participantesEcomas');
-    XLSX.writeFile(wb, 'participantesEcomas.xlsx');
   };
-
 
   //Logout
   const handleLogout = async () => {
@@ -274,8 +276,9 @@ const Student = () => {
         {botonesPagina.map((index) => (
           <li key={index}>
             <button
-              className={`block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white ${currentPage === index ? "font-semibold" : ""
-                }`}
+              className={`block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white ${
+                currentPage === index ? "font-semibold" : ""
+              }`}
               onClick={() => handlePageChange(index)}>
               {index}
             </button>
@@ -309,29 +312,29 @@ const Student = () => {
             <SearchStudent
               onSearchDNI={(query: string, queryValue: string) =>
                 handleSearchStudent(query, queryValue)
-              } />
+              }/>
           </div>
           <div className="inline-flex gap-1">
-            <button
-              type="button"
-              className="text-[#006eb0] uppercase hover:text-white border-2 border-[#006eb0] hover:bg-[#006eb0] focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs px-3 py-3 text-center md:w-auto dark:hover:text-white dark:focus:ring-[#BFE9FB] inline-flex items-center hover:scale-110 duration-300"
-              onClick={handleOpenDuplicatedCode}>
-              <GrDocumentVerified className="mr-1 text-lg" />
-              Verificar
-            </button>
-            {studentData !== undefined && (
-              <DuplicatedCode
-                studentData={studentData}
-                isOpen={isDuplicatedCodesModalOpen}
-                onClose={handleCloseDuplicatedCode} />
-            )}
-            <button
-              type="button"
-              className="text-green-600 uppercase hover:text-white border-2 border-green-600 hover:bg-green-600 focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs px-3 py-3 text-center md:w-auto dark:hover:text-white dark:focus:ring-[#BFE9FB] inline-flex items-center hover:scale-110 duration-300"
-              onClick={handleExportToExcel}>
-              <BsFiletypeXls className="mr-1 text-lg" />
-              Exportar
-            </button>
+          <button
+            type="button"
+            className="text-[#006eb0] uppercase hover:text-white border-2 border-[#006eb0] hover:bg-[#006eb0] focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs px-3 py-3 text-center md:w-auto dark:hover:text-white dark:focus:ring-[#BFE9FB] inline-flex items-center hover:scale-110 duration-300"
+            onClick={handleOpenDuplicatedCode}>
+            <GrDocumentVerified className="mr-1 text-lg" />
+            Verificar
+          </button>
+          {studentData !== undefined && (
+            <DuplicatedCode
+              studentData={studentData}
+              isOpen={isDuplicatedCodesModalOpen}
+              onClose={handleCloseDuplicatedCode}/>
+          )}
+          <button
+            type="button"
+            className="text-green-600 uppercase hover:text-white border-2 border-green-600 hover:bg-green-600 focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs px-3 py-3 text-center md:w-auto dark:hover:text-white dark:focus:ring-[#BFE9FB] inline-flex items-center hover:scale-110 duration-300"
+            onClick={handleExportToExcel}>
+            <BsFiletypeXls className="mr-1 text-lg" />
+            Descargar
+          </button>
           </div>
         </div>
 
@@ -346,7 +349,7 @@ const Student = () => {
           {isCreateFormOpen && (
             <CreateStudentForm
               onCreateSuccess={handleCreateSuccess}
-              onCloseModal={handleCloseCreateForm} />
+              onCloseModal={handleCloseCreateForm}/>
           )}
 
           <button
@@ -359,7 +362,7 @@ const Student = () => {
           {createStudentExcel && (
             <CreateStudentExcel
               onCreateSuccess={handleCreateExcelSuccess}
-              onCloseModal={handleCloseCreateExcel} />
+              onCloseModal={handleCloseCreateExcel}/>
           )}
           {/* <ProtectedRoute path='/user' allowedRoles={['ADMIN']} element={<User/>} /> */}
           <Link
@@ -378,9 +381,9 @@ const Student = () => {
       </div>
       {loading && (
         <div className="text-center text-3xl font-bold text-[#006eb0]">
-          <a href="https://tenor.com/es/view/bar-penguin-waiting-loading-pudgy-gif-7185161825979534095">
-            Cargando...
-          </a>
+        <a href="https://tenor.com/es/view/bar-penguin-waiting-loading-pudgy-gif-7185161825979534095">
+          Cargando...
+        </a>
         </div>
       )}
       {dataLoading && memoryData && (
@@ -474,7 +477,7 @@ const Student = () => {
                       maxWidth: "1200px",
                       overflow: "hidden",
                       textOverflow: "ellipsis"
-                    }}>
+                      }}>
                       {student.institute}
                     </span>
                   </td>
@@ -514,12 +517,12 @@ const Student = () => {
                             onUpdateSuccess={() =>
                               handleUpdateSuccess(student.id)
                             }
-                            onCloseModal={handleUpdateCloseModal} />
+                            onCloseModal={handleUpdateCloseModal}/>
                         )}
                       </div>
                       <StudentDelete
                         id={student.id}
-                        onDeleteSuccess={handleDeleteSuccess} />
+                        onDeleteSuccess={handleDeleteSuccess}/>
                     </div>
                   </td>
                 </tr>
