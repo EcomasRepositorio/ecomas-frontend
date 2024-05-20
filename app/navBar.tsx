@@ -70,7 +70,7 @@ const Header = () => {
 
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" >
+            <Button target="_blank" as={Link} className='bg-gradient-to-r from-[#02227b] to-[#0060ff] text-white' href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" >
               Aula Virtual
             </Button>
           </NavbarItem>
@@ -100,7 +100,7 @@ const Header = () => {
                 Certificados
               </button>
             </Link>
-            <a href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" >
+            <a href="https://site2.q10.com/login?ReturnUrl=%2F&aplentId=0959465f-37c3-4032-803b-bbfc499af7a3" target="_blank" >
               <button color='primary' className='bg-blue-500  text-white py-3 px-1 rounded text-xs'>
                 Aula  Virtual
               </button>
@@ -121,11 +121,12 @@ const Header = () => {
             <NavbarMenuItem key={index} >
               <Link
                 color='primary'
+                
                 href={link.href}
-                className="text-xl "
+                className="text-xl mr-4"
                 onClick={handleMenuItemClick} // Agrega un manejador de clic para cerrar el menú
               >
-                <button className="w-full bg-blue-500  text-white  py-2 px-4 rounded">
+                <button className="w-full bg-blue-500  text-white  py-2 px-6 rounded">
                   {link.name}
                 </button>
 

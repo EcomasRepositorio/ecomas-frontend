@@ -12,37 +12,38 @@ const ScrollToTopButton = dynamic(() => import('@/components/home/slideup'));
 
 export default function Main() {
 
-    return (
-      <main className="relative bg-white dark:bg-[#001d51]">
-        <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
-          <PrincipalHome />
-          <QuienesSomos />
-        </div>
-        
-        <NuestrosDiplomados />
-        
-        <div className="   rounded-lg  mx-auto max-w-screen-xl ">
-          <SwiperCarrouselDiplomados />
-        </div>
+  return (
+    <main className="relative bg-white dark:bg-[#001d51]">
+      <div className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <PrincipalHome />
+        <QuienesSomos />
+      </div>
 
-        <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-8 ">
-          <PorqueNosotros />
-        </div>
-        <div className="  rounded-lg   mx-auto max-w-screen-xl ">
-          <CarouselCursosDestacados />
-        </div>
-        <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-6  ">
-          <TestimoniosFb />
-        </div>
-        <div className="   rounded-lg  ">
-          <ContactForm />
-        </div>
+      <NuestrosDiplomados />
 
-        <div className=''>
-          <ScrollToTopButton />
-        </div>
+      <div className="   rounded-lg  mx-auto max-w-screen-xl ">
+        <SwiperCarrouselDiplomados />
+      </div>
+
+      <div className=" px-4 mx-auto max-w-screen-xl  rounded-lg p-4 md:p-8 ">
+        <PorqueNosotros />
+      </div>
+      <div className="  rounded-lg   mx-auto max-w-screen-xl ">
+        <CarouselCursosDestacados />
+      </div>
+      <div className="px-4 mx-auto max-w-screen-xl rounded-lg p-4 md:p-6 overflow-auto">
+        <TestimoniosFb />
+      </div>
+
+      <div className="   rounded-lg  ">
+        <ContactForm />
+      </div>
+
+      <div className=''>
+        <ScrollToTopButton />
+      </div>
 
 
-      </main>
-    )
-  }
+    </main>
+  )
+}

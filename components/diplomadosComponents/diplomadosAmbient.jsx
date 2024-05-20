@@ -9,18 +9,12 @@ const DiploAmbient = () => {
       area: 'INGENIERÍA AMBIENTAL',
       titulo: 'SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)',
       imagen: '/image/diplo_ssoma.jpg',
-      fechaInicio: '25/05/2024',
+      fechaInicio: '14/07/2024',
       modalidad: 'Virtual',
       duracion: '4 meses',
       horas: '420 horas correspondientes a 26 créditos.',
       descripcion: 'El diplomado especializado está dirigido a ingenieros y supervisores de seguridad, prevencionistas, capataces y jefes, miembros del comité de seguridad, profesionales en general, estudiantes universitarios, bachilleres, técnicos y a todos aquellos interesados en el manejo competente de los asuntos de seguridad y salud ocupacional.',
       modulos: [
-
-        'Implementación de sistema de gestión de SST',
-        'Elaboración de matriz IPERC - mapa de riesgos',
-        'Comité de seguridad y salud en el trabajo',
-        'Primeros auxilios y formación de brigadas de emergencia',
-        'Seguridad en trabajo de alto riesgo',
         'Investigación y reporte de accidentes laborales',
         'Prevención de riesgos laborales',
         'Fiscalización y auditorias de SSO - SUNAFIL',
@@ -28,39 +22,18 @@ const DiploAmbient = () => {
         'Supervisor SSOMA',
         'Auditor Interno SSOMA',
         'Gestión ambiental - ISO 14001',
-
-      ]
-    },
-    {
-      area: 'INGENIERÍA AMBIENTAL',
-      titulo: 'Gestión y Manejo Integral de Residuos Sólidos',
-      imagen: '/image/diplo_residuos.jpg',
-      fechaInicio: '25/05/2024',
-      modalidad: 'Virtual',
-      duracion: '4 meses',
-      horas: '420 horas correspondientes a 26 créditos.',
-      descripcion: 'Bachilleres, titulados y profesionales de las carreras de ingeniería ambiental, industrial, civil, biología, química, agronómica y ramas afines.',
-      modulos: [
-        'Gestión y manejo de residuos sólidos municipales.',
-        'Estudio de caracterización de residuos sólidos.',
-        'Valorización de residuos sólidos.',
-        'Gestión y manejo de residuos sólidos en minería.',
-        'Gestión y manejo de residuos sólidos de construcción.',
-        'Formulación de proyectos de inversión pública de residuos sólidos.',
-        'Gestión y manejo de residuos sólidos industriales.',
-        'Tratamiento y reaprovechamiento de residuos sólidos.',
-        ' Gestión y manejo de residuos sólidos hospitalarios.',
-        ' Diseño de Rellenos sanitarios.',
-        'Residuos sólidos y economía circular.',
-        'Operatividad de las EO-RS.',
-
+        'Implementación de sistema de gestión de SST',
+        'Elaboración de matriz IPERC - mapa de riesgos',
+        'Comité de seguridad y salud en el trabajo',
+        'Primeros auxilios y formación de brigadas de emergencia',
+        'Seguridad en trabajo de alto riesgo',
       ]
     },
     {
       area: 'INGENIERÍA AMBIENTAL',
       titulo: 'Gestión Ambiental Municipal y Regional',
       imagen: '/image/diplo_municipal.jpg',
-      fechaInicio: '25/05/2024',
+      fechaInicio: '08/07/2024',
       modalidad: 'Virtual',
       duracion: '4 meses',
       horas: '420 horas correspondientes a 26 créditos.',
@@ -79,6 +52,20 @@ const DiploAmbient = () => {
         'Ecoeficiencia municipal y regional.',
       ]
     },
+    {
+      area: 'INGENIERÍA AMBIENTAL',
+      titulo: 'Monitoreo y Evaluación de la Calidad Ambiental',
+      imagen: '/image/evalAmbiental.jpg',
+      fechaInicio: '-',
+      modalidad: 'Virtual',
+      duracion: '04 meses',
+      horas: '420 horas correspondientes a 26 créditos.',
+      descripcion: 'Bachilleres, titulados y profesionales de las carreras de ingenierías ambiental, químicos, agrónomo, sanitarios, biólogos y ramas afines que se encuentran involucrados en las actividades ambientales en empresas mineras o instituciones públicas como MINAM, MEM, OEFA y SERNANP. ',
+      modulos: [
+        '-',
+      ]
+    },
+
     // Puedes agregar más cursos aquí si es necesario
   ];
 
