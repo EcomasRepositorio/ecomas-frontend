@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
 
 function ScrollToTopButton() {
-    const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+    const [isVisible, setIsVisible] = useState(false);
+
+    const isBrowser = () => typeof window !== 'undefined';
 
     function scrollToTop() {
         if (!isBrowser()) return;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    useEffect(() => {
+        if (!isBrowser()) return;
+
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <button
-            className={`fixed bottom-10 right-0 bg-primaryblue text-white rounded-s-full px-4 py-2  mb-[71px] z-50 items-center text-xs flex gap-2`}
+            className={` animate-bounce mr-5 fixed bottom-10 right-0 bg-primaryblue text-white rounded-full px-4 py-2 mb-[71px] z-50 items-center text-xs flex gap-2 transition-opacity duration-500 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+            }`}
             onClick={scrollToTop}
         >
-            VOLVER ARRIBA
-            <IoIosArrowUp className="inline-block h-4 w-4" />
+            <IoIosArrowUp className="inline-block h-8 w-8 " />
         </button>
     );
 }

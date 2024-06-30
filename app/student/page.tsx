@@ -301,12 +301,12 @@ const Student = () => {
     <section className="p-2">
       {/* <div className="text-center text-gray-500 lg:p-6 text-2xl font-semibold mb-10 mt-8"> */}
 
-      <div className="text-center text-gray-600 lg:p-6 p-0 lg:text-2xl text-xl font-extrabold">
-        <p className="border shadow-2xl p-4 rounded-xl">
+      <div className="text-center text-gray-600 dark:text-blue-100  lg:p-6 p-0 lg:text-2xl text-xl font-extrabold">
+        <p className="dark:bg-blackblue2 border shadow-2xl dark:border-transparent p-4 rounded-xl">
           ADMINISTRAR ESTUDIANTES
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row border-2 mb-6 shadow-xl rounded-xl lg:ml-10 lg:mr-10 justify-between p-2 bg-white">
+      <div className="flex flex-col sm:flex-row border-2 mb-6 shadow-xl rounded-xl lg:ml-10 lg:mr-10 justify-between p-2 bg-white dark:bg-blackblue2 dark:border-transparent">
         <div className="flex flex-col items-center md:flex-row justify-center">
           <div className="flex-grow mb-2 md:mb-0 md:mr-2">
             <SearchStudent
@@ -387,10 +387,10 @@ const Student = () => {
         </div>
       )}
       {dataLoading && memoryData && (
-        <div className="overflow-x-auto bg-white p-2 mt-4">
-          <table className="min-w-full text-sm whitespace-nowrap shadow-2xl">
-            <thead className="uppercase text-center tracking-wider bg-neutral-300">
-              <tr className="text-gray-700 ">
+        <div className="overflow-x-auto  p-2 mt-4">
+          <table className="min-w-full text-sm whitespace-nowrap shadow-2xl rounded-lg">
+            <thead className=" uppercase text-center tracking-wider bg-blue-100 dark:bg-blackblue2 rounded-lg">
+              <tr className="dark:text-white  ">
                 <th scope="col" className="px-6 py-4">
                   #
                 </th>
@@ -430,7 +430,7 @@ const Student = () => {
               {visibleData.map((student, index) => (
                 <tr
                   key={index}
-                  className="text-center text-gray-500 border-b font-semibold hover:bg-gray-100"
+                  className="text-center dark:text-white border-b dark:border-b-blackblue2  hover:bg-blue-50 dark:hover:bg-blackblue2 "
                 >
                   <th scope="row" className="px-6 py-4">
                     <span style={{ whiteSpace: "nowrap", display: "block" }}>
@@ -494,7 +494,7 @@ const Student = () => {
                   <td className="px-6 py-4">
                     <Link
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      className="font-medium text-primaryblue dark:text-primaryblue hover:underline">
                       Ver
                       <span style={{ whiteSpace: "nowrap", display: "block" }}>
                         {student.certificate}

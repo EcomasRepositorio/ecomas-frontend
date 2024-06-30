@@ -91,12 +91,12 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
 
       <form onSubmit={searchDNI} className="w-full ">
 
-        <div className="flex items-center">
+        <div className="flex flex-row items-center justify-center">
           <div className=" flex-1">
             <input
               type="search"
               id="default-search"
-              className="  font-semibold  text-sm text-gray-900 border-1 border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:text-black"
+              className=" font-normal text-sm text-gray-900 border-1 border-gray-300 rounded-lg bg-white  focus:border-primaryblue m-0"
               placeholder={`Buscar por DNI ${searchType === 'documentNumber' ? 'DNI' : ''}`}
               required
               onClick={toggleIsActive}
@@ -104,11 +104,11 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
               value={queryValue}
             />
           </div>
-          <div>
+          <div className=' ml-2 h-full'>
             <Button
               color='primary'
               type="submit"
-              className="ml-auto -mt-5">
+              className="bg-primaryblue">
               Buscar
             </Button>
           </div>
@@ -157,7 +157,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
                   </td>
                   <td className="px-6 py-4">
                     <button type='button' onClick={() => openStudentModal(student as StudentCode, index)}
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ver</button>
+                      className="font-medium text-primaryblue dark:text-primaryblue hover:underline">Ver</button>
                   </td>
                   {selectedStudentData && (
                     <Modal open={openModals[index]} onClose={() => closeStudentModal(index)}>
@@ -207,7 +207,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
         </div>
       )}
       <Modal open={modalOpen} onClose={closeErrorModal}>
-        <div className="border-2 p-2 rounded-lg">
+        <div className=" p-2 rounded-lg">
           <h2 className="text-md font-bold text-red-600 mb-4">DNI incorrecto</h2>
           <h3 className="text-sm font-semibold text-gray-600">El DNI que ingresaste no se encuentra en nuestra base de datos.</h3>
         </div>

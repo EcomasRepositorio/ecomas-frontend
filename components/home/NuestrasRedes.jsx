@@ -1,5 +1,5 @@
 'use client';
-import ScrollAnimation from "./framerAnimation";
+import ScrollAnimation from "./scrollAnimation";
 import React from "react";
 
 

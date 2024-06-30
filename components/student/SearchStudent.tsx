@@ -114,14 +114,14 @@ const SearchName:React.FC<SearchStudentDNIProps> = ({ onSearchDNI }) => {
         <input
           type="search"
           id="default-search"
-          className="block w-80 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+          className=" block w-80 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primaryblue focus:border-primaryblue "
           placeholder={`Buscar por DNI ${searchType === 'documentNumber' ? 'DNI' : ''}`}
           required
           //onClick={openTableModal}
           onChange={handleInput}
           value={queryValue}
           />
-        <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Buscar</button>
+        <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-primaryblue hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Buscar</button>
     </div>
   </form>
   {memoryData !== undefined && (
@@ -175,7 +175,7 @@ const SearchName:React.FC<SearchStudentDNIProps> = ({ onSearchDNI }) => {
         <span style={{ whiteSpace: 'nowrap', display: 'block' }}>{student.date}</span>
         </td>
         <td className="px-6 py-4">
-          <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+          <a href="#" className="font-medium text-primaryblue dark:text-primaryblue hover:underline">
             Ver
             <span style={{ whiteSpace: 'nowrap', display: 'block' }}>{student.certificate}</span>
           </a>

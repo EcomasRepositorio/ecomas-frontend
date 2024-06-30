@@ -1,9 +1,9 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import { Button } from '@nextui-org/react';
+"use client";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import { Button } from "@nextui-org/react";
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 
@@ -20,17 +20,18 @@ type Auth = {
 };
 
 const dataForm = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
   role: true,
-  token: '',
+  token: "",
 };
 
 const Login: React.FC = () => {
   const [resErrors, setResErrors] = useState<ResErrors | null>(null);
   const [form, setForm] = useState<Auth>(dataForm);
   const { theme } = useTheme();
-  const imageSrc = theme === 'dark' ? '/image/ECOMAS-HORIZONTAL.png' : '/image/ecomas.png';
+  const imageSrc =
+    theme === "dark" ? "/image/ECOMAS-HORIZONTAL.png" : "/image/ecomas.png";
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -45,18 +46,17 @@ const Login: React.FC = () => {
   };
 
   const saveToken = (token: string) => {
-    localStorage.setItem('token', token);
-
+    localStorage.setItem("token", token);
   };
 
   const getToken = (): string | null => {
-    return localStorage.getItem('token');
+    return localStorage.getItem("token");
   };
 
   const redirectIfLoggedIn = () => {
     const token = getToken();
     if (token) {
-      window.location.href = 'student'; // Redirige a la siguiente página
+      window.location.href = "student"; // Redirige a la siguiente página
     }
   };
 
@@ -64,29 +64,39 @@ const Login: React.FC = () => {
     redirectIfLoggedIn(); // Verifica si el usuario ya está logueado al cargar la página
   }, []); // Se ejecuta solo una vez al cargar el componente
 
-
-
   const onSubmit = async () => {
     try {
-      const response = await axios.post('https://backend.ecomas.pe/api/v1/user/login', form);
+      const response = await axios.post(
+        "https://backend.ecomas.pe/api/v1/user/login",
+        form
+      );
       if (response.data.token) {
         const token = response.data.token;
         saveToken(token);
-        window.location.href = 'student';
+        window.location.href = "student";
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         const { data } = error.response;
 
-        if (data.error === 'invalid_password') {
-          setResErrors({ message: 'Credenciales incorrectas', errorContent: data.errorContent });
-        } else if (data.error === 'user_not_found') {
-          setResErrors({ message: 'Credenciales incorrectas', errorContent: data.errorContent });
+        if (data.error === "invalid_password") {
+          setResErrors({
+            message: "Credenciales incorrectas",
+            errorContent: data.errorContent,
+          });
+        } else if (data.error === "user_not_found") {
+          setResErrors({
+            message: "Credenciales incorrectas",
+            errorContent: data.errorContent,
+          });
         } else {
-          setResErrors({ message: 'Credenciales incorrectas', errorContent: '' });
+          setResErrors({
+            message: "Credenciales incorrectas",
+            errorContent: "",
+          });
         }
       } else {
-        setResErrors({ message: 'Error en el servidor', errorContent: '' });
+        setResErrors({ message: "Error en el servidor", errorContent: "" });
       }
 
       // Restablecer los errores después de 3 segundos
@@ -96,18 +106,26 @@ const Login: React.FC = () => {
     }
   };
 
-
-
   return (
-    <section className='' style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/bg-test4.jpg)", backgroundSize: "cover", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <section
+      className=""
+      style={{
+        backgroundAttachment: "fixed",
+        backgroundImage: "url(/image/bg_test7.jpg)",
+        backgroundSize: "cover",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <div className="p-10  items-center">
         <div className="text-gray-600">
           <div className="rounded-3xl bg-white dark:bg-blackblue">
             <div className="md:px-0">
-              <div className="p-4 md:p-12">
+              <div className="p-10 md:p-8">
                 <div className="text-center">
                   <Image
-                    className="mx-auto mb-4"
+                    className="mx-auto mb-6"
                     src={imageSrc}
                     alt="logo"
                     width={300}
@@ -115,20 +133,33 @@ const Login: React.FC = () => {
                   />
                 </div>
                 {resErrors?.message && (
-                  <p className="text-error text-medium font-bold text-[#c30e4d] text-center">{resErrors.message}</p>
+                  <p className="text-error text-medium font-bold text-[#c30e4d] text-center">
+                    {resErrors.message}
+                  </p>
                 )}
 
-                <form className="w-full max-w-sm" onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
-                  <div className="md:flex md:items-center mb-6">
+                <form
+                  className="w-full max-w-sm"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    onSubmit();
+                  }}
+                >
+                  <div className="md:flex md:items-center mb-6 items-center justify-center">
                     <div className="md:w-1/3">
                       <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                         Correo electrónico:
                       </label>
                     </div>
 
-
                     <div className="md:w-2/3">
-                      <input onChange={(event) => handleFormData(event, "email")} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue" id="username" type="email" placeholder="Correo Electrónico"></input>
+                      <input
+                        onChange={(event) => handleFormData(event, "email")}
+                        className="w-full bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue"
+                        id="username"
+                        type="email"
+                        placeholder="Correo Electrónico"
+                      ></input>
                     </div>
                   </div>
                   <div className="md:flex md:items-center mb-6">
@@ -140,13 +171,19 @@ const Login: React.FC = () => {
                     <div className="md:w-2/3 relative">
                       <input
                         type={isVisible ? "text" : "password"}
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 pr-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue"
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 pr-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primaryblue"
                         id="inline-password"
-                        autoComplete='on'
-                        placeholder="******************"
-                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleFormData(event, "password")}
+                        autoComplete="on"
+                        placeholder="*******"
+                        onChange={(
+                          event: React.ChangeEvent<HTMLInputElement>
+                        ) => handleFormData(event, "password")}
                       />
-                      <button className="absolute right-0 top-0 mt-2 mr-4 focus:outline-none" type="button" onClick={toggleVisibility}>
+                      <button
+                        className="absolute right-0 top-0 mt-2 mr-4 focus:outline-none"
+                        type="button"
+                        onClick={toggleVisibility}
+                      >
                         {isVisible ? (
                           <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
                         ) : (
@@ -154,16 +191,13 @@ const Login: React.FC = () => {
                         )}
                       </button>
                     </div>
-
-
-
                   </div>
                   <div className="">
                     <Button
-                      className="w-full"
-                      color='primary'
+                      className="w-full bg-primaryblue"
+                      color="primary"
                       value="login"
-                      type='submit'
+                      type="submit"
                       onClick={() => onSubmit()}
                     >
                       Iniciar sesión
@@ -176,8 +210,7 @@ const Login: React.FC = () => {
         </div>
       </div>
     </section>
-
-  )
-}
+  );
+};
 
 export default Login;

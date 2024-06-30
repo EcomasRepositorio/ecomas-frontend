@@ -74,9 +74,9 @@ const DuplicatedCode: React.FC<DuplicatedCodesDetectorProps> = ({ studentData, i
     <div>
       {isModalOpen && (
         <ModalTable open={isModalOpen} onClose={handleTableModalClose}>
-          <div className="overflow-x-auto bg-white p-2 mt-4 max-h-screen">
+          <div className="overflow-x-auto bg-white  p-2 rounded-lg mt-1 max-h-96">
             <table className="min-w-full text-sm whitespace-nowrap shadow-2xl">
-              <thead className="uppercase text-center tracking-wider bg-neutral-300">
+              <thead className="uppercase text-center tracking-wider bg-blue-100">
                 <tr className="text-gray-700 ">
                   <th scope="col" className="px-6 py-4">#</th>
                   <th scope="col" className="px-6 py-4">DNI</th>
@@ -93,7 +93,7 @@ const DuplicatedCode: React.FC<DuplicatedCodesDetectorProps> = ({ studentData, i
               </thead>
               <tbody>
                 {duplicates.map((student, index) => (
-                  <tr key={index} className="text-center text-gray-500 border-b font-semibold hover:bg-gray-100">
+                  <tr key={index} className="text-center text-gray-800 border-b  hover:bg-gray-100">
                     <th scope="row" className="px-6 py-4">
                       <span style={{ whiteSpace: 'nowrap', display: 'block' }}>{duplicates.length - index}</span>
                     </th>
@@ -124,7 +124,7 @@ const DuplicatedCode: React.FC<DuplicatedCodesDetectorProps> = ({ studentData, i
                       <span style={{ whiteSpace: 'nowrap', display: 'block' }}>{student.date}</span>
                     </td>
                     <td className="px-6 py-4">
-                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <a href="#" className="font-medium text-primaryblue dark:text-primaryblue hover:underline">
                         Ver
                         <span style={{ whiteSpace: 'nowrap', display: 'block' }}>{student.certificate}</span>
                       </a>

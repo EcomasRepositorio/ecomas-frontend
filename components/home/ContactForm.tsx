@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <section id='contacto'>
-      <div className="relative z-10 text-gray-600 sm:px-4 md:px-8" style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/contact.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <div className="relative z-10 text-gray-600 sm:px-4 md:px-8" style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/contacto.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="absolute inset-0 bg-black opacity-50">
         </div>
         <div className="relative z-10  text-gray-600 sm:px-4 md:px-8 mt-10" >
@@ -65,7 +65,7 @@ const ContactForm = () => {
                   {...register('nombres', { required: true })}
                   type="text"
                   required
-                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
+                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
                   placeholder="Nombres y apellidos"
                 />
               </div>
@@ -77,7 +77,7 @@ const ContactForm = () => {
                   {...register('correo', { required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ })}
                   type="email"
                   required
-                  className="w-full mb-2 mt-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
+                  className="w-full mb-2 mt-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
                   placeholder="Ej: ejemplo@gmail.com"
                 />
                 {errors.correo && <span className="p-2  rounded-xl bg-white text-sm text-red-500">Por favor, introduce un correo electrónico válido</span>}
@@ -91,7 +91,7 @@ const ContactForm = () => {
                   type="number"
                   placeholder="999 999 999"
                   required
-                  className="w-full my-2 px-3 py-2 text-gray-500 bg-white outline-none border focus:border-white shadow-sm rounded-lg"
+                  className="w-full my-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
                 />
                 {errors.celular && <span className="p-2 mt-2 rounded-xl bg-white text-sm text-red-500">Por favor, introduce un número de teléfono válido (9 cifras)</span>}
               </div>
@@ -99,9 +99,9 @@ const ContactForm = () => {
                 <label className="font-medium text-white dark:text-white">
                   Mensaje (Opcional)
                 </label>
-                <textarea  {...register('mensaje')} placeholder="Escribe tu mensaje aquí..." className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-white outline-none border focus:border-white shadow-sm rounded-lg"></textarea>
+                <textarea  {...register('mensaje')} placeholder="Escribe tu mensaje aquí..." className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"></textarea>
               </div>
-              <Button type='submit' color="primary" className="w-full px-4 py-2 " >
+              <Button type='submit' color="primary" className="w-full px-4 py-2 bg-blue-100 dark:bg-blackblue2 dark:text-white dark:border-blackblue border-blue-200 border text-primaryblue hover:scale-105 hover:bg-blue-200" >
                 {sending ? 'Enviando...' : 'Enviar'}
               </Button>
             </form>

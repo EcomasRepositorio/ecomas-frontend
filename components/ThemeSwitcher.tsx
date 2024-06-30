@@ -14,12 +14,13 @@ const ThemeSwitcher = () => {
     <Switch
       defaultSelected={theme === 'dark'}
       size="lg"
-      color="primary"
+      color="default"
+      className=''
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
-          <MoonIcon className={className} />
+          <MoonIcon className={`text-blue-500 ${className}`} />
         ) : (
-          <SunIcon className={className} />
+          <SunIcon className={`text-yellow-400 ${className}`} />
         )
       }
       onChange={handleThemeChange}

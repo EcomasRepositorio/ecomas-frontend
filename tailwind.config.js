@@ -14,12 +14,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
+        customFont: ["var(--inter)"],
       },
       colors: {
-        'blackblue': '#001d51', // Cambia esto al color rosado que prefieras
-        'primaryblue': '#0060ff',
+        'blackblue': '#1e293b',
+        'blackblue2': '#0f172a',
+        'primaryblue': '#0e7ac2',
         'primaryblack': '#262626'
       },
       textColor: {

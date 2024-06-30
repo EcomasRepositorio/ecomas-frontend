@@ -12,13 +12,13 @@ const ScrollAnimation: React.FC<Props> = ({ children }) => {
 
     const variants = {
         hidden: { opacity: 0, y: 100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+        visible: { opacity: 1, y: 0, transition: { duration: 0.9 } }
     };
 
     const handleScroll = () => {
         if (containerRef.current) {
             const elementPosition = containerRef.current.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
+            const screenPosition = window.innerHeight / 1.1;
     
             if (elementPosition < screenPosition) {
                 setIsVisible(true);
