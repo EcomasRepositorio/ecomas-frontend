@@ -18,7 +18,7 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       fontFamily: {
-        customFont: ["var(--inter)"],
+        'roboto': ['Roboto', 'system-ui'],
       },
       colors: {
         'blackblue': '#1e293b',
