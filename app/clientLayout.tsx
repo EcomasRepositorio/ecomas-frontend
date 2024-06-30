@@ -13,6 +13,8 @@ const inter = Roboto({
   subsets: ['latin'],
   variable: '--inter',
   weight: '400',
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {

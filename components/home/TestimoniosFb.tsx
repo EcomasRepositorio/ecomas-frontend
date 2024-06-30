@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollAnimation from "./scrollAnimation";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
 
 const items = [
   {
@@ -33,30 +34,35 @@ const items = [
 ];
 
 const TestimoniosFb = () => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const handleClick = () => {
-    setIsPaused(!isPaused); // Alternar el estado de pausa
-  };
-
-  const duplicatedItems = [...items, ...items, ...items]; // Duplica los elementos
-
-  // Define la longitud total en píxeles que los elementos ocuparán.
-  const itemWidth = 307; // Ajusta según el ancho real de cada elemento (w-[calc(100vw-5.75rem)])
+  const duplicatedItems = [...items, ...items];
+  const itemWidth = 460;
   const totalWidth = itemWidth * duplicatedItems.length;
 
   const containerVariants = {
     animate: {
-      x: [0, -totalWidth / 2], // Mueve la mitad de la longitud total para un bucle continuo
+      x: [0, -totalWidth / 2],
       transition: {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 16, // Ajusta la duración según la velocidad que desees
+          duration: 12,
           ease: "linear",
         },
       },
     },
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + items.length) % items.length
+    );
   };
 
   return (
@@ -64,7 +70,7 @@ const TestimoniosFb = () => {
       <h2 className="text-primaryblue dark:text-white text-4xl font-extrabold text-center">
         Nuestros Testimonios
       </h2>
-      <div className="flex flex-col md:flex-row md:items-center justify-between items-center pb-6 ">
+      <div className="flex flex-col md:flex-row md:items-center justify-between items-center pb-6">
         <div>
           <p className="text-lg mb-1 md:text-left md:mb-0 md:mr-4">
             Nuestras reseñas en Facebook:
@@ -90,45 +96,126 @@ const TestimoniosFb = () => {
         </div>
 
         <motion.div
-          className="flex"
-          variants={containerVariants}
+          className="flex  justify-center  md:justify-normal"
+          variants={isMobile ? {} : containerVariants}
           animate="animate"
         >
-          {duplicatedItems.map((item, index) => (
-            <div
-              key={index}
-              className="dark:bg-blackblue2 dark:ring-0 mr-3 rounded-2xl relative p-8 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[calc(100vw-5.75rem)] max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
-            >
-              <blockquote>{item.comment}</blockquote>
-              <div className="flex items-center gap-3 mt-10">
-                <a
-                  href={item.link}
-                  target="_blank"
-                  className="text-[#1877F2] dark:text-blue-100"
+          {isMobile
+            ? items.map(
+                (item, index) =>
+                  index === currentIndex && (
+                    <div
+                      key={index}
+                      className="dark:bg-blackblue2 dark:ring-0 md:mr-3 rounded-2xl relative p-8 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[calc(100vw-5.75rem)] max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
+                    >
+                      <blockquote>{item.comment}</blockquote>
+                      <div className="flex items-center gap-3 mt-10">
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          className="text-[#1877F2] dark:text-blue-100"
+                        >
+                          <svg
+                            className="h-8 w-8 hover:scale-110"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 512 512"
+                          >
+                            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"></path>
+                          </svg>
+                        </a>
+                        <div>
+                          <Link href={item.link} passHref legacyBehavior>
+                            <a className="dark:text-white font-medium text-slate-800 hover:text-primaryblue dark:hover:text-blue-100">
+                              {item.name}
+                            </a>
+                          </Link>
+                          <p className="dark:text-white text-sm text-slate-600">
+                            {item.fecha}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+              )
+            : duplicatedItems.map((item, index) => (
+                <div
+                  key={index}
+                  className=" dark:bg-blackblue2 dark:ring-0 mr-3 rounded-2xl relative p-8 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[calc(100vw-5.75rem)] max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
                 >
-                  <svg
-                    className="h-8 w-8 hover:scale-110"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 512 512"
-                  >
-                    <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"></path>
-                  </svg>
-                </a>
-                <div>
-                  <Link href={item.link} passHref legacyBehavior>
-                    <a className="dark:text-white font-medium text-slate-800 hover:text-primaryblue dark:hover:text-blue-100">
-                      {item.name}
+                  <blockquote>{item.comment}</blockquote>
+                  <div className="flex items-center gap-3 mt-10">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      className="text-[#1877F2] dark:text-blue-100"
+                    >
+                      <svg
+                        className="h-8 w-8 hover:scale-110"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 512 512"
+                      >
+                        <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"></path>
+                      </svg>
                     </a>
-                  </Link>
-                  <p className="dark:text-white text-sm text-slate-600">
-                    {item.fecha}
-                  </p>
+                    <div>
+                      <Link href={item.link} passHref legacyBehavior>
+                        <a className="dark:text-white font-medium text-slate-800 hover:text-primaryblue dark:hover:text-blue-100">
+                          {item.name}
+                        </a>
+                      </Link>
+                      <p className="dark:text-white text-sm text-slate-600">
+                        {item.fecha}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))}
         </motion.div>
+
+        {isMobile && (
+          <div className="flex h-full ">
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-24  text-gray-800 dark:text-blue-50 px-4 py-10 rounded-l  "
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-24  text-gray-800 dark:text-blue-50 px-4 py-10  rounded-r "
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </ScrollAnimation>
   );

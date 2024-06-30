@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ScrollAnimation from "./scrollAnimation";
 import { motion } from "framer-motion";
+import { useMediaQuery } from 'react-responsive';
 
 const cursosDestacados = [
-  // Tus datos de cursos destacados
   {
     id: 1,
     imageUrl: "/image/solidos.jpg",
@@ -57,26 +57,35 @@ const cursosDestacados = [
 ];
 
 const SwiperCursosDestacados = () => {
-  // Duplica los cursos para el efecto de carrousel infinito
-  const duplicatedCursos = [...cursosDestacados, ...cursosDestacados];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  // Define la longitud total en píxeles que los elementos ocuparán.
-  const itemWidth = 396; // Ajusta según el ancho real de cada elemento
+  const duplicatedCursos = [...cursosDestacados, ...cursosDestacados];
+  const itemWidth = 396;
   const totalWidth = itemWidth * duplicatedCursos.length;
 
   const containerVariants = {
     animate: {
-      x: [-totalWidth / 2, 0], // Empieza desde la mitad de la longitud total hacia la izquierda hasta el inicio
+      x: [-totalWidth / 2, 0],
       transition: {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 28, // Duración de la animación
-          ease: "linear", // Tipo de easing
+          duration: 28,
+          ease: "linear",
         },
       },
     },
   };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cursosDestacados.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cursosDestacados.length) % cursosDestacados.length);
+  };
+
   return (
     <ScrollAnimation>
       <div className="rounded-lg p-8 md:p-5 flex flex-col items-center">
@@ -86,45 +95,114 @@ const SwiperCursosDestacados = () => {
       </div>
       <div className="relative overflow-hidden py-5">
         <div className="absolute inset-0 z-10 pointer-events-none">
-          <div className="absolute left-0 top-0 w-1/5 h-full bg-gradient-to-r from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent"></div>
-          <div className="absolute right-0 top-0 w-1/5 h-full bg-gradient-to-l from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent"></div>
+          <div className="absolute left-0 top-0 w-1/5 h-full bg-gradient-to-r from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent hidden md:block"></div>
+          <div className="absolute right-0 top-0 w-1/5 h-full bg-gradient-to-l from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent hidden md:block"></div>
         </div>
 
         <motion.div
-          className="flex cursor-grab"
-          drag="x" // Hacer arrastrable en el eje x
-          dragConstraints={{ left: -totalWidth / 2, right: 0 }} // Limitar el arrastre
-          dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }} // Ajustar la transición del arrastre
-          variants={containerVariants}
-          animate="animate"
+          className="flex  justify-center ml-3  md:justify-normal"
+          animate={isMobile ? false : "animate"}
+          variants={isMobile ? {} : containerVariants}
         >
-          {duplicatedCursos.map((curso, index) => (
-            <motion.div
-              key={index}
-              className=" dark:bg-blackblue2 dark:ring-0 py-4 mr-3 rounded-2xl relative p-2 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-96 max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
-            >
-              <div className="object-cover">
-                <div className="p-2 rounded-lg">
-                  <Image
-                    src={curso.imageUrl}
-                    alt="Imagen curso"
-                    width={400}
-                    height={300}
-                    className="object-cover h-48 rounded-lg w-full"
-                  />
-                </div>
-                <div className="px-8 md:px-4 pt-1 mb-4 pb-2">
-                  <a className="text-justify font-semibold text-md text-blackblue dark:text-white">
-                    {curso.title}
-                  </a>
-                  <p className="text-justify font-light text-sm">
-                    {curso.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {isMobile
+            ? cursosDestacados.map((curso, index) => (
+                index === currentIndex && (
+                  <motion.div
+                    key={index}
+                    className="px-10 dark:bg-blackblue2 dark:ring-0 py-4 mr-3 rounded-2xl relative p-2 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-96 max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
+                  >
+                    <div className="object-cover">
+                      <div className="p-2 rounded-lg">
+                        <Image
+                          src={curso.imageUrl}
+                          alt="Imagen curso"
+                          width={400}
+                          height={300}
+                          className="object-cover h-48 rounded-lg w-full"
+                        />
+                      </div>
+                      <div className="px-2 md:px-4 pt-1 mb-4 pb-2">
+                        <a className="text-justify font-semibold text-md text-blackblue dark:text-white">
+                          {curso.title}
+                        </a>
+                        <p className="text-justify font-light text-sm">
+                          {curso.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              ))
+            : duplicatedCursos.map((curso, index) => (
+                <motion.div
+                  key={index}
+                  className="dark:bg-blackblue2 dark:ring-0 py-4 mr-3 rounded-2xl relative p-2 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-96 max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
+                >
+                  <div className="object-cover">
+                    <div className="p-2 rounded-lg">
+                      <Image
+                        src={curso.imageUrl}
+                        alt="Imagen curso"
+                        width={400}
+                        height={300}
+                        className="object-cover h-48 rounded-lg w-full"
+                      />
+                    </div>
+                    <div className="px-8 md:px-4 pt-1 mb-4 pb-2">
+                      <a className="text-justify font-semibold text-md text-blackblue dark:text-white">
+                        {curso.title}
+                      </a>
+                      <p className="text-justify font-light text-sm">
+                        {curso.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
         </motion.div>
+
+        {isMobile && (
+          <div className="flex justify-center">
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-40  text-gray-800 dark:text-blue-50 px-4 py-10  "
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-40  text-gray-800 dark:text-blue-50 px-4 py-10"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </ScrollAnimation>
   );
