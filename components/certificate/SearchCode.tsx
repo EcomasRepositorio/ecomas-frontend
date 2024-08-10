@@ -115,7 +115,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
       {loading && <Spinner />}
       {studentData && (
         <Modal open={open} onClose={() => setOpen(false)}>
-          <div className=" flex justify-center mb-4 gap-1">
+          <div className=" flex justify-center mb-4 gap-2">
             <Image
               src={"/certificate/UNP.png"}
               alt="ecomas"
@@ -127,7 +127,15 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
             <Image
               src={"/certificate/LOGO-VERTICAL-COLOR.png"}
               alt="ecomas"
-              className="md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
+              className="block dark:hidden md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
+              width={200}
+              height={200}
+              priority={true}
+            />
+            <Image
+              src={"/image/EcomasVert_dark.png"}
+              alt="ecomas"
+              className="hidden dark:block md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
               width={200}
               height={200}
               priority={true}
@@ -143,16 +151,24 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
             <Image
               src={"/certificate/CIP.png"}
               alt="ecomas"
-              className="md:w-20  w-16 object-contain mt-2"
+              className="block dark:hidden md:w-20  w-16 object-contain mt-2"
+              width={200}
+              height={200}
+              priority={true}
+            />
+            <Image
+              src={"/image/CIP_dark.png"}
+              alt="ecomas"
+              className="hidden dark:block md:w-20  w-16 object-contain mt-2"
               width={200}
               height={200}
               priority={true}
             />
           </div>
-          <div className=" max-w-md text-center bg-white rounded-md mx-auto">
+          <div className=" max-w-md text-center  rounded-md mx-auto">
             {tableRows.map((row, index) => (
               <div key={index} className="mb-4">
-                <div className="inline-flex items-center text-gray-100 text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
+                <div className="inline-flex items-center text-white text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
                   {row.imgSrc && (
                     <Image
                       src={row.imgSrc}
@@ -165,7 +181,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
                   <div className="flex-1 text-center">{row.label}</div>
                 </div>
 
-                <div className="flex justify-center text-gray-600 mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
+                <div className="flex justify-center  text-gray-600 dark:text-white mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
                   {row.label === "Organizado por:" ? (
                     <span>
                       {row.value && (
@@ -195,11 +211,11 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
         </Modal>
       )}
       <Modal open={modalOpen} onClose={closeErrorModal}>
-        <div className="border-2 p-2 rounded-lg">
-          <h2 className="text-md font-bold text-red-600 mb-4">
+        <div className="p-2 rounded-lg">
+          <h2 className="text-md font-bold text-red-500 mb-4">
             Código incorrecto
           </h2>
-          <h3 className="text-sm font-semibold text-gray-600">
+          <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-100">
             El código que ingresaste no se encuentra en nuestra base de datos.
           </h3>
         </div>

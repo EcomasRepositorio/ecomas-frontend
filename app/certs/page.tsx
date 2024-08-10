@@ -107,6 +107,14 @@ const TestingPage: React.FC<Props> = () => {
                       alt="ecomas"
                       width={150}
                       height={150}
+                      className="block dark:hidden"
+                    />
+                    <Image
+                      src="/image/CIP_dark.png"
+                      alt="ecomas"
+                      width={150}
+                      height={150}
+                      className="hidden dark:block"
                     />
                   </div>
                   <div>
@@ -123,6 +131,14 @@ const TestingPage: React.FC<Props> = () => {
                       alt="ecomas"
                       width={150}
                       height={150}
+                      className="block dark:hidden"
+                    />
+                    <Image
+                      src="/image/EcomasVert_dark.png"
+                      alt="ecomas"
+                      width={150}
+                      height={150}
+                      className="hidden dark:block"
                     />
                   </div>
                 </div>

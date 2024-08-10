@@ -36,18 +36,18 @@ export default function Main() {
                     BENEFICIOS
                   </p>
                   <ul className="mt-4 text-gray-700 dark:text-white">
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Especialización:</span>{" "}
                       Los diplomados brindan conocimientos detallados en un área
                       específica para convertirse en experto en ese campo.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Actualización:</span>{" "}
                       Proporcionan información actualizada sobre las últimas
                       tendencias y tecnologías en un área, manteniéndote
                       relevante en el mercado laboral.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">
                         Crecimiento profesional:
                       </span>{" "}
@@ -55,24 +55,24 @@ export default function Main() {
                       desempeño laboral y acceder a nuevas oportunidades
                       profesionales.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Flexibilidad:</span> Los
                       horarios flexibles de los diplomados te permiten estudiar
                       mientras trabajas u otros compromisos.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Certificación:</span> Al
                       completar un diplomado, recibes un certificado que valida
                       tus habilidades y conocimientos en el área, mejorando tu
                       credibilidad y empleabilidad.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Red de contactos:</span>{" "}
                       Ofrecen la oportunidad de conectar con profesionales en el
                       campo, lo que puede resultar en colaboraciones futuras u
                       oportunidades laborales.
                     </li>
-                    <li className="text-justify">
+                    <li className="">
                       <span className="font-semibold">Valor agregado:</span> Un
                       diplomado enriquece tu currículum vitae al agregar una
                       certificación reconocida y habilidades específicas,

@@ -208,8 +208,8 @@ const SearchName:React.FC<SearchStudentDNIProps> = ({ onSearchDNI }) => {
 )}
   <Modal open={modalOpen} onClose={closeErrorModal}>
       <div className="border-2 p-2 rounded-lg">
-        <h2 className="text-md font-bold text-red-600 mb-4">DNI incorrecto</h2>
-        <h3 className="text-sm font-semibold text-gray-600">El DNI que ingresaste no se encuentra en la base de datos.</h3>
+        <h2 className="text-md font-bold text-red-500 mb-4">DNI incorrecto</h2>
+        <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-100">El DNI que ingresaste no se encuentra en la base de datos.</h3>
       </div>
     </Modal>
 

@@ -51,7 +51,7 @@ const DiploCivil = () => {
       area: "INGENIERÍA CIVIL",
       titulo: "Asistente Técnico en Obras",
       imagen: "/image/tecobras.jpg",
-      fechaInicio: "07/07/2024",
+      fechaInicio: "22/09/2024",
       modalidad: "Virtual",
       duracion: "4 meses",
       horas: "420 horas correspondientes a 26 créditos.",

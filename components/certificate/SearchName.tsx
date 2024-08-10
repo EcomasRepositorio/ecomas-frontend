@@ -154,12 +154,13 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
           open={isNameIncomplete}
           onClose={() => setIsNameIncomplete(false)}
         >
-          <div className="border-2 p-2 rounded-lg">
-            <h2 className="text-md font-bold text-red-600 mb-4">
-              Nombre incompleto
+          <div className=" p-2 rounded-lg">
+            <h2 className="text-md font-bold text-red-500 mb-4">
+              Nombres y apellidos incorrectos.
             </h2>
-            <h3 className="text-sm font-semibold text-gray-600">
-              Por favor, ingrese un nombre completo.
+            <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-100">
+              Los nombres y apellidos que ingresaste no se encuentran en nuestra
+              base de datos.
             </h3>
           </div>
         </Modal>
@@ -231,7 +232,7 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                       open={openModals[index]}
                       onClose={() => closeStudentModal(index)}
                     >
-                      <div className="flex justify-center items-center mb-4 gap-1">
+                      <div className="flex justify-center items-center mb-4 gap-2">
                         <Image
                           src={"/certificate/UNP.png"}
                           alt="ecomas"
@@ -243,7 +244,15 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                         <Image
                           src={"/certificate/LOGO-VERTICAL-COLOR.png"}
                           alt="ecomas"
-                          className="md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
+                          className="block dark:hidden md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
+                          width={200}
+                          height={200}
+                          priority={true}
+                        />
+                        <Image
+                          src={"/image/EcomasVert_dark.png"}
+                          alt="ecomas"
+                          className="hidden dark:block md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
                           width={200}
                           height={200}
                           priority={true}
@@ -259,16 +268,24 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                         <Image
                           src={"/certificate/CIP.png"}
                           alt="ecomas"
-                          className="md:w-20  w-16 object-contain mt-2"
+                          className="block dark:hidden md:w-20  w-16 object-contain mt-2"
+                          width={200}
+                          height={200}
+                          priority={true}
+                        />
+                        <Image
+                          src={"/image/CIP_dark.png"}
+                          alt="ecomas"
+                          className="hidden dark:block md:w-20  w-16 object-contain mt-2"
                           width={200}
                           height={200}
                           priority={true}
                         />
                       </div>
-                      <div className="max-w-md text-center bg-white rounded-md mx-auto">
+                      <div className="max-w-md text-center rounded-md mx-auto">
                         {tableRows.map((row, index) => (
                           <div key={index} className="mb-4">
-                            <div className="inline-flex items-center text-gray-100 text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
+                            <div className="inline-flex items-center text-white text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
                               {row.imgSrc && (
                                 <Image
                                   src={row.imgSrc}
@@ -283,7 +300,7 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                               </div>
                             </div>
 
-                            <div className="flex justify-center text-gray-600 mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
+                            <div className="flex justify-center text-gray-600 dark:text-white mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
                               {row.label === "Organizado por:" ? (
                                 <span>
                                   {row.value && (

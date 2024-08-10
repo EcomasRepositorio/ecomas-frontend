@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -17,11 +18,14 @@ import NavLinks from "./nav-links";
 import Link from "next/link";
 import { UserCircleIcon } from "@heroicons/react/solid";
 const Header = () => {
-  const { theme } = useTheme();
-  const imageSrc =
-    theme === "dark" ? "/image/ECOMAS-HORIZONTAL.png" : "/image/ecomas.png";
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { theme, resolvedTheme } = useTheme();
+  const [imageSrc, setImageSrc] = useState("/image/ecomas.png"); // imagen por defecto
 
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  useEffect(() => {
+    // actualiza la imagen cuando el tema cambia
+    setImageSrc(resolvedTheme === "dark" ? "/image/ECOMAS-HORIZONTAL.png" : "/image/ecomas.png");
+  }, [resolvedTheme]);
   const handleMenuItemClick = () => {
     // Cierra el menú al hacer clic en un elemento
     setIsMenuOpen(false);
@@ -63,6 +67,7 @@ const Header = () => {
             height={150}
             className="hidden md:block "
           />
+
         </Link>
         <NavbarContent justify="center">
           <NavbarItem>

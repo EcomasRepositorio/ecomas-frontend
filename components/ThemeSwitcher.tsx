@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch } from '@nextui-org/react';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { useTheme } from "next-themes"
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleThemeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
+  if (!mounted) return null;
+
   return (
     <Switch
-      defaultSelected={theme === 'dark'}
+      isSelected={theme === 'dark'}
       size="lg"
       color="default"
       className=''
