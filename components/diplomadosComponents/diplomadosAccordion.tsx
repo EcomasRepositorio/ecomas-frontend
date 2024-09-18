@@ -6,8 +6,23 @@ import dynamic from 'next/dynamic';
 
 const DashboardSkeleton = dynamic(() => import('@/components/home/skeletons'));
 
-const Curso = ({ curso }) => {
-  function toRoman(num) {
+interface CursoProps {
+  curso: {
+    id: string;
+    area: string;
+    titulo: string;
+    imagen: string;
+    fechaInicio: string;
+    modalidad: string;
+    duracion: string;
+    horas: string;
+    descripcion: string;
+    modulos: string[];
+  };
+}
+
+const Curso: React.FC<CursoProps> = ({ curso }) => {
+  function toRoman(num : number) {
     const romanNumerals = [
       { value: 10, numeral: 'X' },
       { value: 9, numeral: 'IX' },

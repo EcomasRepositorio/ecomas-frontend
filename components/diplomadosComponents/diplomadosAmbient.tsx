@@ -1,10 +1,29 @@
 "use client";
 import Curso from "./diplomadosAccordion";
-
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useRef } from "react";
+interface CursoData {
+  id: string;
+  area: string;
+  titulo: string;
+  imagen: string;
+  fechaInicio: string;
+  modalidad: string;
+  duracion: string;
+  horas: string;
+  descripcion: string;
+  modulos: string[];
+}
 const DiploAmbient = () => {
+  const searchParams = useSearchParams();
+  const cursoParam = searchParams.get("curso"); // Obtener el valor de 'curso' del URL
+
+  // Crear un ref para cada curso
+  const cursosRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   // Array de objetos que contienen los datos de cada curso
-  const cursosData = [
+  const cursosData: CursoData[] = [
     {
+      id: "ssoma",
       area: "INGENIERÍA AMBIENTAL",
       titulo: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
       imagen: "/image/diplo_ssoma.jpg",
@@ -30,6 +49,7 @@ const DiploAmbient = () => {
       ],
     },
     {
+      id: "gestion-ambiental-municipal",
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Gestión Ambiental Municipal y Regional",
       imagen: "/image/diplo_municipal.jpg",
@@ -54,6 +74,7 @@ const DiploAmbient = () => {
       ],
     },
     {
+      id: "evaluacion-ambiental",
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Monitoreo y Evaluación de la Calidad Ambiental",
       imagen: "/image/evalAmbiental.jpg",
@@ -77,6 +98,7 @@ const DiploAmbient = () => {
       ],
     },
     {
+      id: "gestion-residuos-solidos",
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Gestión y manejo integral de residuos sólidos",
       imagen: "/image/gest-residuos-solidos.jpg",
@@ -106,10 +128,33 @@ const DiploAmbient = () => {
     // Puedes agregar más cursos aquí si es necesario
   ];
 
+  // Hook de efecto para hacer scroll al diplomado basado en el cursoParam
+  useEffect(() => {
+    if (cursoParam && cursosRefs.current[cursoParam]) {
+      const targetElement = cursosRefs.current[cursoParam];
+      if (targetElement) {
+        const yOffset = -206; // Este valor crea el espacio de 96px en la parte superior
+        const y = targetElement.getBoundingClientRect().top + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [cursoParam]);
+
   return (
     <div>
       {cursosData.map((curso, index) => (
-        <Curso key={index} curso={curso} />
+        <div
+          id={curso.id}
+          key={index}
+          ref={(el) => {
+            if (el) {
+              cursosRefs.current[curso.id] = el;
+            }
+          }}
+        >
+          <Curso curso={curso} />
+        </div>
       ))}
     </div>
   );
