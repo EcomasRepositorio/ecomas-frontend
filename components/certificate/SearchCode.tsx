@@ -2,7 +2,7 @@ import React, { useState, FormEvent } from "react";
 import { URL } from "@/components/utils/format/tokenConfig";
 import axios from "axios";
 import { SearchCodeProps, StudentCode } from "../../interface/interface";
-import Modal from "../share/Modal";
+import Modal from "../share/ModalCerti";
 import { Button } from "@nextui-org/react";
 import { Spinner } from "@nextui-org/react";
 import Image from "next/image";
@@ -86,6 +86,74 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
       value: studentData?.date,
     },
   ];
+
+  const splitText = (text: string): string[] => {
+    // Elimina espacios innecesarios
+    const cleanText = text.trim();
+
+    // Identificamos las posiciones de las palabras clave dentro del texto
+    const indexCorporacion = cleanText.indexOf(
+      "ECOMÁS Consultoría y Capacitación"
+    );
+    const indexFundenorp = cleanText.indexOf("FUNDENORP");
+    const indexEscuela = cleanText.indexOf("Escuela de Posgrado");
+    const indexUniversidad = cleanText.indexOf(
+      "Colegio de Ingenieros del Perú - CD Tacna"
+    );
+
+    // Caso especial para "CIMADE Educación Continua" y "Colegio de Ingenieros del Perú - CD Tacna"
+    const indexCIMADE = cleanText.indexOf("ECOMÁS Consultoría y Capacitación");
+    const indexCIPTacna = cleanText.indexOf(
+      "Colegio de Ingenieros del Perú - CD Tacna"
+    );
+
+    if (indexCIMADE !== -1 && indexCIPTacna !== -1) {
+      const cimade = cleanText.substring(indexCIMADE, indexCIPTacna).trim(); // Desde "CIMADE Educación Continua" hasta "Colegio de Ingenieros del Perú - CD Tacna"
+      const cipTacna = cleanText.substring(indexCIPTacna).trim(); // Desde "Colegio de Ingenieros del Perú - CD Tacna" hasta el final
+
+      return [cimade, cipTacna];
+    }
+
+    // Si contiene "Escuela de Posgrado"
+    if (
+      indexCorporacion !== -1 &&
+      indexFundenorp !== -1 &&
+      indexEscuela !== -1
+    ) {
+      const corporacion = cleanText
+        .substring(indexCorporacion, indexEscuela)
+        .trim(); // Desde "CIMADE Educación" hasta "Escuela de Posgrado"
+      const escuela = cleanText.substring(indexEscuela, indexFundenorp).trim(); // Desde "Escuela de Posgrado" hasta "FUNDENORP"
+      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
+
+      return [corporacion, escuela, fundenorp];
+    }
+
+    // Si contiene "Colegio de Ingenieros del Perú - CD Tacna"
+    if (
+      indexCorporacion !== -1 &&
+      indexFundenorp !== -1 &&
+      indexUniversidad !== -1
+    ) {
+      const corporacion = cleanText
+        .substring(indexCorporacion, indexUniversidad)
+        .trim(); // Desde "CIMADE Educación" hasta "Colegio de Ingenieros del Perú - CD Tacna"
+      const universidad = cleanText
+        .substring(indexUniversidad, indexFundenorp)
+        .trim(); // Desde "Colegio de Ingenieros del Perú - CD Tacna" hasta "FUNDENORP"
+      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
+
+      return [corporacion, universidad, fundenorp];
+    }
+
+    // Si no encuentra las palabras clave, devuelve el texto dividido en palabras
+    const words = cleanText.split(" ");
+    const firstLine = words.slice(0, 9).join(" "); // Primeras 9 palabras
+    const secondLine = words.slice(9, 10).join(" "); // Palabra 10
+    const thirdLine = words.slice(10).join(" "); // Resto de las palabras
+    return [firstLine, secondLine, thirdLine].filter((line) => line.length > 0);
+  };
+
   return (
     <div className="">
       <form onSubmit={searchCode} className="w-full ">
@@ -95,7 +163,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
               type="search"
               id="default-search"
               className=" font-normal text-sm text-gray-900 border-1 border-gray-300 rounded-lg bg-white  focus:border-primaryblue  m-0"
-              placeholder={`Buscar por código ${
+              placeholder={`Ingrese su código ${
                 searchType === "code" ? "código" : ""
               }`}
               required
@@ -105,17 +173,21 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
             />
           </div>
           <div className=" ml-2 h-full">
-            <Button color="primary" type="submit" className="bg-primaryblue">
+            <Button
+              color="primary"
+              type="submit"
+              className="bg-primaryblue dark:bg-transparent text-white border border-white/50 rounded-lg"
+            >
               Buscar
             </Button>
           </div>
         </div>
       </form>
 
-      {loading && <Spinner />}
+      {loading && <Spinner color="primary" />}
       {studentData && (
         <Modal open={open} onClose={() => setOpen(false)}>
-          <div className=" flex justify-center mb-4 gap-2">
+          <div className="flex justify-center items-center mb-4 gap-2">
             <Image
               src={"/certificate/UNP.png"}
               alt="ecomas"
@@ -139,7 +211,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
               width={200}
               height={200}
               priority={true}
-            />
+            />{" "}
             <Image
               src={"/certificate/CAL.png"}
               alt="ecomas"
@@ -149,7 +221,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
               priority={true}
             />
             <Image
-              src={"/certificate/CIP.png"}
+              src={"/image/CIP_dark.png"}
               alt="ecomas"
               className="block dark:hidden md:w-20  w-16 object-contain mt-2"
               width={200}
@@ -168,7 +240,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
           <div className=" max-w-md text-center  rounded-md mx-auto">
             {tableRows.map((row, index) => (
               <div key={index} className="mb-4">
-                <div className="inline-flex items-center text-white text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
+                <div className="inline-flex items-center text-white  text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
                   {row.imgSrc && (
                     <Image
                       src={row.imgSrc}
@@ -181,29 +253,15 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
                   <div className="flex-1 text-center">{row.label}</div>
                 </div>
 
-                <div className="flex justify-center  text-gray-600 dark:text-white mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
-                  {row.label === "Organizado por:" ? (
-                    <span>
-                      {row.value && (
-                        <span>
-                          {row.value.split(" ").map((word, i, arr) => (
-                            <React.Fragment key={i}>
-                              {i !== arr.length - 1 ? (
-                                word + " "
-                              ) : (
-                                <>
-                                  <br />
-                                  {word}
-                                </>
-                              )}
-                            </React.Fragment>
-                          ))}
-                        </span>
-                      )}
-                    </span>
-                  ) : (
-                    <span>{row.value}</span>
-                  )}
+                <div className="text-gray-300 mt-3 mb-5 text-sm font-semibold">
+                  {row.value === studentData?.institute &&
+                    row.value &&
+                    splitText(row.value).map((line, index) => (
+                      <p key={index} className="mb-1">
+                        {line}
+                      </p>
+                    ))}
+                  {row.value !== studentData?.institute && row.value}
                 </div>
               </div>
             ))}
