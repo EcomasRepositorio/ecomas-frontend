@@ -110,7 +110,7 @@ const TestingPage: React.FC<Props> = () => {
                       className="block dark:hidden"
                     />
                     <Image
-                      src="/image/CIP_dark.png"
+                      src="/image/colegio_dark.png"
                       alt="ecomas"
                       width={150}
                       height={150}

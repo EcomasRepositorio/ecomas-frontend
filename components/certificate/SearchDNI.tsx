@@ -72,71 +72,70 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
   };
 
   // Función para dividir el texto según palabras clave o cantidad de palabras
-  // Función para dividir el texto según palabras clave o cantidad de palabras
   const splitText = (text: string): string[] => {
-    // Elimina espacios innecesarios
     const cleanText = text.trim();
 
-    // Identificamos las posiciones de las palabras clave dentro del texto
+    // Identificar posiciones clave en el texto
     const indexCorporacion = cleanText.indexOf(
       "ECOMÁS Consultoría y Capacitación"
     );
     const indexFundenorp = cleanText.indexOf("FUNDENORP");
-    const indexEscuela = cleanText.indexOf("Escuela de Posgrado");
-    const indexUniversidad = cleanText.indexOf(
-      "Colegio de Ingenieros del Perú - CD Tacna"
+    const indexEscuela = cleanText.indexOf(
+      "Escuela de Posgrado - Universidad Nacional de Piura"
+    );
+    const indexUniversidadPiura = cleanText.indexOf(
+      "Universidad Nacional de Piura"
+    );
+    const indexColegioIngenieros = cleanText.indexOf(
+      "Colegio de ingenieros del Perú CD-Huancavelica"
     );
 
-    // Caso especial para "CIMADE Educación Continua" y "Colegio de Ingenieros del Perú - CD Tacna"
-    const indexCIMADE = cleanText.indexOf("ECOMÁS Consultoría y Capacitación");
-    const indexCIPTacna = cleanText.indexOf(
-      "Colegio de Ingenieros del Perú - CD Tacna"
-    );
-
-    if (indexCIMADE !== -1 && indexCIPTacna !== -1) {
-      const cimade = cleanText.substring(indexCIMADE, indexCIPTacna).trim(); // Desde "CIMADE Educación Continua" hasta "Colegio de Ingenieros del Perú - CD Tacna"
-      const cipTacna = cleanText.substring(indexCIPTacna).trim(); // Desde "Colegio de Ingenieros del Perú - CD Tacna" hasta el final
-
-      return [cimade, cipTacna];
-    }
-
-    // Si contiene "Escuela de Posgrado"
+    // Caso 1: 3 líneas - "ECOMÁS Consultoría y Capacitación Escuela de Posgrado - Universidad Nacional de Piura FUNDENORP"
     if (
       indexCorporacion !== -1 &&
-      indexFundenorp !== -1 &&
-      indexEscuela !== -1
+      indexEscuela !== -1 &&
+      indexFundenorp !== -1
     ) {
       const corporacion = cleanText
         .substring(indexCorporacion, indexEscuela)
-        .trim(); // Desde "CIMADE Educación" hasta "Escuela de Posgrado"
-      const escuela = cleanText.substring(indexEscuela, indexFundenorp).trim(); // Desde "Escuela de Posgrado" hasta "FUNDENORP"
-      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
-
+        .trim();
+      const escuela = cleanText.substring(indexEscuela, indexFundenorp).trim();
+      const fundenorp = cleanText.substring(indexFundenorp).trim();
       return [corporacion, escuela, fundenorp];
     }
 
-    // Si contiene "Colegio de Ingenieros del Perú - CD Tacna"
+    // Caso 2: 3 líneas - "ECOMÁS Consultoría y Capacitación Universidad Nacional de Piura FUNDENORP"
     if (
       indexCorporacion !== -1 &&
-      indexFundenorp !== -1 &&
-      indexUniversidad !== -1
+      indexUniversidadPiura !== -1 &&
+      indexFundenorp !== -1
     ) {
       const corporacion = cleanText
-        .substring(indexCorporacion, indexUniversidad)
-        .trim(); // Desde "CIMADE Educación" hasta "Colegio de Ingenieros del Perú - CD Tacna"
+        .substring(indexCorporacion, indexUniversidadPiura)
+        .trim();
       const universidad = cleanText
-        .substring(indexUniversidad, indexFundenorp)
-        .trim(); // Desde "Colegio de Ingenieros del Perú - CD Tacna" hasta "FUNDENORP"
-      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
-
+        .substring(indexUniversidadPiura, indexFundenorp)
+        .trim();
+      const fundenorp = cleanText.substring(indexFundenorp).trim();
       return [corporacion, universidad, fundenorp];
     }
 
-    // Si no encuentra las palabras clave, devuelve el texto dividido en palabras
+    // Caso 3: 2 líneas - "ECOMÁS Consultoría y Capacitación Colegio de ingenieros del Perú CD-Huancavelica"
+    if (indexCorporacion !== -1 && indexColegioIngenieros !== -1) {
+      const corporacion = cleanText
+        .substring(indexCorporacion, indexColegioIngenieros)
+        .trim();
+      const colegioIngenieros = cleanText
+        .substring(indexColegioIngenieros)
+        .trim();
+      return [corporacion, colegioIngenieros];
+    }
+
+    // Caso general: Divide el texto en líneas basadas en cantidad de palabras, máximo 3 líneas
     const words = cleanText.split(" ");
-    const firstLine = words.slice(0, 9).join(" "); // Primeras 9 palabras
-    const secondLine = words.slice(9, 10).join(" "); // Palabra 10
-    const thirdLine = words.slice(10).join(" "); // Resto de las palabras
+    const firstLine = words.slice(0, 9).join(" ");
+    const secondLine = words.slice(9, 15).join(" ");
+    const thirdLine = words.slice(15).join(" ");
     return [firstLine, secondLine, thirdLine].filter((line) => line.length > 0);
   };
 
@@ -308,7 +307,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
               priority={true}
             />
             <Image
-              src={"/image/CIP_dark.png"}
+              src={"/image/colegio_dark.png"}
               alt="ecomas"
               className="block dark:hidden md:w-20  w-16 object-contain mt-2"
               width={200}
@@ -316,7 +315,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
               priority={true}
             />
             <Image
-              src={"/image/CIP_dark.png"}
+              src={"/image/colegio_dark.png"}
               alt="ecomas"
               className="hidden dark:block md:w-20  w-16 object-contain mt-2"
               width={200}
