@@ -74,63 +74,61 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
   // Función para dividir el texto según palabras clave o cantidad de palabras
   const splitText = (text: string): string[] => {
     const cleanText = text.trim();
-
+  
     // Identificar posiciones clave en el texto
-    const indexCorporacion = cleanText.indexOf(
-      "ECOMÁS Consultoría y Capacitación"
-    );
+    const indexCorporacion = cleanText.indexOf("ECOMÁS Consultoría y Capacitación");
     const indexFundenorp = cleanText.indexOf("FUNDENORP");
-    const indexEscuela = cleanText.indexOf(
-      "Escuela de Posgrado - Universidad Nacional de Piura"
-    );
-    const indexUniversidadPiura = cleanText.indexOf(
-      "Universidad Nacional de Piura"
-    );
-    const indexColegioIngenieros = cleanText.indexOf(
-      "Colegio de ingenieros del Perú CD-Huancavelica"
-    );
-
+    const indexEscuela = cleanText.indexOf("Escuela de Posgrado - Universidad Nacional de Piura");
+    const indexUniversidadPiura = cleanText.indexOf("Universidad Nacional de Piura");
+    const indexColegioIngenierosHuancavelica = cleanText.indexOf("Colegio de ingenieros del Perú CD-Huancavelica");
+    const indexColegioIngenierosCallao = cleanText.indexOf("Colegio de ingenieros del Perú CD-Callao");
+    const indexColegioIngenierosPuno = cleanText.indexOf("Colegio de ingenieros del Perú CD-Puno");
+    const indexColegioIngenierosIca = cleanText.indexOf("Colegio de ingenieros del Perú CD-Ica");
+  
     // Caso 1: 3 líneas - "ECOMÁS Consultoría y Capacitación Escuela de Posgrado - Universidad Nacional de Piura FUNDENORP"
-    if (
-      indexCorporacion !== -1 &&
-      indexEscuela !== -1 &&
-      indexFundenorp !== -1
-    ) {
-      const corporacion = cleanText
-        .substring(indexCorporacion, indexEscuela)
-        .trim();
+    if (indexCorporacion !== -1 && indexEscuela !== -1 && indexFundenorp !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexEscuela).trim();
       const escuela = cleanText.substring(indexEscuela, indexFundenorp).trim();
       const fundenorp = cleanText.substring(indexFundenorp).trim();
       return [corporacion, escuela, fundenorp];
     }
-
+  
     // Caso 2: 3 líneas - "ECOMÁS Consultoría y Capacitación Universidad Nacional de Piura FUNDENORP"
-    if (
-      indexCorporacion !== -1 &&
-      indexUniversidadPiura !== -1 &&
-      indexFundenorp !== -1
-    ) {
-      const corporacion = cleanText
-        .substring(indexCorporacion, indexUniversidadPiura)
-        .trim();
-      const universidad = cleanText
-        .substring(indexUniversidadPiura, indexFundenorp)
-        .trim();
+    if (indexCorporacion !== -1 && indexUniversidadPiura !== -1 && indexFundenorp !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexUniversidadPiura).trim();
+      const universidad = cleanText.substring(indexUniversidadPiura, indexFundenorp).trim();
       const fundenorp = cleanText.substring(indexFundenorp).trim();
       return [corporacion, universidad, fundenorp];
     }
-
+  
     // Caso 3: 2 líneas - "ECOMÁS Consultoría y Capacitación Colegio de ingenieros del Perú CD-Huancavelica"
-    if (indexCorporacion !== -1 && indexColegioIngenieros !== -1) {
-      const corporacion = cleanText
-        .substring(indexCorporacion, indexColegioIngenieros)
-        .trim();
-      const colegioIngenieros = cleanText
-        .substring(indexColegioIngenieros)
-        .trim();
-      return [corporacion, colegioIngenieros];
+    if (indexCorporacion !== -1 && indexColegioIngenierosHuancavelica !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexColegioIngenierosHuancavelica).trim();
+      const colegioIngenierosHuancavelica = cleanText.substring(indexColegioIngenierosHuancavelica).trim();
+      return [corporacion, colegioIngenierosHuancavelica];
     }
-
+  
+    // Caso 4: 2 líneas - "ECOMÁS Consultoría y Capacitación Colegio de ingenieros del Perú CD-Callao"
+    if (indexCorporacion !== -1 && indexColegioIngenierosCallao !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexColegioIngenierosCallao).trim();
+      const colegioIngenierosCallao = cleanText.substring(indexColegioIngenierosCallao).trim();
+      return [corporacion, colegioIngenierosCallao];
+    }
+  
+    // Caso 5: 2 líneas - "ECOMÁS Consultoría y Capacitación Colegio de ingenieros del Perú CD-Puno"
+    if (indexCorporacion !== -1 && indexColegioIngenierosPuno !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexColegioIngenierosPuno).trim();
+      const colegioIngenierosPuno = cleanText.substring(indexColegioIngenierosPuno).trim();
+      return [corporacion, colegioIngenierosPuno];
+    }
+  
+    // Caso 6: 2 líneas - "ECOMÁS Consultoría y Capacitación Colegio de ingenieros del Perú CD-Ica"
+    if (indexCorporacion !== -1 && indexColegioIngenierosIca !== -1) {
+      const corporacion = cleanText.substring(indexCorporacion, indexColegioIngenierosIca).trim();
+      const colegioIngenierosIca = cleanText.substring(indexColegioIngenierosIca).trim();
+      return [corporacion, colegioIngenierosIca];
+    }
+  
     // Caso general: Divide el texto en líneas basadas en cantidad de palabras, máximo 3 líneas
     const words = cleanText.split(" ");
     const firstLine = words.slice(0, 9).join(" ");
@@ -138,6 +136,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
     const thirdLine = words.slice(15).join(" ");
     return [firstLine, secondLine, thirdLine].filter((line) => line.length > 0);
   };
+  
 
   const tableRows = [
     {
