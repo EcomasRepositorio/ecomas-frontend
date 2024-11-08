@@ -25,7 +25,7 @@ const DiploAlimentarias = () => {
   const cursosData: CursoData[] = [
     {
       id: "gestion-calidad-alimentos",
-      area: "INGENIERÍA EN ALIMENTOS",
+      area: "",
       titulo: "Gestión de la calidad e inocuidad alimentaria",
       imagen: "/diplo/11.webp",
       fechaInicio: "22/09/2024",

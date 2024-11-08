@@ -24,7 +24,7 @@ const DiploAmbient = () => {
   const cursosData: CursoData[] = [
     {
       id: "ssoma",
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
       imagen: "/diplo/5.webp",
       fechaInicio: "12/10/2024",
@@ -50,7 +50,7 @@ const DiploAmbient = () => {
     },
     {
       id: "gestion-ambiental-municipal",
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "Gestión Ambiental Municipal y Regional",
       imagen: "/diplo/6.webp",
       fechaInicio: "10/08/2024",
@@ -75,7 +75,7 @@ const DiploAmbient = () => {
     },
     {
       id: "evaluacion-ambiental",
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "Monitoreo y Evaluación de la Calidad Ambiental",
       imagen: "/diplo/7.webp",
       fechaInicio: "31/08/2024",
@@ -99,7 +99,7 @@ const DiploAmbient = () => {
     },
     {
       id: "gestion-residuos-solidos",
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "Gestión y manejo integral de residuos sólidos",
       imagen: "/diplo/8.webp",
       fechaInicio: "05/10/2024",

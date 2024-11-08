@@ -53,9 +53,9 @@ const Curso: React.FC<CursoProps> = ({ curso }) => {
             <Image
               src={curso.imagen}
               alt="ecommerce"
-              width={800}
-              height={800}
-              className="lg:w-1/2 lg:h-auto object-cover object-center rounded-lg"
+              width={600}
+              height={600}
+              className="lg:w-[550px] ml-0 lg:ml-40 lg:h-auto object-cover object-center rounded-lg"
             />
           </Suspense>
           <div className="lg:w-1/2 lg:pl-10 lg:py-6 mb-6 lg:mb-0">

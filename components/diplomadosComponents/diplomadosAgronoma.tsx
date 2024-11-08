@@ -24,7 +24,7 @@ const DiploAgronoma = () => {
   const cursosData: CursoData[] = [
     {
       id: "riego-tecnificado",
-      area: "INGENIERÍA AGRÓNOMA",
+      area: "",
       titulo: "Sistemas de Riego Tecnificado",
       imagen: "/diplo/9.webp",
       fechaInicio: "18/08/2024",
@@ -47,7 +47,7 @@ const DiploAgronoma = () => {
     },
     {
       id: "fertirriego",
-      area: "INGENIERÍA AGRÓNOMA",
+      area: "",
       titulo: "Riego y Fertirriego",
       imagen: "/diplo/10.webp",
       fechaInicio: "31/08/2024",

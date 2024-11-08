@@ -25,8 +25,8 @@ const DiploDerecho = () => {
   const cursosData: CursoData[] = [
     {
       id: "perito-forense",
-      area: "DERECHO",
-      titulo: "PERITO FORENSE Y CRIMINALÍSTICO",
+      area: "",
+      titulo: "Perito Forense y Criminalistico",
       imagen: "/diplo/12.webp",
       fechaInicio: "01/09/2024",
       modalidad: "Virtual",

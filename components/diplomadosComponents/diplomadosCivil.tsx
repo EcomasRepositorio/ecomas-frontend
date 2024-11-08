@@ -24,7 +24,7 @@ const DiploCivil = () => {
   const cursosData: CursoData[] = [
     {
       id: "ingenieria-puentes",
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "Ingeniería de Puentes",
       imagen: "/diplo/1.webp",
       fechaInicio: "11/08/2024",
@@ -68,7 +68,7 @@ const DiploCivil = () => {
     },*/
     {
       id: "asistente-tecnico-obras",
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "Asistente Técnico en Obras",
       imagen: "/diplo/2.webp",
       fechaInicio: "22/09/2024",
@@ -94,7 +94,7 @@ const DiploCivil = () => {
     },
     {
       id: "ingenieria-vial",
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "Ingeniería Vial",
       imagen: "/diplo/3.webp",
       fechaInicio: "18/08/2024",
@@ -120,7 +120,7 @@ const DiploCivil = () => {
     },
     {
       id: "residencia-supervision",
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "Residencia y supervisón de obras",
       imagen: "/diplo/4.webp",
       fechaInicio: "18/08/2024",
