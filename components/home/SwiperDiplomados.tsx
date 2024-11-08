@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import { GrFormNextLink } from "react-icons/gr";
-import { useRouter } from "next/navigation";
 
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
+// import required modules
 import {
   Keyboard,
   Scrollbar,
@@ -19,65 +19,60 @@ import {
   Pagination,
   Autoplay,
 } from "swiper/modules";
+import { title } from "process";
 
-interface CursoDestacado {
-  id: string;
-  imageUrl: string;
-  title: string;
-  area: string;
-}
-
-const SwiperCarrousel: React.FC = () => {
-  const router = useRouter(); // Usamos el hook de Next.js para la navegación
-
-  const cursosDestacados: CursoDestacado[] = [
+const SwiperCarrousel = () => {
+  const cursosDestacados = [
+    // Tus datos de cursos destacados
     {
-      id: "riego-tecnificado",
-      imageUrl: "/image/diplo_tecnifi.jpg",
-      title: "Sistemas de Riego Tecnificado",
-      area: "INGENIERÍA AGRÓNOMA",
+      title: "Ingeniería de Puentes",
+      imageUrl: "/dip2/1.webp",
     },
     {
-      id: "gestion-ambiental-municipal",
-      imageUrl: "/image/diplo_municipal.jpg",
-      title: "Gestión Ambiental Municipal y Regional",
-      area: "INGENIERÍA AMBIENTAL",
-    },
-    {
-      id: "ssoma",
-      imageUrl: "/image/diplo_ssoma.jpg",
-      title: "SSOMA",
-      area: "INGENIERÍA AMBIENTAL",
-    },
-    {
-      id: "gestion-calidad-alimentos",
-      imageUrl: "/image/diplo_alim.jpg",
-      title: "Gestión de la calidad e inocuidad alimentaria",
-      area: "INGENIERÍA EN ALIMENTOS",
-    },
-    {
-      id: "modelamiento-bim",
-      imageUrl: "/image/bim_model.jpg",
-      title: "Modelamiento BIM",
-      area: "INGENIERÍA CIVIL",
-    },
-    {
-      id: "ingenieria-vial",
-      imageUrl: "/image/vialdiplo.jpg",
-      title: "Ingeniería Vial",
-      area: "INGENIERÍA CIVIL",
-    },
-    {
-      id: "asistente-tecnico-obras",
-      imageUrl: "/image/tecobras.jpg",
       title: "Asistente Técnico en Obras",
-      area: "INGENIERÍA CIVIL",
+      imageUrl: "/dip2/2.webp",
+    },
+    {
+      title: "Ingeniería Vial",
+      imageUrl: "/dip2/3.webp",
+    },
+    {
+      title: "Residencia y supervisón de obras",
+      imageUrl: "/dip2/4.webp",
+    },
+    {
+      title: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
+      imageUrl: "/dip2/5.webp",
+    },
+    {
+      title: "Gestión Ambiental Municipal y Regional",
+      imageUrl: "/dip2/6.webp",
+    },
+    {
+      title: "Monitoreo y Evaluación de la Calidad Ambiental",
+      imageUrl: "/dip2/7.webp",
+    },
+    {
+      title: "Gestión y manejo integral de residuos sólidos",
+      imageUrl: "/dip2/8.webp",
+    },
+    {
+      title: "Sistemas de Riego Tecnificado",
+      imageUrl: "/dip2/9.webp",
+    },
+    {
+      title: "Riego y Fertirriego",
+      imageUrl: "/dip2/10.webp",
+    },
+    {
+      title: "Gestión de la calidad e inocuidad alimentaria",
+      imageUrl: "/dip2/11.webp",
+    },
+    {
+      title: "PERITO FORENSE Y CRIMINALÍSTICO",
+      imageUrl: "/dip2/12.webp",
     },
   ];
-
-  const handleCursoClick = (cursoId: string, cursoArea: string) => {
-    router.push(`/diplomados?curso=${cursoId}&area=${cursoArea}`);
-  };
 
   return (
     <ScrollAnimation>
@@ -106,8 +101,8 @@ const SwiperCarrousel: React.FC = () => {
           clickable: true,
         }}
         autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
+          delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
+          disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
         }}
         loop={true}
         modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
@@ -120,28 +115,24 @@ const SwiperCarrousel: React.FC = () => {
                 <Image
                   src={curso.imageUrl}
                   alt="Imagen banner"
-                  width={450}
+                  width={550}
                   height={300}
-                  className="object-cover h-96 rounded-lg w-full"
+                  className="object-cover max-h-90 max-w-94 rounded-lg "
                 />
               </div>
-              <div
-                onClick={() => handleCursoClick(curso.id, curso.area)}
-                className="mx-2 flex items-center justify-between cursor-pointer dark:bg-blackblue dark:text-white dark:border-0 bg-blue-100 border-blue-200 border text-primaryblue rounded-md text-xs font-medium px-4 py-1"
+              <a
+                href={`https://api.whatsapp.com/send?phone=51921818181&text=Hola, podría darme información sobre el curso de ${encodeURIComponent(
+                  curso.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-2 flex items-center justify-between dark:bg-blackblue dark:text-white dark:border-0 bg-blue-100 border-blue-200 border text-primaryblue rounded-md text-xs font-medium px-4 py-1"
               >
                 <span>Más información</span>
                 <span>
                   <GrFormNextLink className="w-6 h-6" />
                 </span>
-              </div>
-              <div className="flex items-center justify-center px-4 pt-1 mb-12 pb-2 min-h-[4rem]">
-                <a
-                  href={`/diplomados?curso=${curso.id}&area=${curso.area}`}
-                  className="font-normal text-center inline-block hover:text-primaryblue transition duration-500 ease-in-out"
-                >
-                  {curso.title}
-                </a>
-              </div>
+              </a>
             </div>
           </SwiperSlide>
         ))}
@@ -149,5 +140,4 @@ const SwiperCarrousel: React.FC = () => {
     </ScrollAnimation>
   );
 };
-
 export default SwiperCarrousel;

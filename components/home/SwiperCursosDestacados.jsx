@@ -209,3 +209,208 @@ const SwiperCursosDestacados = () => {
 };
 
 export default SwiperCursosDestacados;
+ 
+
+/* 
+import React, { useState } from "react";
+import Image from "next/image";
+import ScrollAnimation from "./scrollAnimation";
+import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
+
+// Aquí deberías colocar las imágenes nuevas subidas
+const cursosDestacados = [
+  {
+    id: 1,
+    title: "Arqueología en proyectos viales",
+    imageUrl: "/diplo/1.webp", 
+    
+  },
+  {
+    id: 2, 
+    title: "Higiene, Saneamiento y control de plagas en la industria alimentaria,",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 4,
+    title: "Calibración de equipos de monitoreo ambiental ",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 5,
+    title: "Diseño de plantas potabilizadoras",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 6,
+    title: "Herramientas de sistemas de información geográfica en el Estudio de Impacto Ambiental",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 7,
+    title: "Oferta y demanda hídrica en cultivos",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 8,
+    title: "Tráfico y carga en proyectos viales",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 9,
+    title: "Auditor Interno SSOMA",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 10,
+    title: "Monitoreo biológico",
+    imageUrl: "/diplo/1.webp", 
+  },
+  {
+    id: 11,
+    title: "Trazabilidad y etiquetado de alimentos",
+    imageUrl: "/diplo/1.webp", 
+  },
+];
+
+const SwiperCursosDestacados = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: 667 });
+
+  const duplicatedCursos = [...cursosDestacados, ...cursosDestacados];
+  const itemWidth = 450;
+  const totalWidth = itemWidth * duplicatedCursos.length;
+
+  const containerVariants = {
+    animate: {
+      x: [-totalWidth / 2, 0],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 28,
+          ease: "linear",
+        },
+      },
+    },
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cursosDestacados.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cursosDestacados.length) % cursosDestacados.length);
+  };
+
+  return (
+    <ScrollAnimation>
+      <div className="rounded-lg p-8 md:p-5 flex flex-col items-center">
+        <h2 className="text-primaryblue dark:text-white text-4xl font-extrabold mb-1">
+          Nuestros Cursos Destacados
+        </h2>
+      </div>
+      <div className="relative overflow-hidden py-5">
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="absolute left-0 top-0 w-1/5 h-full bg-gradient-to-r from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent hidden md:block"></div>
+          <div className="absolute right-0 top-0 w-1/5 h-full bg-gradient-to-l from-white to-transparent via-transparent dark:from-blackblue dark:to-transparent dark:via-transparent hidden md:block"></div>
+        </div>
+
+        <motion.div
+          className="flex justify-center ml-3 md:justify-normal"
+          animate={isMobile ? false : "animate"}
+          variants={isMobile ? {} : containerVariants}
+        >
+          {isMobile
+            ? cursosDestacados.map((curso, index) => (
+                index === currentIndex && (
+                  <motion.div
+                    key={index}
+                    className="px-10 dark:bg-blackblue2 dark:ring-0 py-4 mr-3 rounded-2xl relative p-2 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[450px] max-w-lg flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
+                  >
+                    <div className="object-cover">
+                      <div className="p-2 rounded-lg">
+                        <Image
+                          src={curso.imageUrl}
+                          alt="Imagen curso"
+                          width={600} 
+                          height={700} 
+                          className="object-cover rounded-lg w-full"
+                        />
+                      </div>
+                     
+                    </div>
+                  </motion.div>
+                )
+              ))
+            : duplicatedCursos.map((curso, index) => (
+                <motion.div
+                  key={index}
+                  className="dark:bg-blackblue2 dark:ring-0  mr-4 rounded-2xl relative bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[350px] max-w-lg flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5"
+                >
+                  <div className="object-cover">
+                    <div className=" rounded-lg">
+                      <Image
+                        src={curso.imageUrl}
+                        alt="Imagen curso"
+                        width={600} 
+                        height={700} 
+                        className="object-cover rounded-lg w-full"
+                      />
+                    </div>
+                    
+                  </div>
+                </motion.div>
+              ))}
+        </motion.div>
+
+        {isMobile && (
+          <div className="flex justify-center">
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-40 text-gray-800 dark:text-blue-50 px-4 py-10"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-40 text-gray-800 dark:text-blue-50 px-4 py-10"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+    </ScrollAnimation>
+  );
+};
+
+export default SwiperCursosDestacados;
+
+ */
