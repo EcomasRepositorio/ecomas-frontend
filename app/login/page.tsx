@@ -66,10 +66,7 @@ const Login: React.FC = () => {
 
   const onSubmit = async () => {
     try {
-      const response = await axios.post(
-        "https://backend.ecomas.pe/api/v1/user/login",
-        form
-      );
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/user/login`, form);
       if (response.data.token) {
         const token = response.data.token;
         saveToken(token);
